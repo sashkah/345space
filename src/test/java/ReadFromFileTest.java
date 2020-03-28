@@ -3,21 +3,27 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class ReadFromFileTest {
 
     @Test
-    void readFromFileTest() {
+    void getContentsTest() throws FileNotFoundException {
 
-        try {
-            File fileIn = new File("src/main/resources/test.txt");
-            String fileString = ReadFromFile.getContents(fileIn);
-            String expectedString = "oxygen100water100food100astronaut1astronaut2astronaut3";
-            assertEquals(expectedString, fileString);
-        } catch(FileNotFoundException e) {
-            System.out.println("Error: file not found");
-        }
+        File fileIn = new File("src/main/resources/test.txt");
+        String fileString = ReadFromFile.getContents(fileIn);
+        System.out.println(fileString);
+        String expectedString = "{\"users\": [\"damion\", \"aidan\", \"jolie\"], \"resources\" : {\"oxygen\": 100, \"water\": 100, \"food\": 100}}";
+        assertEquals(expectedString, fileString);
+    }
 
+    @Test
+    void createSpaceStationTest() throws IOException {
+        File fileIn = new File("src/main/resources/test.txt");
+        SpaceStation spaceStation;
+        spaceStation = ReadFromFile.createSpaceStation(fileIn);
+        System.out.println(spaceStation.getUsers());
+        System.out.println(spaceStation.getResources());
     }
 
 }

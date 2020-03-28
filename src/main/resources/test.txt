@@ -1,10 +1,1 @@
-oxygen
-100
-water
-100
-food
-100
-
-astronaut1
-astronaut2
-astronaut3
+{"users": ["damion", "aidan", "jolie"], "resources" : {"oxygen": 100, "water": 100, "food": 100}}

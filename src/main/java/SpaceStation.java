@@ -5,10 +5,14 @@ public class SpaceStation {
     ArrayList<User> users;
     ArrayList<Resource> resources;
 
-    public SpaceStation(){
-        users = new ArrayList<User>();
-        resources = new ArrayList<Resource>();
+    public SpaceStation() {
+        users = new ArrayList<>();
+        resources = new ArrayList<>();
+    }
 
+    public SpaceStation(ArrayList<User> usersIn, ArrayList<Resource> resourcesIn){
+        users = usersIn;
+        resources = resourcesIn;
     }
 
     public ArrayList<User> getUsers(){
