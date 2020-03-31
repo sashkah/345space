@@ -1,4 +1,5 @@
 import com.fasterxml.jackson.databind.ObjectMapper;
+import edu.ithaca.dragon.util.JsonUtil;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -21,10 +22,8 @@ public class ReadFromFile {
         return s;
     }
 
-    public static SpaceStation createSpaceStation(File fileIn) throws IOException {
-        ObjectMapper objectMapper = new ObjectMapper();
-        String spaceStationJson = getContents(fileIn);
-        SpaceStation spaceStation = objectMapper.readValue(spaceStationJson, SpaceStation.class);
+    public static SpaceStation createSpaceStation(String filePath) throws IOException {
+        SpaceStation spaceStation = JsonUtil.fromJsonFile(filePath, SpaceStation.class);
         return spaceStation;
     }
 
