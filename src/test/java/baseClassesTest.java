@@ -6,7 +6,7 @@ public class baseClassesTest {
     @Test
     void SpaceStationTest(){
         SpaceStation myStation = new SpaceStation();
-        User myUser = new User("123");
+        User myUser = new User("123", null);
         Resource cashMoney = new Resource("Cash Money", 100.15);
 
         myStation.addUser(myUser);
