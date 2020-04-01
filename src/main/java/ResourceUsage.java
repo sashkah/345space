@@ -20,4 +20,16 @@ public class ResourceUsage {
     public int getTimeframe() {
         return timeframe;
     }
+
+    public void setResourceName(String resourceName) {
+        this.resourceName = resourceName;
+    }
+
+    public void setUsagePerTimeframe(double usagePerTimeframe) {
+        this.usagePerTimeframe = usagePerTimeframe;
+    }
+
+    public void setTimeframe(int timeframe) {
+        this.timeframe = timeframe;
+    }
 }

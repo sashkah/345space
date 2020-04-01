@@ -1,5 +1,3 @@
-import java.io.IOException;
-
 public class Environment {
     SpaceStation localStation;
     int timeCounter;
@@ -11,20 +9,21 @@ public class Environment {
         isRunning = true;
     }
 
-    public void runLoop(int numHours) throws InterruptedException{
+    public void runLoop(int numHours, int sleepTime, boolean print) throws InterruptedException{
         while(isRunning){
-            System.out.println("\n");
-            System.out.println("Time: " + timeCounter);
-            for(int i = 0; i < localStation.resources.size(); i++){
-                System.out.println(localStation.resources.get(i).name + ": " +  localStation.resources.get(i).amount);
+            if(print) {
+                System.out.println("\n");
+                System.out.println("Time: " + timeCounter);
+                for (int i = 0; i < localStation.resources.size(); i++) {
+                    System.out.println(localStation.resources.get(i).name + ": " + localStation.resources.get(i).amount);
+                }
+                System.out.println("\n");
             }
-            System.out.println("\n");
-
             if(timeCounter % numHours == 0){
                 isRunning = false;
             }
             nextStep();
-            Thread.sleep(200);
+            Thread.sleep(sleepTime);
         }
     }
 
