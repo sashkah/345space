@@ -1,29 +1,29 @@
-import java.util.Hashtable;
+import java.util.ArrayList;
 
 public class User {
     String id;
-    //unique numerical ids for hashtable purposes - eg. duplicate names
-    Hashtable resourceUsage; //For now this will be formatted like so (nested hashtables): <resourceName, <amount used, how often>>
+    ArrayList<ResourceUsage> resourceUsage;
 
     public User() {
     }
 
-    public User(String id){
+    
+public User(String id, ArrayList<ResourceUsage> resourceUsage){
         this.id = id;
-    }
+        this.resourceUsage = resourceUsage;
+        }
 
-    public String getId(){
+public String getId(){
         return id;
-    }
-
-    public void setId(String id) {this.id = id; }
+        }
+  
+public void setId(String id) {this.id = id; }
 
     public String toString() {
         return id;
     }
 
-    public Hashtable getResourceUsage() {
-        //I think dealing with resource usage is either another card or not in our scope yet... but can be fixed if not true
+public ArrayList getResourceUsage() {
         return resourceUsage;
-    }
+        }
 }

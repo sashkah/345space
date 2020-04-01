@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Hashtable;
 
 public class SpaceStation {
     ArrayList<User> users;
