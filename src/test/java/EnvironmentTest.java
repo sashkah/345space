@@ -1,11 +1,14 @@
+import com.fasterxml.jackson.annotation.JsonIgnoreType;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
+
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class EnvironmentTest {
 
     @Test
-    void EnvironmentTest() throws InterruptedException{
+    void EnvironmentTest() throws InterruptedException, IOException {
         SpaceStation myStation = new SpaceStation();
         ArrayList<ResourceUsage> userList = new ArrayList<ResourceUsage>();
         userList.add(new ResourceUsage("Cash Money", 5, 1));
@@ -18,10 +21,20 @@ public class EnvironmentTest {
         myStation.addResource(cashMoney);
         myStation.addResource(water);
 
-        Environment myEnviro = new Environment(myStation);
-        myEnviro.runLoop(20, 0, false);
+        System.out.println(myStation.getUsers().toString());
+        System.out.println(myStation.getResources().toString());
 
-        Assert.assertTrue(myStation.getResources().get(1).getAmount() == 384);
+        SpaceStation myStation2 = ReadFromFile.createSpaceStation("src/main/resources/test3.txt");
+        System.out.println(myStation2.getUsers().toString());
+        System.out.println(myStation2.getResources().toString());
+
+        System.out.println(myStation.getUsers().toString().equals(myStation2.getUsers().toString()));
+        System.out.println(myStation.getResources().toString().equals(myStation2.getResources().toString()));
+
+        /*Environment myEnviro = new Environment(myStation);
+        myEnviro.runLoop(20, 1000, true);
+
+        Assert.assertTrue(myStation.getResources().get(1).getAmount() == 384);*/
 
     }
 }
