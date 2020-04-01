@@ -1,6 +1,6 @@
 public class Resource {
-    String name;
-    double amount;
+    private String name;
+    private double amount;
 
     public Resource() {
     }

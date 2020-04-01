@@ -1,7 +1,7 @@
 public class ResourceUsage {
-    String resourceName;
-    double usagePerTimeframe;
-    int timeframe;
+    private String resourceName;
+    private double usagePerTimeframe;
+    private int timeframe;
 
     public ResourceUsage() {
     }

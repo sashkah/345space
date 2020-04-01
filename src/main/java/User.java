@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 
 public class User {
-    String id;
-    ArrayList<ResourceUsage> resourceUsage;
+    private String id;
+    private ArrayList<ResourceUsage> resourceUsage;
 
     public User() {
     }

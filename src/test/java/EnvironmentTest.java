@@ -31,10 +31,10 @@ public class EnvironmentTest {
         System.out.println(myStation.getUsers().toString().equals(myStation2.getUsers().toString()));
         System.out.println(myStation.getResources().toString().equals(myStation2.getResources().toString()));
 
-        /*Environment myEnviro = new Environment(myStation);
+        Environment myEnviro = new Environment(myStation2);
         myEnviro.runLoop(20, 1000, true);
 
-        Assert.assertTrue(myStation.getResources().get(1).getAmount() == 384);*/
+        Assert.assertTrue(myStation.getResources().get(1).getAmount() == 384);
 
     }
 }
