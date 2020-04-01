@@ -7,23 +7,27 @@ public class User {
     public User() {
     }
 
+    public User(String id){
+        this.id = id;
+        resourceUsage = null;
+    }
     
-public User(String id, ArrayList<ResourceUsage> resourceUsage){
+    public User(String id, ArrayList<ResourceUsage> resourceUsage){
         this.id = id;
         this.resourceUsage = resourceUsage;
-        }
+    }
 
-public String getId(){
+    public String getId(){
         return id;
-        }
+    }
   
-public void setId(String id) {this.id = id; }
+    public void setId(String id) {this.id = id; }
 
     public String toString() {
         return id;
     }
 
-public ArrayList getResourceUsage() {
+    public ArrayList getResourceUsage() {
         return resourceUsage;
-        }
+    }
 }

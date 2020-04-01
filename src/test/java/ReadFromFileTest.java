@@ -15,7 +15,13 @@ public class ReadFromFileTest {
         File fileIn = new File("src/main/resources/test.txt");
         String fileString = ReadFromFile.getContents(fileIn);
         System.out.println(fileString);
-        String expectedString = "{" + "  \"users\" : [ {" + "    \"id\" : \"damion\"," + "    \"resourceUsage\" : null" + "  }, {" + "    \"id\" : \"jolie\"," + "    \"resourceUsage\" : null" + "  }, {" + "    \"id\" : \"aidan\"," + "    \"resourceUsage\" : null" + "  } ]," + "  \"resources\" : [ {" + "    \"name\" : \"oxygen\"," + "    \"amount\" : 100.0" + "  }, {" + "    \"name\" : \"food\"," + "    \"amount\" : 100.0" + "  }, {" + "    \"name\" : \"water\"," + "    \"amount\" : 100.0" + "  } ]" + "}";
+        String expectedString = "{" + "  \"users\" : [ " +
+                "{" + "    \"id\" : \"damion\"," + "    \"resourceUsage\" : null" + "  }," +
+                " {" + "    \"id\" : \"jolie\"," + "    \"resourceUsage\" : null" + "  }, " +
+                "{" + "    \"id\" : \"aidan\"," + "    \"resourceUsage\" : null" + "  } ]," + "  \"resources\" : [ " +
+                "{" + "    \"name\" : \"oxygen\"," + "    \"amount\" : 100.0" + "  }, " +
+                "{" + "    \"name\" : \"food\"," + "    \"amount\" : 100.0" + "  }, " +
+                "{" + "    \"name\" : \"water\"," + "    \"amount\" : 100.0" + "  } ]" + "}";
         assertEquals(expectedString, fileString);
     }
 
