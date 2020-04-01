@@ -1,19 +1,20 @@
-import java.util.Hashtable;
+import java.util.ArrayList;
 
 public class User {
     String id;
-    Hashtable resourceUsage; //For now this will be formatted like so (nested hashtables): <resourceName, <amount used, how often>>
+    ArrayList<ResourceUsage> resourceUsage;
 
-    public User(String id){
+public User(String id, ArrayList<ResourceUsage> resourceUsage){
         this.id = id;
-    }
+        this.resourceUsage = resourceUsage;
+        }
 
-    public String getId(){
+public String getId(){
         return id;
-    }
+        }
 
-    public Hashtable getResourceUsage() {
+public ArrayList getResourceUsage() {
         //I think dealing with resource usage is either another card or not in our scope yet... but can be fixed if not true
         return resourceUsage;
-    }
+        }
 }
