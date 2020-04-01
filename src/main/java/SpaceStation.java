@@ -4,10 +4,14 @@ public class SpaceStation {
     ArrayList<User> users;
     ArrayList<Resource> resources;
 
-    public SpaceStation(){
-        users = new ArrayList<User>();
-        resources = new ArrayList<Resource>();
+    public SpaceStation() {
+        users = new ArrayList<>();
+        resources = new ArrayList<>();
+    }
 
+    public SpaceStation(ArrayList<User> usersIn, ArrayList<Resource> resourcesIn){
+        users = usersIn;
+        resources = resourcesIn;
     }
 
     public ArrayList<User> getUsers(){
@@ -38,6 +42,18 @@ public class SpaceStation {
             }
         }
         resources.add(resourceToAdd);
+    }
+
+    public String toString() {
+        String s = "Users: ";
+        for (User u : this.users) {
+            s += u.getId() + " ";
+        }
+        s += "\nResources: ";
+        for (Resource r : this.resources) {
+            s += r.getName() + " " + r.getAmount() + " ";
+        }
+        return s;
     }
 
 }

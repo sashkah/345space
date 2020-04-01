@@ -4,6 +4,10 @@ public class User {
     String id;
     ArrayList<ResourceUsage> resourceUsage;
 
+    public User() {
+    }
+
+    
 public User(String id, ArrayList<ResourceUsage> resourceUsage){
         this.id = id;
         this.resourceUsage = resourceUsage;
@@ -12,9 +16,14 @@ public User(String id, ArrayList<ResourceUsage> resourceUsage){
 public String getId(){
         return id;
         }
+  
+public void setId(String id) {this.id = id; }
+
+    public String toString() {
+        return id;
+    }
 
 public ArrayList getResourceUsage() {
-        //I think dealing with resource usage is either another card or not in our scope yet... but can be fixed if not true
         return resourceUsage;
         }
 }

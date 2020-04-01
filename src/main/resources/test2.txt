@@ -1,18 +1,12 @@
 {
   "users" : [ {
-    "id" : "damion",
+    "id" : "aidan",
     "resourceUsage" : null
   }, {
     "id" : "jolie",
     "resourceUsage" : null
-  }, {
-    "id" : "aidan",
-    "resourceUsage" : null
   } ],
   "resources" : [ {
-    "name" : "oxygen",
-    "amount" : 100.0
-  }, {
     "name" : "food",
     "amount" : 100.0
   }, {
