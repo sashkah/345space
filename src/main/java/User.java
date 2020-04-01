@@ -18,6 +18,10 @@ public class User {
 
     public void setId(String id) {this.id = id; }
 
+    public String toString() {
+        return id;
+    }
+
     public Hashtable getResourceUsage() {
         //I think dealing with resource usage is either another card or not in our scope yet... but can be fixed if not true
         return resourceUsage;

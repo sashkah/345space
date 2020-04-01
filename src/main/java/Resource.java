@@ -27,4 +27,8 @@ public class Resource {
     public void addAmount(double amount) {
         this.amount += amount;
     }
+
+    public String toString() {
+        return name + " " + amount;
+    }
 }

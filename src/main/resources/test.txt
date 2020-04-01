@@ -11,7 +11,7 @@
   } ],
   "resources" : [ {
     "name" : "oxygen",
-    "amount : 100.0
+    "amount" : 100.0
   }, {
     "name" : "food",
     "amount" : 100.0

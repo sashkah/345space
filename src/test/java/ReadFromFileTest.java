@@ -9,22 +9,24 @@ import java.util.ArrayList;
 
 public class ReadFromFileTest {
 
-    /*@Test
+    @Test
     void getContentsTest() throws FileNotFoundException {
 
         File fileIn = new File("src/main/resources/test.txt");
         String fileString = ReadFromFile.getContents(fileIn);
         System.out.println(fileString);
-        String expectedString = "{\"users\": [\"damion\", \"aidan\", \"jolie\"], \"resources\" : {\"oxygen\": 100, \"water\": 100, \"food\": 100}}";
+        String expectedString = "{" + "  \"users\" : [ {" + "    \"id\" : \"damion\"," + "    \"resourceUsage\" : null" + "  }, {" + "    \"id\" : \"jolie\"," + "    \"resourceUsage\" : null" + "  }, {" + "    \"id\" : \"aidan\"," + "    \"resourceUsage\" : null" + "  } ]," + "  \"resources\" : [ {" + "    \"name\" : \"oxygen\"," + "    \"amount\" : 100.0" + "  }, {" + "    \"name\" : \"food\"," + "    \"amount\" : 100.0" + "  }, {" + "    \"name\" : \"water\"," + "    \"amount\" : 100.0" + "  } ]" + "}";
         assertEquals(expectedString, fileString);
-    }*/
+    }
 
     @Test
     void createSpaceStationTest() throws IOException {
+        String expectedUsers = "[damion, jolie, aidan]";
+        String expectedResources = "[oxygen 100.0, food 100.0, water 100.0]";
         SpaceStation spaceStation;
-        spaceStation = ReadFromFile.createSpaceStation("src/main/resources/test2.txt");
-        System.out.println(spaceStation.getUsers());
-        System.out.println(spaceStation.getResources());
+        spaceStation = ReadFromFile.createSpaceStation("src/main/resources/test.txt");
+        assertEquals(expectedUsers, spaceStation.getUsers().toString());
+        assertEquals(expectedResources, spaceStation.getResources().toString());
     }
 
     @Test

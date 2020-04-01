@@ -45,4 +45,16 @@ public class SpaceStation {
         resources.add(resourceToAdd);
     }
 
+    public String toString() {
+        String s = "Users: ";
+        for (User u : this.users) {
+            s += u.getId() + " ";
+        }
+        s += "\nResources: ";
+        for (Resource r : this.resources) {
+            s += r.getName() + " " + r.getAmount() + " ";
+        }
+        return s;
+    }
+
 }
