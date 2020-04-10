@@ -20,6 +20,10 @@ public class Resource {
         this.amount = amount;
     }
 
+    public void depleteAmount(double amount) {
+        this.amount -= amount;
+    }
+
     public void setName(String name) {
         this.name = name;
     }

@@ -32,9 +32,9 @@ public class Environment {
         for(int i = 0; i < localStation.getResources().size(); i++){ // For each resource
             for(int j = 0; j < localStation.getUsers().size(); j++){ // For each user
                 for(int k = 0; k < localStation.getUsers().get(j).getResourceUsage().size(); k++){ // For each resource used by user
-                    if(localStation.users.get(j).resourceUsage.get(k).resourceName == localStation.resources.get(i).getName()){ // If the same as current resource
-                        if(timeCounter % localStation.users.get(j).resourceUsage.get(k).timeframe == 0){ // If enough time has passed
-                            localStation.resources.get(i).setAmount(localStation.users.get(j).resourceUsage.get(k).usagePerTimeframe); // Deplete resource
+                    if(localStation.getUsers().get(j).getResourceUsage().get(k).getResourceName() == localStation.getResources().get(i).getName()){ // If the same as current resource
+                        if(timeCounter % localStation.getUsers().get(j).getResourceUsage().get(k).getTimeframe() == 0){ // If enough time has passed
+                            localStation.getResources().get(i).depleteAmount(localStation.getUsers().get(j).getResourceUsage().get(k).getUsagePerTimeframe()); // Deplete resource
                         }
                     }
                 }

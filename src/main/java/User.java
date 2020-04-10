@@ -27,7 +27,7 @@ public class User {
         return id + " " + resourceUsage;
     }
 
-    public ArrayList getResourceUsage() {
+    public ArrayList<ResourceUsage> getResourceUsage() {
         return resourceUsage;
     }
 }
