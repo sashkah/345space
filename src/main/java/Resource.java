@@ -1,6 +1,6 @@
 public class Resource {
-    String name;
-    double amount;
+    private String name;
+    private double amount;
 
     public Resource() {
     }
@@ -18,6 +18,10 @@ public class Resource {
 
     public void setAmount(double amount) {
         this.amount = amount;
+    }
+
+    public void depleteAmount(double amount) {
+        this.amount -= amount;
     }
 
     public void setName(String name) {

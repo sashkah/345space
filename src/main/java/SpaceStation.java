@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 
 public class SpaceStation {
-    ArrayList<User> users;
-    ArrayList<Resource> resources;
+    private ArrayList<User> users;
+    private ArrayList<Resource> resources;
 
     public SpaceStation() {
         users = new ArrayList<>();
@@ -18,8 +18,16 @@ public class SpaceStation {
         return users;
     }
 
+    public void setUsers(ArrayList<User> users) {
+        this.users = users;
+    }
+
     public ArrayList<Resource> getResources(){
         return resources;
+    }
+
+    public void setResources(ArrayList<Resource> resources) {
+        this.resources = resources;
     }
 
     public void addUser(User userToAdd){
@@ -28,7 +36,7 @@ public class SpaceStation {
 
     public void addResource(String resourceToAdd, double amountToAdd){
         for(int i = 0; i < resources.size(); i++){
-            if(resources.get(i).name.equals(resourceToAdd)){
+            if(resources.get(i).getName().equals(resourceToAdd)){
                 resources.get(i).addAmount(amountToAdd);
                 return;
             }
@@ -37,7 +45,7 @@ public class SpaceStation {
 
     public void addResource(Resource resourceToAdd){
         for(int i = 0; i < resources.size(); i++){
-            if(resources.get(i).name.equals(resourceToAdd.name)){
+            if(resources.get(i).getName().equals(resourceToAdd.getName())){
                 return;
             }
         }

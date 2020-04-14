@@ -1,0 +1,21 @@
+{
+  "users" : [ {
+    "id" : "123",
+    "resourceUsage" : [ {
+      "resourceName" : "Cash Money",
+      "usagePerTimeframe" : 5.0,
+      "timeframe" : 1
+    }, {
+      "resourceName" : "Water",
+      "usagePerTimeframe" : 29.0,
+      "timeframe" : 5
+    } ]
+  } ],
+  "resources" : [ {
+    "name" : "Cash Money",
+    "amount" : 100.0
+  }, {
+    "name" : "Water",
+    "amount" : 500.0
+  } ]
+}

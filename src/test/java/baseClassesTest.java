@@ -20,7 +20,7 @@ public class baseClassesTest {
 
         myStation.addResource("Cash Money", 50);
 
-        Assert.assertTrue(myStation.getResources().get(0).amount == 150.15);
+        Assert.assertTrue(myStation.getResources().get(0).getAmount() == 150.15);
 
         myStation.addResource(cashMoney);
 

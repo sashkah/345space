@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 
 public class User {
-    String id;
-    ArrayList<ResourceUsage> resourceUsage;
+    private String id;
+    private ArrayList<ResourceUsage> resourceUsage;
 
     public User() {
     }
@@ -24,10 +24,10 @@ public class User {
     public void setId(String id) {this.id = id; }
 
     public String toString() {
-        return id;
+        return id + " " + resourceUsage;
     }
 
-    public ArrayList getResourceUsage() {
+    public ArrayList<ResourceUsage> getResourceUsage() {
         return resourceUsage;
     }
 }
