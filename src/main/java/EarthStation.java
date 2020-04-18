@@ -34,7 +34,7 @@ public class EarthStation {
     }
 
     public void sendResource(Resource resourceToSend) {
-        //Implemented in a different card, I can take it after this
+        Payload resourcePackage = new Payload();
     }
 
 }

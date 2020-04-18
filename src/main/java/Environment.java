@@ -1,9 +1,11 @@
 public class Environment {
+    private EarthStation earthStation;
     private SpaceStation localStation;
     private int timeCounter;
     private boolean isRunning;
 
     public Environment(SpaceStation localStation){
+        this.earthStation = null;
         this.localStation = localStation;
         timeCounter = 1;
         isRunning = true;
