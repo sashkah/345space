@@ -10,7 +10,7 @@ Current class diagram: https://drive.google.com/file/d/1Z3CVF2bmv7lv0vWjdhrylVXu
 Goal: Load test environments and view the resources in each environment, and watch them passively change.
 Retrospective: https://docs.google.com/document/d/18clzk3ttkr6GvG_YDDvOanMQ_zYpoxZhfwt6jwwep9g/edit?usp=sharing
 Review: https://docs.google.com/document/d/182HGWFuyVeznGX6Xs6kRpugVLWatNlvz8kmWYdh6-Ac/edit
-Class Diagram:
+Class Diagram: https://drive.google.com/file/d/1Gwd9ZCVxLB6TJUYYIj87JM3jt0RUHkwm/view?usp=sharing
 
 **Sprint 2**   
 Goal: Sprint 2 Goal: Add functionality to space station and users such as ability to use appliances, move between rooms, and engage in various activities. Time permitting, we will also add ability for user input as "earth employees" to send resources
