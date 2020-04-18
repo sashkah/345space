@@ -1,7 +1,10 @@
 public class ResourceUsage {
-    String resourceName;
-    double usagePerTimeframe;
-    int timeframe;
+    private String resourceName;
+    private double usagePerTimeframe;
+    private int timeframe;
+
+    public ResourceUsage() {
+    }
 
     public ResourceUsage(String resourceName, double usagePerTimeframe, int timeframe){
         this.resourceName = resourceName;
@@ -31,5 +34,9 @@ public class ResourceUsage {
 
     public void setTimeframe(int timeframe) {
         this.timeframe = timeframe;
+    }
+
+    public String toString() {
+        return "resourceName: " + resourceName + " usagePTF: " + usagePerTimeframe + " timeframe: " + timeframe;
     }
 }
