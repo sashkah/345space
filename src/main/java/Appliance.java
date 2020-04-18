@@ -1,14 +1,16 @@
-public class Appliance {
+public class Appliance extends User {
 
     public String name;
-    String id;
-    String resourceUsage;
+    public String resourceUsage;
+    public boolean vitalResource;
 
-    public Appliance(String nameIn,String idIn,String resourceUsageIn){
+
+
+
+    public Appliance(String nameIn, String resourceUsageIn, boolean vitalResourceIn){
         this.name = nameIn;
-        this.id = idIn;
-        this.resourceUsage = resourceUsageIn;
-
+        this.resourceUsage= resourceUsageIn;
+        this.vitalResource=vitalResourceIn;
     }
 
     public String getName() {
@@ -19,18 +21,13 @@ public class Appliance {
         this.name = name;
     }
 
-    public String getId() {
-        return id;
+    public boolean isVitalResource() {
+        return vitalResource;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setVitalResource(boolean vitalResource) {
+        this.vitalResource = vitalResource;
     }
-
-    public String getResourceUsage() {
-        return resourceUsage;
-    }
-
     public void setResourceUsage(String resourceUsage) {
         this.resourceUsage = resourceUsage;
     }
