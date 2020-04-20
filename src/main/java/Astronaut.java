@@ -13,6 +13,18 @@ public class Astronaut extends User{
         currentAppliance = null;
     }
 
+    public void changeRoom(Room newRoom){
+        currentRoom = newRoom;
+    }
+
+    public void useAppliance(Appliance newAppliance){
+        currentAppliance = newAppliance;
+    }
+
+    public ArrayList<ResourceLimit> getResourceLimits(){
+        return resourceLimits;
+    }
+
     public Room getCurrentRoom(){
         return currentRoom;
     }
@@ -21,11 +33,5 @@ public class Astronaut extends User{
         return currentAppliance;
     }
 
-    public void changeRoom(Room newRoom){
-        currentRoom = newRoom;
-    }
 
-    public void useAppliance(Appliance newAppliance){
-        currentAppliance = newAppliance;
-    }
 }
