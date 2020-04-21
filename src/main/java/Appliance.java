@@ -1,34 +1,21 @@
+import java.util.ArrayList;
+
 public class Appliance extends User {
 
-    public String name;
-    public String resourceUsage;
-    public boolean vitalResource;
+    public boolean state;
 
+    public Appliance(boolean state){
+        this.state=state;
+    }
+    public void setResourceUsage(ArrayList<String> resourceUsage){
+        setResourceUsage(resourceUsage);
+    }
+    public void getResorceUsage(){
+        getResourceUsage();
+    }
+    public void setUsageLimit(){
 
-
-
-    public Appliance(String nameIn, String resourceUsageIn, boolean vitalResourceIn){
-        this.name = nameIn;
-        this.resourceUsage= resourceUsageIn;
-        this.vitalResource=vitalResourceIn;
     }
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public boolean isVitalResource() {
-        return vitalResource;
-    }
-
-    public void setVitalResource(boolean vitalResource) {
-        this.vitalResource = vitalResource;
-    }
-    public void setResourceUsage(String resourceUsage) {
-        this.resourceUsage = resourceUsage;
-    }
 }
