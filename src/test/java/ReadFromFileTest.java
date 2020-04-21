@@ -11,7 +11,7 @@ public class ReadFromFileTest {
 
     @Test
     void getContentsTest() throws FileNotFoundException {
-        File fileIn = new File("src/test/testResources/test2.txt");
+        File fileIn = new File("src/test/testResources/SpaceShip2.txt");
         String fileString = ReadFromFile.getContents(fileIn);
         //System.out.println(fileString);
         String expectedString = "{" + "  \"users\" : [ {" + "    \"id\" : \"aidan\"," + "    \"resourceUsage\" : null" + "  }, {" + "    \"id\" : \"jolie\"," + "    \"resourceUsage\" : null" + "  } ]," + "  \"resources\" : [ {" + "    \"name\" : \"food\"," + "    \"amount\" : 100.0" + "  }, {" + "    \"name\" : \"water\"," + "    \"amount\" : 100.0" + "  } ]" + "}";
@@ -23,7 +23,7 @@ public class ReadFromFileTest {
         String expectedUsers = "[aidan [resourceName: oxygen usagePTF: 5.0 timeframe: 1, resourceName: food usagePTF: 3.0 timeframe: 4, resourceName: water usagePTF: 4.0 timeframe: 2], damion [resourceName: oxygen usagePTF: 5.0 timeframe: 1, resourceName: food usagePTF: 3.0 timeframe: 4, resourceName: water usagePTF: 4.0 timeframe: 2], jolie [resourceName: oxygen usagePTF: 5.0 timeframe: 1, resourceName: food usagePTF: 3.0 timeframe: 4, resourceName: water usagePTF: 4.0 timeframe: 2]]";
         String expectedResources = "[oxygen 100.0, food 100.0, water 100.0]";
         SpaceStation spaceStation;
-        spaceStation = ReadFromFile.createSpaceStation("src/test/testResources/test.txt");
+        spaceStation = ReadFromFile.createSpaceStation("src/test/testResources/SpaceShip.txt");
         assertEquals(expectedUsers, spaceStation.getUsers().toString());
         assertEquals(expectedResources, spaceStation.getResources().toString());
     }

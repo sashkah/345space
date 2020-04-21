@@ -1,4 +1,5 @@
 import edu.ithaca.dragon.util.JsonUtil;
+import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -10,12 +11,14 @@ public class EarthEmployeeTest {
 
     @Test
     void blockResourceTest()throws IOException {
-        SpaceStation spaceStation= ReadFromFile.createSpaceStation("src/main/resources/test.txt");
+        SpaceStation spaceStation= ReadFromFile.createSpaceStation("src/test/testResources/SpaceShip.txt");
         ArrayList<User> users=spaceStation.getUsers();
 
         EarthStation earthStation=new EarthStation();
         earthStation.setManagedStation(spaceStation);
         EarthEmployee earthEmployee=new EarthEmployee("ds",earthStation);
         earthEmployee.blockResource("water");
+        Assert.assertEquals(earthEmployee.getBlockedResources().get(0).getName(),"water");
+
     }
 }
