@@ -6,9 +6,12 @@ public class Astronaut extends User{
     Room currentRoom;
     Appliance currentAppliance;
 
+    public Astronaut() {
+    }
 
-    public Astronaut(ArrayList<ResourceLimit> resourceLimits, Room currentRoom, Appliance currentAppliance){
-        resourceLimits = null;
+    public Astronaut(String idIn, ArrayList<ResourceUsage> resourceUsagesIn, ArrayList<ResourceLimit> resourceLimitsIn){
+        super(idIn, resourceUsagesIn);
+        resourceLimits = resourceLimitsIn;
         currentRoom = null;
         currentAppliance = null;
     }

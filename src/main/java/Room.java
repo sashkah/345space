@@ -55,4 +55,8 @@ public class Room {
     public void removeAstronaut(Astronaut astronautToRemove) {
         this.astronauts.remove(astronautToRemove);
     }
+
+    public String toString() {
+        return name + " " + volume + " " + type + " " + passiveResourceUsages + " " + appliances + " " + astronauts;
+    }
 }

@@ -20,32 +20,44 @@ public class ReadFromFileTest {
 
     @Test
     void createSpaceStationTest() throws IOException {
-        String expectedUsers = "[aidan [resourceName: oxygen usagePTF: 5.0 timeframe: 1, resourceName: food usagePTF: 3.0 timeframe: 4, resourceName: water usagePTF: 4.0 timeframe: 2], damion [resourceName: oxygen usagePTF: 5.0 timeframe: 1, resourceName: food usagePTF: 3.0 timeframe: 4, resourceName: water usagePTF: 4.0 timeframe: 2], jolie [resourceName: oxygen usagePTF: 5.0 timeframe: 1, resourceName: food usagePTF: 3.0 timeframe: 4, resourceName: water usagePTF: 4.0 timeframe: 2]]";
+        //String expectedUsers = "[aidan [resourceName: oxygen usagePTF: 5.0 timeframe: 1, resourceName: food usagePTF: 3.0 timeframe: 4, resourceName: water usagePTF: 4.0 timeframe: 2], damion [resourceName: oxygen usagePTF: 5.0 timeframe: 1, resourceName: food usagePTF: 3.0 timeframe: 4, resourceName: water usagePTF: 4.0 timeframe: 2], jolie [resourceName: oxygen usagePTF: 5.0 timeframe: 1, resourceName: food usagePTF: 3.0 timeframe: 4, resourceName: water usagePTF: 4.0 timeframe: 2]]";
+        String expectedAstronauts = "[aidan [resourceName: oxygen usagePTF: 5.0 timeframe: 1, resourceName: food usagePTF: 3.0 timeframe: 4, resourceName: water usagePTF: 4.0 timeframe: 2], damion [resourceName: oxygen usagePTF: 5.0 timeframe: 1, resourceName: food usagePTF: 3.0 timeframe: 4, resourceName: water usagePTF: 4.0 timeframe: 2], jolie [resourceName: oxygen usagePTF: 5.0 timeframe: 1, resourceName: food usagePTF: 3.0 timeframe: 4, resourceName: water usagePTF: 4.0 timeframe: 2]]";
         String expectedResources = "[oxygen 100.0, food 100.0, water 100.0]";
         SpaceStation spaceStation;
         spaceStation = ReadFromFile.createSpaceStation("src/main/resources/test.txt");
-        assertEquals(expectedUsers, spaceStation.getUsers().toString());
+        assertEquals(expectedAstronauts, spaceStation.getAstronauts().toString());
         assertEquals(expectedResources, spaceStation.getResources().toString());
     }
 
     @Test
     void tempTest() throws IOException {
-        User user1 = new User("aidan");
-        User user2 = new User("jolie");
+        //User user1 = new User("aidan");
+        //User user2 = new User("jolie");
+        Astronaut astronaut1  = new Astronaut("jolie", null, null);
+        Astronaut astronaut2 = new Astronaut("aidan", null, null);
         Resource res1 = new Resource("food", 100);
         Resource res2 = new Resource("water", 100);
-        ArrayList<User> users = new ArrayList<User>();
-        users.add(user1);
-        users.add(user2);
+        Room room1 = new Room("kitchen 1", 100, "kitchen", null, null, null);
+        Room room2 = new Room("bathroom 1", 50, "bathroom", null, null, null);
+        //ArrayList<User> users = new ArrayList<User>();
+        ArrayList<Astronaut> astronauts = new ArrayList<Astronaut>();
+        //users.add(user1);
+        //users.add(user2);
+        astronauts.add(astronaut1);
+        astronauts.add(astronaut2);
         ArrayList<Resource> resources = new ArrayList<Resource>();
         resources.add(res1);
         resources.add(res2);
-        SpaceStation station = new SpaceStation(users, resources);
+        ArrayList<Room> rooms = new ArrayList<Room>();
+        rooms.add(room1);
+        rooms.add(room2);
+        //SpaceStation station = new SpaceStation(users, resources);
+        SpaceStation station = new SpaceStation(astronauts, resources, rooms);
 
-        JsonUtil.toJsonFile("outFile", station);
+        JsonUtil.toJsonFile("outFileUpdated", station);
     }
 
-    @Test
+    /*@Test
     void tempTest2() throws IOException {
         SpaceStation myStation = new SpaceStation();
 
@@ -70,9 +82,9 @@ public class ReadFromFileTest {
         myStation.addResource(water);
 
         JsonUtil.toJsonFile("outFile2", myStation);
-    }
+    }*/
 
-    @Test
+    /*@Test
     void tempTest3() throws IOException {
         SpaceStation myStation = new SpaceStation();
         ArrayList<ResourceUsage> userList = new ArrayList<ResourceUsage>();
@@ -86,6 +98,6 @@ public class ReadFromFileTest {
         myStation.addResource(water);
 
         JsonUtil.toJsonFile("outFile3", myStation);
-    }
+    }*/
 
 }

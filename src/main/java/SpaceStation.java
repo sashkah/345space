@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Random;
 
 public class SpaceStation {
     private ArrayList<Astronaut> astronauts;
@@ -72,11 +73,15 @@ public class SpaceStation {
     }
 
     public Astronaut getRandAstronaut() {
-
+        Random rand = new Random();
+        int randInt = rand.nextInt(this.astronauts.size());
+        return astronauts.get(randInt);
     }
 
     public Room getRandRoom() {
-
+        Random rand = new Random();
+        int randInt = rand.nextInt(this.rooms.size());
+        return rooms.get(randInt);
     }
 
 }

@@ -15,10 +15,12 @@ public class EnvironmentTest {
         ArrayList<ResourceUsage> userList = new ArrayList<ResourceUsage>();
         userList.add(new ResourceUsage("Cash Money", 5, 1));
         userList.add(new ResourceUsage("Water", 29, 5));
-        User myUser = new User("123", userList);
+        //User myUser = new User("123", userList);
+        Astronaut myAstronaut = new Astronaut("123", userList, null);
         Resource cashMoney = new Resource("Cash Money", 100);
         Resource water = new Resource("Water", 500);
-        myStation.addUser(myUser);
+        //myStation.addUser(myUser);
+        myStation.addAstronaut(myAstronaut);
         myStation.addResource(cashMoney);
         myStation.addResource(water);
 

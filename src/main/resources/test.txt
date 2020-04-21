@@ -1,5 +1,5 @@
 {
-  "users" : [ {
+  "astronauts" : [ {
     "id" : "aidan",
     "resourceUsage" : [ {
       "resourceName" : "oxygen",

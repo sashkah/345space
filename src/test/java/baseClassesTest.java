@@ -6,12 +6,12 @@ public class baseClassesTest {
     @Test
     void SpaceStationTest(){
         SpaceStation myStation = new SpaceStation();
-        User myUser = new User("123", null);
+        Astronaut myAstronaut = new Astronaut("123", null, null);
         Resource cashMoney = new Resource("Cash Money", 100.15);
 
-        myStation.addUser(myUser);
+        myStation.addAstronaut(myAstronaut);
 
-        Assert.assertTrue(myStation.getUsers().contains(myUser));
+        Assert.assertTrue(myStation.getAstronauts().contains(myAstronaut));
 
         myStation.addResource(cashMoney);
 
@@ -25,6 +25,24 @@ public class baseClassesTest {
         myStation.addResource(cashMoney);
 
         Assert.assertFalse(myStation.getResources().size() == 2);
+
+        Astronaut myAstronaut2 = new Astronaut("456", null, null);
+        Astronaut myAstronaut3 = new Astronaut("789", null, null);
+        myStation.addAstronaut(myAstronaut2);
+        myStation.addAstronaut(myAstronaut3);
+        Astronaut tempAstronaut = myStation.getRandAstronaut();
+        Assert.assertTrue(myStation.getAstronauts().contains(tempAstronaut));
+
+        Room room1 = new Room("room1", 100, "bathroom", null, null, null);
+        Room room2 = new Room("room2", 100, "kitchen", null, null, null);
+        Room room3 = new Room("room3", 100, "gym", null, null, null);
+        myStation.addRoom(room1);
+        myStation.addRoom(room2);
+        myStation.addRoom(room3);
+        Room tempRoom = myStation.getRandRoom();
+        System.out.println(tempRoom);
+        Assert.assertTrue(myStation.getRooms().contains(tempRoom));
+
     }
 
     @Test
