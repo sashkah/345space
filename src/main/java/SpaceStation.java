@@ -1,38 +1,45 @@
 import java.util.ArrayList;
 
 public class SpaceStation {
-    private ArrayList<User> users;
+    private ArrayList<Astronaut> astronauts;
     private ArrayList<Resource> resources;
+    private ArrayList<Room> rooms;
 
     public SpaceStation() {
-        users = new ArrayList<>();
+        astronauts = new ArrayList<>();
         resources = new ArrayList<>();
+        rooms = new ArrayList<>();
     }
 
-    public SpaceStation(ArrayList<User> usersIn, ArrayList<Resource> resourcesIn){
-        users = usersIn;
+    public SpaceStation(ArrayList<Astronaut> astronautsIn, ArrayList<Resource> resourcesIn, ArrayList<Room> roomsIn){
+        astronauts = astronautsIn;
         resources = resourcesIn;
+        rooms = roomsIn;
     }
 
-    public ArrayList<User> getUsers(){
-        return users;
+    public ArrayList<Astronaut> getAstronauts(){
+        return astronauts;
     }
 
-    public void setUsers(ArrayList<User> users) {
-        this.users = users;
+    public void setAstronauts(ArrayList<Astronaut> astronauts) {
+        this.astronauts = astronauts;
     }
 
-    public ArrayList<Resource> getResources(){
-        return resources;
-    }
+    public ArrayList<Resource> getResources(){ return resources; }
 
     public void setResources(ArrayList<Resource> resources) {
         this.resources = resources;
     }
 
-    public void addUser(User userToAdd){
-        users.add(userToAdd);
+    public ArrayList<Room> getRooms() { return rooms; }
+
+    public void setRooms(ArrayList<Room> rooms) { this.rooms = rooms; }
+
+    public void addAstronaut(Astronaut astronautToAdd){
+        astronauts.add(astronautToAdd);
     }
+
+    public void addRoom(Room roomToAdd) { rooms.add(roomToAdd); }
 
     public void addResource(String resourceToAdd, double amountToAdd){
         for(int i = 0; i < resources.size(); i++){
@@ -53,8 +60,8 @@ public class SpaceStation {
     }
 
     public String toString() {
-        String s = "Users: ";
-        for (User u : this.users) {
+        String s = "Astronauts: ";
+        for (User u : this.astronauts) {
             s += u.getId() + " ";
         }
         s += "\nResources: ";
@@ -62,6 +69,14 @@ public class SpaceStation {
             s += r.getName() + " " + r.getAmount() + " ";
         }
         return s;
+    }
+
+    public Astronaut getRandAstronaut() {
+
+    }
+
+    public Room getRandRoom() {
+
     }
 
 }
