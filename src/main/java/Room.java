@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Room {
 
@@ -58,5 +59,11 @@ public class Room {
 
     public String toString() {
         return name + " " + volume + " " + type + " " + passiveResourceUsages + " " + appliances + " " + astronauts;
+    }
+
+    public Appliance getRandAppliance() {
+        Random rand = new Random();
+        int randInt = rand.nextInt(this.appliances.size());
+        return appliances.get(randInt);
     }
 }

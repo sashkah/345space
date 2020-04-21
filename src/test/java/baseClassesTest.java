@@ -1,6 +1,8 @@
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 public class baseClassesTest {
 
     @Test
@@ -26,6 +28,7 @@ public class baseClassesTest {
 
         Assert.assertFalse(myStation.getResources().size() == 2);
 
+        //getRandAstronaut test
         Astronaut myAstronaut2 = new Astronaut("456", null, null);
         Astronaut myAstronaut3 = new Astronaut("789", null, null);
         myStation.addAstronaut(myAstronaut2);
@@ -33,6 +36,7 @@ public class baseClassesTest {
         Astronaut tempAstronaut = myStation.getRandAstronaut();
         Assert.assertTrue(myStation.getAstronauts().contains(tempAstronaut));
 
+        //getRandRoom test
         Room room1 = new Room("room1", 100, "bathroom", null, null, null);
         Room room2 = new Room("room2", 100, "kitchen", null, null, null);
         Room room3 = new Room("room3", 100, "gym", null, null, null);
@@ -40,7 +44,6 @@ public class baseClassesTest {
         myStation.addRoom(room2);
         myStation.addRoom(room3);
         Room tempRoom = myStation.getRandRoom();
-        System.out.println(tempRoom);
         Assert.assertTrue(myStation.getRooms().contains(tempRoom));
 
     }
@@ -55,6 +58,21 @@ public class baseClassesTest {
         myResource.setAmount(50);
 
         Assert.assertTrue(myResource.getAmount() == 50);
+    }
+
+    @Test
+    void RoomTest() {
+        //getRandAppliance test
+        Appliance app1 = new Appliance("app1", "app1", "why is this a string");
+        Appliance app2 = new Appliance("app2", "app2", "");
+        Appliance app3 = new Appliance("app3", "app3", "");
+        ArrayList<Appliance> apps = new ArrayList<Appliance>();
+        apps.add(app1);
+        apps.add(app2);
+        apps.add(app3);
+        Room room = new Room("room", 100, "room", null, apps, null);
+        Appliance tempApp = room.getRandAppliance();
+        Assert.assertTrue(room.getAppliances().contains(tempApp));
     }
 
 }

@@ -34,4 +34,8 @@ public class Appliance {
     public void setResourceUsage(String resourceUsage) {
         this.resourceUsage = resourceUsage;
     }
+
+    public String toString() {
+        return name + " " + id + " " + resourceUsage;
+    }
 }
