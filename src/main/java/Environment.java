@@ -41,6 +41,24 @@ public class Environment {
                 }
                 System.out.println("\n");
             }
+            ArrayList<Resource> cargo = new ArrayList<Resource>();
+            for(int i = 0; i < localStation.getResources().size(); i++){
+                outerloop:
+                if(localStation.getResources().get(i).getAmount() <= 100){
+                    for(int j = 0; j < cargoInTransit.size(); j++){
+                        for(int k = 0; k < cargoInTransit.get(j).getCargo().size(); k++){
+                            if(cargoInTransit.get(j).getCargo().get(k).getName() == localStation.getResources().get(i).getName()){
+                                break outerloop;
+                            }
+                        }
+                    }
+                    cargo.add(new Resource(localStation.getResources().get(i).getName(), 150));
+                }
+            }
+            if(cargo.size() != 0){
+                Payload newPayload = new Payload(timeCounter, 10, cargo);
+                cargoInTransit.add(newPayload);
+            }
             if(timeCounter % numHours == 0){
                 isRunning = false;
             }
@@ -88,6 +106,7 @@ public class Environment {
                 for(int j = 0; j < cargoInTransit.get(i).getCargo().size(); j++){ //for each resource
                     localStation.addResource(cargoInTransit.get(i).getCargo().get(j)); // add resource to station
                 }
+                System.out.println("Earth station sent a payload!");
                 cargoInTransit.remove(cargoInTransit.get(i));
                 i--;
             }
