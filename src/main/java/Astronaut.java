@@ -29,7 +29,9 @@ public class Astronaut extends User{
             currentAppliance.setInUse(false);
         }
         currentAppliance = newAppliance;
-        currentAppliance.setInUse(true);
+        if(currentAppliance != null) {
+            currentAppliance.setInUse(true);
+        }
     }
 
     public ArrayList<ResourceLimit> getResourceLimits(){
