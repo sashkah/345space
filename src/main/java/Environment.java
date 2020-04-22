@@ -58,6 +58,7 @@ public class Environment {
             if(cargo.size() != 0){
                 Payload newPayload = new Payload(timeCounter, 10, cargo);
                 cargoInTransit.add(newPayload);
+                System.out.println("Earth station sent a payload containing: " + newPayload.getCargo());
             }
             if(timeCounter % numHours == 0){
                 isRunning = false;
@@ -90,10 +91,8 @@ public class Environment {
                 if(localStation.getRooms().get(i).getAppliances().get(j).getInUse()){
                     for (int k = 0; k < localStation.getRooms().get(i).getAppliances().get(j).getResourceUsages().size(); k++) {
                         for(int l = 0; l < localStation.getResources().size(); l++){
-                            if(localStation.getRooms().get(i).getAppliances().get(j).getResourceUsages().get(k).getResourceName() == localStation.getResources().get(l).getName()){
-                                if(timeCounter % localStation.getRooms().get(i).getAppliances().get(j).getResourceUsages().get(k).getTimeframe() == 0) {
-                                    localStation.getResources().get(l).depleteAmount(localStation.getRooms().get(i).getAppliances().get(j).getResourceUsages().get(k).getUsagePerTimeframe());
-                                }
+                            if(localStation.getRooms().get(i).getAppliances().get(j).getResourceUsages().get(k).getResourceName().equals(localStation.getResources().get(l).getName())){
+                                localStation.getResources().get(l).depleteAmount(localStation.getRooms().get(i).getAppliances().get(j).getResourceUsages().get(k).getUsagePerTimeframe());
                             }
                         }
                     }
@@ -106,7 +105,7 @@ public class Environment {
                 for(int j = 0; j < cargoInTransit.get(i).getCargo().size(); j++){ //for each resource
                     localStation.addResource(cargoInTransit.get(i).getCargo().get(j)); // add resource to station
                 }
-                System.out.println("Earth station sent a payload!");
+                System.out.println("Space station received a payload!");
                 cargoInTransit.remove(cargoInTransit.get(i));
                 i--;
             }
