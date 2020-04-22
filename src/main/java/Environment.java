@@ -105,7 +105,7 @@ public class Environment {
                 for(int j = 0; j < cargoInTransit.get(i).getCargo().size(); j++){ //for each resource
                     localStation.addResource(cargoInTransit.get(i).getCargo().get(j)); // add resource to station
                 }
-                System.out.println("Space station received a payload!");
+                System.out.println("Space station received a payload containing: " + cargoInTransit.get(i).getCargo());
                 cargoInTransit.remove(cargoInTransit.get(i));
                 i--;
             }
