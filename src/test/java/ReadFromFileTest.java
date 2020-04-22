@@ -33,8 +33,8 @@ public class ReadFromFileTest {
     void tempTest() throws IOException {
         //User user1 = new User("aidan");
         //User user2 = new User("jolie");
-        Astronaut astronaut1  = new Astronaut("jolie", null, null);
-        Astronaut astronaut2 = new Astronaut("aidan", null, null);
+        Astronaut astronaut1  = new Astronaut("jolie", null, null, null);
+        Astronaut astronaut2 = new Astronaut("aidan", null, null, null);
         Resource res1 = new Resource("food", 100);
         Resource res2 = new Resource("water", 100);
         Room room1 = new Room("kitchen 1", 100, "kitchen", null, null, null);
@@ -57,32 +57,32 @@ public class ReadFromFileTest {
         JsonUtil.toJsonFile("outFileUpdated", station);
     }
 
-    /*@Test
+    @Test
     void tempTest2() throws IOException {
         SpaceStation myStation = new SpaceStation();
 
-        ArrayList<ResourceUsage> userList = new ArrayList<ResourceUsage>();
-        userList.add(new ResourceUsage("oxygen", 5, 1));
-        userList.add(new ResourceUsage("food", 3, 4));
-        userList.add(new ResourceUsage("water", 4, 2));
+        ArrayList<ResourceUsage> resourceUsages = new ArrayList<ResourceUsage>();
+        resourceUsages.add(new ResourceUsage("oxygen", 5, 1));
+        resourceUsages.add(new ResourceUsage("food", 3, 4));
+        resourceUsages.add(new ResourceUsage("water", 4, 2));
 
-        User myUser = new User("aidan", userList);
-        User myUser2 = new User("damion", userList);
-        User myUser3 = new User("jolie", userList);
+        Astronaut myAstronaut = new Astronaut("aidan", resourceUsages, null, null);
+        Astronaut myAstronaut2 = new Astronaut("damion", resourceUsages, null, null);
+        Astronaut myAstronaut3 = new Astronaut("jolie", resourceUsages, null, null);
 
         Resource oxygen = new Resource("oxygen", 100);
         Resource food = new Resource("food", 100);
         Resource water = new Resource("water", 100);
 
-        myStation.addUser(myUser);
-        myStation.addUser(myUser2);
-        myStation.addUser(myUser3);
+        myStation.addAstronaut(myAstronaut);
+        myStation.addAstronaut(myAstronaut2);
+        myStation.addAstronaut(myAstronaut3);
         myStation.addResource(oxygen);
         myStation.addResource(food);
         myStation.addResource(water);
 
-        JsonUtil.toJsonFile("outFile2", myStation);
-    }*/
+        JsonUtil.toJsonFile("outFile4", myStation);
+    }
 
     /*@Test
     void tempTest3() throws IOException {
@@ -98,6 +98,28 @@ public class ReadFromFileTest {
         myStation.addResource(water);
 
         JsonUtil.toJsonFile("outFile3", myStation);
+    }*/
+
+    /*@Test
+    void newTest() {
+        SpaceStation myStation = new SpaceStation();
+
+        ResourceUsage resUse1 = new ResourceUsage("oxygen", 5, 1);
+        ResourceUsage resUse2 = new ResourceUsage("food", 3, 4);
+        ResourceUsage resUse3 = new ResourceUsage("water", 4, 2);
+        ArrayList<ResourceUsage> resourceUsages = new ArrayList<ResourceUsage>();
+        resourceUsages.add(resUse1);
+        resourceUsages.add(resUse2);
+        resourceUsages.add(resUse3);
+
+        Astronaut astronaut1 = new Astronaut("aidan", resourceUsages, null, null);
+        Astronaut astronaut2 = new Astronaut("damion", resourceUsages, null, null);
+        Astronaut astronaut3 = new Astronaut("jolie", resourceUsages, null, null);
+        myStation.addAstronaut(astronaut1);
+        myStation.addAstronaut(astronaut2);
+        myStation.addAstronaut(astronaut3);
+
+        Resource oxygen = new Resource()
     }*/
 
 }

@@ -16,7 +16,7 @@ public class EnvironmentTest {
         userList.add(new ResourceUsage("Cash Money", 5, 1));
         userList.add(new ResourceUsage("Water", 29, 5));
         //User myUser = new User("123", userList);
-        Astronaut myAstronaut = new Astronaut("123", userList, null);
+        Astronaut myAstronaut = new Astronaut("123", userList, null, null);
         Resource cashMoney = new Resource("Cash Money", 100);
         Resource water = new Resource("Water", 500);
         //myStation.addUser(myUser);
@@ -49,20 +49,20 @@ public class EnvironmentTest {
 
     @Test
     void RandomEventTest() {
-        Astronaut astronaut1  = new Astronaut("jolie", null, null);
-        Astronaut astronaut2 = new Astronaut("aidan", null, null);
-        Astronaut astronaut3 = new Astronaut("damion", null, null);
-        Astronaut astronaut4 = new Astronaut("kandace", null, null);
-        Astronaut astronaut5 = new Astronaut("toby", null, null);
+        Astronaut astronaut1  = new Astronaut("jolie", null,null, null);
+        Astronaut astronaut2 = new Astronaut("aidan", null,null, null);
+        Astronaut astronaut3 = new Astronaut("damion", null,null, null);
+        Astronaut astronaut4 = new Astronaut("kandace", null,null, null);
+        Astronaut astronaut5 = new Astronaut("toby", null,null, null);
         Resource res1 = new Resource("food", 100);
         Resource res2 = new Resource("water", 100);
 
-        Appliance app1 = new Appliance("coffee machine", "coffee machine", "null");
-        Appliance app2 = new Appliance("blender", "blender", "null");
-        Appliance app3 = new Appliance("toilet", "toilet", "null");
-        Appliance app4 = new Appliance("shower", "shower", "null");
-        Appliance app5 = new Appliance("treadmill", "treadmill", "null");
-        Appliance app6 = new Appliance("elliptical", "elliptical", "null");
+        Appliance app1 = new Appliance("coffee machine", null, null);
+        Appliance app2 = new Appliance("blender", null, null);
+        Appliance app3 = new Appliance("toilet", null, null);
+        Appliance app4 = new Appliance("shower", null, null);
+        Appliance app5 = new Appliance("treadmill", null, null);
+        Appliance app6 = new Appliance("elliptical", null, null);
         ArrayList<Appliance> apps1 = new ArrayList<Appliance>();
         apps1.add(app1);
         apps1.add(app2);

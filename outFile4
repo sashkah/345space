@@ -69,7 +69,7 @@
   } ],
   "rooms" : [ ],
   "randAstronaut" : {
-    "id" : "jolie",
+    "id" : "aidan",
     "resourceUsages" : [ {
       "resourceName" : "oxygen",
       "usagePerTimeframe" : 5.0,

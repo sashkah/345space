@@ -8,7 +8,7 @@ public class baseClassesTest {
     @Test
     void SpaceStationTest(){
         SpaceStation myStation = new SpaceStation();
-        Astronaut myAstronaut = new Astronaut("123", null, null);
+        Astronaut myAstronaut = new Astronaut("123", null, null, null);
         Resource cashMoney = new Resource("Cash Money", 100.15);
 
         myStation.addAstronaut(myAstronaut);
@@ -29,8 +29,8 @@ public class baseClassesTest {
         Assert.assertFalse(myStation.getResources().size() == 2);
 
         //getRandAstronaut test
-        Astronaut myAstronaut2 = new Astronaut("456", null, null);
-        Astronaut myAstronaut3 = new Astronaut("789", null, null);
+        Astronaut myAstronaut2 = new Astronaut("456", null, null, null);
+        Astronaut myAstronaut3 = new Astronaut("789", null, null, null);
         myStation.addAstronaut(myAstronaut2);
         myStation.addAstronaut(myAstronaut3);
         Astronaut tempAstronaut = myStation.getRandAstronaut();
@@ -63,9 +63,9 @@ public class baseClassesTest {
     @Test
     void RoomTest() {
         //getRandAppliance test
-        Appliance app1 = new Appliance("app1", "app1", "why is this a string");
-        Appliance app2 = new Appliance("app2", "app2", "");
-        Appliance app3 = new Appliance("app3", "app3", "");
+        Appliance app1 = new Appliance("app1", null, null);
+        Appliance app2 = new Appliance("app2", null, null);
+        Appliance app3 = new Appliance("app3", null, null);
         ArrayList<Appliance> apps = new ArrayList<Appliance>();
         apps.add(app1);
         apps.add(app2);

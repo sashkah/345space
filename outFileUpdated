@@ -1,13 +1,15 @@
 {
   "astronauts" : [ {
     "id" : "jolie",
-    "resourceUsage" : null,
+    "resourceUsages" : null,
+    "totalResourceUsages" : null,
     "resourceLimits" : null,
     "currentRoom" : null,
     "currentAppliance" : null
   }, {
     "id" : "aidan",
-    "resourceUsage" : null,
+    "resourceUsages" : null,
+    "totalResourceUsages" : null,
     "resourceLimits" : null,
     "currentRoom" : null,
     "currentAppliance" : null

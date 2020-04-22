@@ -33,10 +33,10 @@ public class Environment {
         timeCounter ++;
         for(int i = 0; i < localStation.getResources().size(); i++){ // For each resource
             for(int j = 0; j < localStation.getAstronauts().size(); j++){ // For each user
-                for(int k = 0; k < localStation.getAstronauts().get(j).getResourceUsage().size(); k++){ // For each resource used by user
-                    if(localStation.getAstronauts().get(j).getResourceUsage().get(k).getResourceName().equals(localStation.getResources().get(i).getName())){ // If the same as current resource
-                        if(timeCounter % localStation.getAstronauts().get(j).getResourceUsage().get(k).getTimeframe() == 0){ // If enough time has passed
-                            localStation.getResources().get(i).depleteAmount(localStation.getAstronauts().get(j).getResourceUsage().get(k).getUsagePerTimeframe()); // Deplete resource
+                for(int k = 0; k < localStation.getAstronauts().get(j).getResourceUsages().size(); k++){ // For each resource used by user
+                    if(localStation.getAstronauts().get(j).getResourceUsages().get(k).getResourceName().equals(localStation.getResources().get(i).getName())){ // If the same as current resource
+                        if(timeCounter % localStation.getAstronauts().get(j).getResourceUsages().get(k).getTimeframe() == 0){ // If enough time has passed
+                            localStation.getResources().get(i).depleteAmount(localStation.getAstronauts().get(j).getResourceUsages().get(k).getUsagePerTimeframe()); // Deplete resource
                         }
                     }
                 }
@@ -54,7 +54,7 @@ public class Environment {
             eventAstronaut.changeRoom(eventRoom);
             s += eventAstronaut.getId() + " moved to " + eventRoom.getName() + " ";
             Appliance eventAppliance = eventRoom.getRandAppliance();
-            if(eventAstronaut.getCurrentAppliance() == null || eventAstronaut.getCurrentAppliance() != eventAppliance) {
+            if(eventAppliance.getInUse() == false && (eventAstronaut.getCurrentAppliance() == null || eventAstronaut.getCurrentAppliance() != eventAppliance)) {
                 eventAstronaut.useAppliance(eventAppliance);
                 s += "and started using " + eventAppliance.getId() + ".";
             }
