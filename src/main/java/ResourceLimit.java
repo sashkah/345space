@@ -2,6 +2,7 @@ public class ResourceLimit {
     private String resourceName;
     private double limit;
 
+    public ResourceLimit() {}
 
     public ResourceLimit(String resourceNameIn, double limitIn){
         this.resourceName = resourceNameIn;

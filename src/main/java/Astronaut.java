@@ -6,19 +6,30 @@ public class Astronaut extends User{
     Room currentRoom;
     Appliance currentAppliance;
 
+    public Astronaut() {
+    }
 
-    public Astronaut(ArrayList<ResourceLimit> resourceLimits, Room currentRoom, Appliance currentAppliance){
-        resourceLimits = null;
+    public Astronaut(String idIn, ArrayList<ResourceUsage> resourceUsagesIn, ArrayList<TotalResourceUsage> totalResourceUsagesIn, ArrayList<ResourceLimit> resourceLimitsIn){
+        super(idIn, resourceUsagesIn, totalResourceUsagesIn);
+        resourceLimits = resourceLimitsIn;
         currentRoom = null;
         currentAppliance = null;
     }
 
     public void changeRoom(Room newRoom){
         currentRoom = newRoom;
+        if(currentAppliance != null) {
+            currentAppliance.setInUse(false);
+            currentAppliance = null;
+        }
     }
 
     public void useAppliance(Appliance newAppliance){
+        if(currentAppliance != null) {
+            currentAppliance.setInUse(false);
+        }
         currentAppliance = newAppliance;
+        currentAppliance.setInUse(true);
     }
 
     public ArrayList<ResourceLimit> getResourceLimits(){
@@ -33,5 +44,8 @@ public class Astronaut extends User{
         return currentAppliance;
     }
 
+    public ArrayList<ResourceUsage> getResourceUsages() {
+        return super.getResourceUsages();
+    }
 
 }

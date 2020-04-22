@@ -6,16 +6,16 @@ public class payloadTest {
 
     @Test
     void payloadTest() throws InterruptedException{
-        ArrayList<User> userlist = new ArrayList<User>();
+        ArrayList<Astronaut> userlist = new ArrayList<Astronaut>();
         ResourceUsage myUsage = new ResourceUsage("water", 5, 1);
         ArrayList<ResourceUsage> usages = new ArrayList<ResourceUsage>();
         usages.add(myUsage);
-        User me = new User("damion", usages);
+        Astronaut me = new Astronaut("damion", usages, null, null);
         userlist.add(me);
         ArrayList<Resource> resourceList = new ArrayList<Resource>();
         Resource water = new Resource("water", 2900);
         resourceList.add(water);
-        SpaceStation myStation = new SpaceStation(userlist, resourceList);
+        SpaceStation myStation = new SpaceStation(userlist, resourceList, null);
         ArrayList<EarthEmployee> employee = null;
         EarthStation newStationE = new EarthStation(myStation, employee);
         Resource newWater = new Resource("water", 29);

@@ -1,51 +1,52 @@
 import java.util.ArrayList;
+import java.util.Random;
 
 public class SpaceStation {
-    private ArrayList<User> users;
+    private ArrayList<Astronaut> astronauts;
     private ArrayList<Resource> resources;
+    private ArrayList<Room> rooms;
 
     public SpaceStation() {
-        users = new ArrayList<>();
+        astronauts = new ArrayList<>();
         resources = new ArrayList<>();
+        rooms = new ArrayList<>();
     }
 
-    public SpaceStation(ArrayList<User> usersIn, ArrayList<Resource> resourcesIn){
-        users = usersIn;
+    public SpaceStation(ArrayList<Astronaut> astronautsIn, ArrayList<Resource> resourcesIn, ArrayList<Room> roomsIn){
+        astronauts = astronautsIn;
         resources = resourcesIn;
+        rooms = roomsIn;
     }
 
-    public ArrayList<User> getUsers(){
-        return users;
+    public ArrayList<Astronaut> getAstronauts(){
+        return astronauts;
     }
 
-    public void setUsers(ArrayList<User> users) {
-        this.users = users;
+    public void setAstronauts(ArrayList<Astronaut> astronauts) {
+        this.astronauts = astronauts;
     }
 
-        public ArrayList<Resource> getResources(){
-            return resources;
-        }
+    public ArrayList<Resource> getResources(){ return resources; }
 
-        public void setResources(ArrayList<Resource> resources) {
+    public void setResources(ArrayList<Resource> resources) {
             this.resources = resources;
         }
 
-        public void addUser(User userToAdd){
-            users.add(userToAdd);
-        }
+    public ArrayList<Room> getRooms() { return rooms; }
 
-        public void addResource(String resourceToAdd, double amountToAdd){
-        Resource resource=new Resource(resourceToAdd,amountToAdd);
-        int added=0;
-        for(Resource resource1:resources) {
-            if (resource1.getName().equalsIgnoreCase(resourceToAdd)) {
-                resource1.addAmount(amountToAdd);
-                added += 1;
-            }
-            }
+    public void setRooms(ArrayList<Room> rooms) { this.rooms = rooms; }
 
-        if(added==0){
-            resources.add(resource);
+    public void addAstronaut(Astronaut astronautToAdd){
+        astronauts.add(astronautToAdd);
+    }
+
+    public void addRoom(Room roomToAdd) { rooms.add(roomToAdd); }
+
+    public void addResource(String resourceToAdd, double amountToAdd) {
+        for (int i = 0; i < resources.size(); i++) {
+            if (resources.get(i).getName().equals(resourceToAdd)) {
+                resources.get(i).addAmount(amountToAdd);
+            }
         }
     }
 
@@ -60,8 +61,8 @@ public class SpaceStation {
     }
 
     public String toString() {
-        String s = "Users: ";
-        for (User u : this.users) {
+        String s = "Astronauts: ";
+        for (User u : this.astronauts) {
             s += u.getId() + " ";
         }
         s += "\nResources: ";
@@ -69,6 +70,18 @@ public class SpaceStation {
             s += r.getName() + " " + r.getAmount() + " ";
         }
         return s;
+    }
+
+    public Astronaut selectRandAstronaut() {
+        Random rand = new Random();
+        int randInt = rand.nextInt(this.astronauts.size());
+        return astronauts.get(randInt);
+    }
+
+    public Room selectRandRoom() {
+        Random rand = new Random();
+        int randInt = rand.nextInt(this.rooms.size());
+        return rooms.get(randInt);
     }
 
 }

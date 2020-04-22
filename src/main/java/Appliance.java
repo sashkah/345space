@@ -2,20 +2,23 @@ import java.util.ArrayList;
 
 public class Appliance extends User {
 
-    public boolean state;
+    private boolean inUse;
 
-    public Appliance(boolean state){
-        this.state=state;
-    }
-    public void setResourceUsage(ArrayList<String> resourceUsage){
-        setResourceUsage(resourceUsage);
-    }
-    public void getResorceUsage(){
-        getResourceUsage();
-    }
-    public void setUsageLimit(){
+    public Appliance() {}
 
+    public Appliance(String idIn, ArrayList<ResourceUsage> resourceUsagesIn, ArrayList<TotalResourceUsage> totalResourceUsagesIn) {
+        super(idIn, resourceUsagesIn, totalResourceUsagesIn);
+        this.inUse = false;
     }
 
+    public boolean getInUse() {
+        return this.inUse;
+
+    }
+    public void setUsageLimit(){}
+
+    public void setInUse(boolean inUseIn) {
+        this.inUse = inUseIn;
+    }
 
 }
