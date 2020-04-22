@@ -13,7 +13,9 @@ public class Appliance extends User {
 
     public boolean getInUse() {
         return this.inUse;
+
     }
+    public void setUsageLimit(){}
 
     public void setInUse(boolean inUseIn) {
         this.inUse = inUseIn;

@@ -29,8 +29,8 @@ public class SpaceStation {
     public ArrayList<Resource> getResources(){ return resources; }
 
     public void setResources(ArrayList<Resource> resources) {
-        this.resources = resources;
-    }
+            this.resources = resources;
+        }
 
     public ArrayList<Room> getRooms() { return rooms; }
 
@@ -42,11 +42,10 @@ public class SpaceStation {
 
     public void addRoom(Room roomToAdd) { rooms.add(roomToAdd); }
 
-    public void addResource(String resourceToAdd, double amountToAdd){
-        for(int i = 0; i < resources.size(); i++){
-            if(resources.get(i).getName().equals(resourceToAdd)){
+    public void addResource(String resourceToAdd, double amountToAdd) {
+        for (int i = 0; i < resources.size(); i++) {
+            if (resources.get(i).getName().equals(resourceToAdd)) {
                 resources.get(i).addAmount(amountToAdd);
-                return;
             }
         }
     }
@@ -54,6 +53,7 @@ public class SpaceStation {
     public void addResource(Resource resourceToAdd){
         for(int i = 0; i < resources.size(); i++){
             if(resources.get(i).getName().equals(resourceToAdd.getName())){
+                resources.get(i).addAmount(resourceToAdd.getAmount());
                 return;
             }
         }

@@ -1,10 +1,20 @@
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Payload {
     private int ID;
     private int startTime;
     private int tripLength;
     private ArrayList<Resource> cargo;
+
+    public Payload(int startTime, int tripLength, ArrayList<Resource> cargo){
+        this.startTime = startTime;
+        this.tripLength = tripLength;
+        this.cargo = cargo;
+
+        Random r = new Random();
+        ID = r.nextInt((9999 - 1000) + 1) + 1000;
+    }
 
     public Payload(){
 
@@ -28,10 +38,6 @@ public class Payload {
 
     public void setCargo(ArrayList<Resource> cargo) {
         this.cargo = cargo;
-    }
-
-    public void setID(int ID) {
-        this.ID = ID;
     }
 
     public void setStartTime(int startTime) {
