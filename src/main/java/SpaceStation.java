@@ -35,12 +35,18 @@ public class SpaceStation {
         }
 
         public void addResource(String resourceToAdd, double amountToAdd){
-            for(int i = 0; i < resources.size(); i++){
-                if(resources.get(i).getName().equals(resourceToAdd)){
-                    resources.get(i).addAmount(amountToAdd);
-                    return;
-                }
+        Resource resource=new Resource(resourceToAdd,amountToAdd);
+        int added=0;
+        for(Resource resource1:resources) {
+            if (resource1.getName().equalsIgnoreCase(resourceToAdd)) {
+                resource1.addAmount(amountToAdd);
+                added += 1;
             }
+            }
+
+        if(added==0){
+            resources.add(resource);
+        }
     }
 
     public void addResource(Resource resourceToAdd){

@@ -1,12 +1,13 @@
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class EarthEmployee {
 
     public String employeeId;
     private EarthStation earthStation;
-    private ArrayList<Resource> blockedResources;
+    public ArrayList<Resource> blockedResources;
 
     public EarthEmployee(String employeeIdIn, EarthStation earthStationIn){
         this.employeeId=employeeIdIn;
@@ -38,38 +39,25 @@ public class EarthEmployee {
         this.blockedResources = blockedResources;
     }
 
-    public String blockResource(String resourceName)throws IOException {//TODO?: ADD CHECKS STATEMENTS FOR THE RESOURCE NAME ?
-        ArrayList<Resource> resourcesInUse = earthStation.getManagedStation().getResources();
-        for (Resource resource : resourcesInUse) {
-            if (resource.getName().equals(resourceName)) {
+    public String blockResource(String resourceName)throws IOException {//TODO?: ADD CHECKS STATEMENTS (if statements) FOR THE RESOURCE NAME ?
+        Resource removeSource=new Resource();
+        for (Resource resource : earthStation.getManagedStation().getResources()) {
+            if (resource.getName().equalsIgnoreCase(resourceName)) {
                 blockedResources.add(resource);
-                earthStation.getManagedStation().getResources().remove(resource);
-                System.out.println(resourcesInUse);
+                removeSource = resource;
             }
-
         }
-
+        earthStation.getManagedStation().getResources().remove(removeSource);
         return resourceName+" was blocked for usage.";
     }
-
-    public void checkResources()throws IOException{
-        ArrayList<Resource> resourcesInUse=earthStation.getManagedStation().getResources();
-        for(Resource resource:resourcesInUse){
-            if(resource.getAmount()<40.0){
-                blockResource(resource.getName());
-            }
-        }
-
-        }
-        public void unBlockResource(String resourceName){
-            ArrayList<Resource> resourcesInUse = earthStation.getManagedStation().getResources();
-            for (Resource resource : resourcesInUse) {
-                if (resource.getName().equals(resourceName)) {
-                    blockedResources.remove(resource);
-                    resourcesInUse.remove(resource);
-                    System.out.println(resourceName);
-                }
-
-            }
-    }
+//        public void unBlockResource(String resourceName,double amount){
+//
+//        for(Resource blocked:blockedResources){
+//            if(blocked.getName().equalsIgnoreCase(resourceName)){
+//                blockedResources.remove(blocked);
+//                Resource addResource=blocked;
+//                earthStation.getManagedStation().addResource(addResource);
+//            }
+//        }
+//}
 }
