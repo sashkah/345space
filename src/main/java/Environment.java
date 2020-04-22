@@ -44,7 +44,7 @@ public class Environment {
             ArrayList<Resource> cargo = new ArrayList<Resource>();
             for(int i = 0; i < localStation.getResources().size(); i++){
                 outerloop:
-                if(localStation.getResources().get(i).getAmount() <= 100){
+                if(localStation.getResources().get(i).getAmount() <= 300){
                     for(int j = 0; j < cargoInTransit.size(); j++){
                         for(int k = 0; k < cargoInTransit.get(j).getCargo().size(); k++){
                             if(cargoInTransit.get(j).getCargo().get(k).getName() == localStation.getResources().get(i).getName()){
@@ -52,7 +52,7 @@ public class Environment {
                             }
                         }
                     }
-                    cargo.add(new Resource(localStation.getResources().get(i).getName(), 150));
+                    cargo.add(new Resource(localStation.getResources().get(i).getName(), 300));
                 }
             }
             if(cargo.size() != 0){

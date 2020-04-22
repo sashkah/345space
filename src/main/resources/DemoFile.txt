@@ -1,0 +1,563 @@
+{
+  "astronauts" : [ {
+    "id" : "Kerry Anne",
+    "resourceUsages" : [ {
+      "resourceName" : "power",
+      "usagePerTimeframe" : 0.0,
+      "timeframe" : 1
+    }, {
+      "resourceName" : "oxygen",
+      "usagePerTimeframe" : 5.0,
+      "timeframe" : 1
+    }, {
+      "resourceName" : "food",
+      "usagePerTimeframe" : 3.0,
+      "timeframe" : 4
+    }, {
+      "resourceName" : "water",
+      "usagePerTimeframe" : 4.0,
+      "timeframe" : 2
+    } ],
+    "totalResourceUsages" : [ {
+      "resourceName" : "power",
+      "totalUsage" : 0.0,
+      "totalDailyUsage" : 0.0
+    }, {
+      "resourceName" : "oxygen",
+      "totalUsage" : 0.0,
+      "totalDailyUsage" : 0.0
+    }, {
+      "resourceName" : "food",
+      "totalUsage" : 0.0,
+      "totalDailyUsage" : 0.0
+    }, {
+      "resourceName" : "water",
+      "totalUsage" : 0.0,
+      "totalDailyUsage" : 0.0
+    } ],
+    "resourceLimits" : [ {
+      "resourceName" : "power",
+      "limit" : -1.0
+    }, {
+      "resourceName" : "oxygen",
+      "limit" : -1.0
+    }, {
+      "resourceName" : "food",
+      "limit" : 100.0
+    }, {
+      "resourceName" : "water",
+      "limit" : 100.0
+    } ],
+    "currentRoom" : null,
+    "currentAppliance" : null
+  }, {
+    "id" : "Amelia",
+    "resourceUsages" : [ {
+      "resourceName" : "power",
+      "usagePerTimeframe" : 0.0,
+      "timeframe" : 1
+    }, {
+      "resourceName" : "oxygen",
+      "usagePerTimeframe" : 5.0,
+      "timeframe" : 1
+    }, {
+      "resourceName" : "food",
+      "usagePerTimeframe" : 3.0,
+      "timeframe" : 4
+    }, {
+      "resourceName" : "water",
+      "usagePerTimeframe" : 4.0,
+      "timeframe" : 2
+    } ],
+    "totalResourceUsages" : [ {
+      "resourceName" : "power",
+      "totalUsage" : 0.0,
+      "totalDailyUsage" : 0.0
+    }, {
+      "resourceName" : "oxygen",
+      "totalUsage" : 0.0,
+      "totalDailyUsage" : 0.0
+    }, {
+      "resourceName" : "food",
+      "totalUsage" : 0.0,
+      "totalDailyUsage" : 0.0
+    }, {
+      "resourceName" : "water",
+      "totalUsage" : 0.0,
+      "totalDailyUsage" : 0.0
+    } ],
+    "resourceLimits" : [ {
+      "resourceName" : "power",
+      "limit" : -1.0
+    }, {
+      "resourceName" : "oxygen",
+      "limit" : -1.0
+    }, {
+      "resourceName" : "food",
+      "limit" : 100.0
+    }, {
+      "resourceName" : "water",
+      "limit" : 100.0
+    } ],
+    "currentRoom" : null,
+    "currentAppliance" : null
+  }, {
+    "id" : "Scott",
+    "resourceUsages" : [ {
+      "resourceName" : "power",
+      "usagePerTimeframe" : 0.0,
+      "timeframe" : 1
+    }, {
+      "resourceName" : "oxygen",
+      "usagePerTimeframe" : 5.0,
+      "timeframe" : 1
+    }, {
+      "resourceName" : "food",
+      "usagePerTimeframe" : 3.0,
+      "timeframe" : 4
+    }, {
+      "resourceName" : "water",
+      "usagePerTimeframe" : 4.0,
+      "timeframe" : 2
+    } ],
+    "totalResourceUsages" : [ {
+      "resourceName" : "power",
+      "totalUsage" : 0.0,
+      "totalDailyUsage" : 0.0
+    }, {
+      "resourceName" : "oxygen",
+      "totalUsage" : 0.0,
+      "totalDailyUsage" : 0.0
+    }, {
+      "resourceName" : "food",
+      "totalUsage" : 0.0,
+      "totalDailyUsage" : 0.0
+    }, {
+      "resourceName" : "water",
+      "totalUsage" : 0.0,
+      "totalDailyUsage" : 0.0
+    } ],
+    "resourceLimits" : [ {
+      "resourceName" : "power",
+      "limit" : -1.0
+    }, {
+      "resourceName" : "oxygen",
+      "limit" : -1.0
+    }, {
+      "resourceName" : "food",
+      "limit" : 100.0
+    }, {
+      "resourceName" : "water",
+      "limit" : 100.0
+    } ],
+    "currentRoom" : null,
+    "currentAppliance" : null
+  }, {
+    "id" : "Kelsey",
+    "resourceUsages" : [ {
+      "resourceName" : "power",
+      "usagePerTimeframe" : 0.0,
+      "timeframe" : 1
+    }, {
+      "resourceName" : "oxygen",
+      "usagePerTimeframe" : 5.0,
+      "timeframe" : 1
+    }, {
+      "resourceName" : "food",
+      "usagePerTimeframe" : 3.0,
+      "timeframe" : 4
+    }, {
+      "resourceName" : "water",
+      "usagePerTimeframe" : 4.0,
+      "timeframe" : 2
+    } ],
+    "totalResourceUsages" : [ {
+      "resourceName" : "power",
+      "totalUsage" : 0.0,
+      "totalDailyUsage" : 0.0
+    }, {
+      "resourceName" : "oxygen",
+      "totalUsage" : 0.0,
+      "totalDailyUsage" : 0.0
+    }, {
+      "resourceName" : "food",
+      "totalUsage" : 0.0,
+      "totalDailyUsage" : 0.0
+    }, {
+      "resourceName" : "water",
+      "totalUsage" : 0.0,
+      "totalDailyUsage" : 0.0
+    } ],
+    "resourceLimits" : [ {
+      "resourceName" : "power",
+      "limit" : -1.0
+    }, {
+      "resourceName" : "oxygen",
+      "limit" : -1.0
+    }, {
+      "resourceName" : "food",
+      "limit" : 100.0
+    }, {
+      "resourceName" : "water",
+      "limit" : 100.0
+    } ],
+    "currentRoom" : null,
+    "currentAppliance" : null
+  }, {
+    "id" : "Robert",
+    "resourceUsages" : [ {
+      "resourceName" : "power",
+      "usagePerTimeframe" : 0.0,
+      "timeframe" : 1
+    }, {
+      "resourceName" : "oxygen",
+      "usagePerTimeframe" : 5.0,
+      "timeframe" : 1
+    }, {
+      "resourceName" : "food",
+      "usagePerTimeframe" : 3.0,
+      "timeframe" : 4
+    }, {
+      "resourceName" : "water",
+      "usagePerTimeframe" : 4.0,
+      "timeframe" : 2
+    } ],
+    "totalResourceUsages" : [ {
+      "resourceName" : "power",
+      "totalUsage" : 0.0,
+      "totalDailyUsage" : 0.0
+    }, {
+      "resourceName" : "oxygen",
+      "totalUsage" : 0.0,
+      "totalDailyUsage" : 0.0
+    }, {
+      "resourceName" : "food",
+      "totalUsage" : 0.0,
+      "totalDailyUsage" : 0.0
+    }, {
+      "resourceName" : "water",
+      "totalUsage" : 0.0,
+      "totalDailyUsage" : 0.0
+    } ],
+    "resourceLimits" : [ {
+      "resourceName" : "power",
+      "limit" : -1.0
+    }, {
+      "resourceName" : "oxygen",
+      "limit" : -1.0
+    }, {
+      "resourceName" : "food",
+      "limit" : 100.0
+    }, {
+      "resourceName" : "water",
+      "limit" : 100.0
+    } ],
+    "currentRoom" : null,
+    "currentAppliance" : null
+  } ],
+  "resources" : [ {
+    "name" : "power",
+    "amount" : 400.0
+  }, {
+    "name" : "oxygen",
+    "amount" : 500.0
+  }, {
+    "name" : "food",
+    "amount" : 100.0
+  }, {
+    "name" : "water",
+    "amount" : 200.0
+  } ],
+  "rooms" : [ {
+    "name" : "kitchen 1",
+    "volume" : 200.0,
+    "type" : "kitchen",
+    "passiveResourceUsages" : [ {
+      "resourceName" : "power",
+      "usagePerTimeframe" : 0.0,
+      "timeframe" : 1
+    }, {
+      "resourceName" : "oxygen",
+      "usagePerTimeframe" : 5.0,
+      "timeframe" : 1
+    }, {
+      "resourceName" : "food",
+      "usagePerTimeframe" : 3.0,
+      "timeframe" : 4
+    }, {
+      "resourceName" : "water",
+      "usagePerTimeframe" : 4.0,
+      "timeframe" : 2
+    } ],
+    "appliances" : [ {
+      "id" : "coffee machine",
+      "resourceUsages" : [ {
+        "resourceName" : "power",
+        "usagePerTimeframe" : 2.0,
+        "timeframe" : 1
+      }, {
+        "resourceName" : "oxygen",
+        "usagePerTimeframe" : 0.0,
+        "timeframe" : 1
+      }, {
+        "resourceName" : "food",
+        "usagePerTimeframe" : 1.0,
+        "timeframe" : 1
+      }, {
+        "resourceName" : "water",
+        "usagePerTimeframe" : 1.0,
+        "timeframe" : 1
+      } ],
+      "totalResourceUsages" : [ {
+        "resourceName" : "power",
+        "totalUsage" : 0.0,
+        "totalDailyUsage" : 0.0
+      }, {
+        "resourceName" : "oxygen",
+        "totalUsage" : 0.0,
+        "totalDailyUsage" : 0.0
+      }, {
+        "resourceName" : "food",
+        "totalUsage" : 0.0,
+        "totalDailyUsage" : 0.0
+      }, {
+        "resourceName" : "water",
+        "totalUsage" : 0.0,
+        "totalDailyUsage" : 0.0
+      } ],
+      "inUse" : false
+    }, {
+      "id" : "blender",
+      "resourceUsages" : [ {
+        "resourceName" : "power",
+        "usagePerTimeframe" : 2.0,
+        "timeframe" : 1
+      }, {
+        "resourceName" : "oxygen",
+        "usagePerTimeframe" : 0.0,
+        "timeframe" : 1
+      }, {
+        "resourceName" : "food",
+        "usagePerTimeframe" : 1.0,
+        "timeframe" : 1
+      }, {
+        "resourceName" : "water",
+        "usagePerTimeframe" : 1.0,
+        "timeframe" : 1
+      } ],
+      "totalResourceUsages" : [ {
+        "resourceName" : "power",
+        "totalUsage" : 0.0,
+        "totalDailyUsage" : 0.0
+      }, {
+        "resourceName" : "oxygen",
+        "totalUsage" : 0.0,
+        "totalDailyUsage" : 0.0
+      }, {
+        "resourceName" : "food",
+        "totalUsage" : 0.0,
+        "totalDailyUsage" : 0.0
+      }, {
+        "resourceName" : "water",
+        "totalUsage" : 0.0,
+        "totalDailyUsage" : 0.0
+      } ],
+      "inUse" : false
+    } ],
+    "astronauts" : [ ]
+  }, {
+    "name" : "bathroom 1 ",
+    "volume" : 100.0,
+    "type" : "bathroom",
+    "passiveResourceUsages" : [ {
+      "resourceName" : "power",
+      "usagePerTimeframe" : 0.0,
+      "timeframe" : 1
+    }, {
+      "resourceName" : "oxygen",
+      "usagePerTimeframe" : 5.0,
+      "timeframe" : 1
+    }, {
+      "resourceName" : "food",
+      "usagePerTimeframe" : 3.0,
+      "timeframe" : 4
+    }, {
+      "resourceName" : "water",
+      "usagePerTimeframe" : 4.0,
+      "timeframe" : 2
+    } ],
+    "appliances" : [ {
+      "id" : "toilet",
+      "resourceUsages" : [ {
+        "resourceName" : "power",
+        "usagePerTimeframe" : 1.0,
+        "timeframe" : 1
+      }, {
+        "resourceName" : "oxygen",
+        "usagePerTimeframe" : 0.0,
+        "timeframe" : 1
+      }, {
+        "resourceName" : "food",
+        "usagePerTimeframe" : 0.0,
+        "timeframe" : 1
+      }, {
+        "resourceName" : "water",
+        "usagePerTimeframe" : 3.0,
+        "timeframe" : 1
+      } ],
+      "totalResourceUsages" : [ {
+        "resourceName" : "power",
+        "totalUsage" : 0.0,
+        "totalDailyUsage" : 0.0
+      }, {
+        "resourceName" : "oxygen",
+        "totalUsage" : 0.0,
+        "totalDailyUsage" : 0.0
+      }, {
+        "resourceName" : "food",
+        "totalUsage" : 0.0,
+        "totalDailyUsage" : 0.0
+      }, {
+        "resourceName" : "water",
+        "totalUsage" : 0.0,
+        "totalDailyUsage" : 0.0
+      } ],
+      "inUse" : false
+    }, {
+      "id" : "shower",
+      "resourceUsages" : [ {
+        "resourceName" : "power",
+        "usagePerTimeframe" : 1.0,
+        "timeframe" : 1
+      }, {
+        "resourceName" : "oxygen",
+        "usagePerTimeframe" : 0.0,
+        "timeframe" : 1
+      }, {
+        "resourceName" : "food",
+        "usagePerTimeframe" : 0.0,
+        "timeframe" : 1
+      }, {
+        "resourceName" : "water",
+        "usagePerTimeframe" : 3.0,
+        "timeframe" : 1
+      } ],
+      "totalResourceUsages" : [ {
+        "resourceName" : "power",
+        "totalUsage" : 0.0,
+        "totalDailyUsage" : 0.0
+      }, {
+        "resourceName" : "oxygen",
+        "totalUsage" : 0.0,
+        "totalDailyUsage" : 0.0
+      }, {
+        "resourceName" : "food",
+        "totalUsage" : 0.0,
+        "totalDailyUsage" : 0.0
+      }, {
+        "resourceName" : "water",
+        "totalUsage" : 0.0,
+        "totalDailyUsage" : 0.0
+      } ],
+      "inUse" : false
+    } ],
+    "astronauts" : [ ]
+  }, {
+    "name" : "gym 1",
+    "volume" : 300.0,
+    "type" : "gym",
+    "passiveResourceUsages" : [ {
+      "resourceName" : "power",
+      "usagePerTimeframe" : 0.0,
+      "timeframe" : 1
+    }, {
+      "resourceName" : "oxygen",
+      "usagePerTimeframe" : 5.0,
+      "timeframe" : 1
+    }, {
+      "resourceName" : "food",
+      "usagePerTimeframe" : 3.0,
+      "timeframe" : 4
+    }, {
+      "resourceName" : "water",
+      "usagePerTimeframe" : 4.0,
+      "timeframe" : 2
+    } ],
+    "appliances" : [ {
+      "id" : "treadmill",
+      "resourceUsages" : [ {
+        "resourceName" : "power",
+        "usagePerTimeframe" : 4.0,
+        "timeframe" : 1
+      }, {
+        "resourceName" : "oxygen",
+        "usagePerTimeframe" : 0.0,
+        "timeframe" : 1
+      }, {
+        "resourceName" : "food",
+        "usagePerTimeframe" : 1.0,
+        "timeframe" : 1
+      }, {
+        "resourceName" : "water",
+        "usagePerTimeframe" : 1.0,
+        "timeframe" : 1
+      } ],
+      "totalResourceUsages" : [ {
+        "resourceName" : "power",
+        "totalUsage" : 0.0,
+        "totalDailyUsage" : 0.0
+      }, {
+        "resourceName" : "oxygen",
+        "totalUsage" : 0.0,
+        "totalDailyUsage" : 0.0
+      }, {
+        "resourceName" : "food",
+        "totalUsage" : 0.0,
+        "totalDailyUsage" : 0.0
+      }, {
+        "resourceName" : "water",
+        "totalUsage" : 0.0,
+        "totalDailyUsage" : 0.0
+      } ],
+      "inUse" : false
+    }, {
+      "id" : "elliptical",
+      "resourceUsages" : [ {
+        "resourceName" : "power",
+        "usagePerTimeframe" : 4.0,
+        "timeframe" : 1
+      }, {
+        "resourceName" : "oxygen",
+        "usagePerTimeframe" : 0.0,
+        "timeframe" : 1
+      }, {
+        "resourceName" : "food",
+        "usagePerTimeframe" : 1.0,
+        "timeframe" : 1
+      }, {
+        "resourceName" : "water",
+        "usagePerTimeframe" : 1.0,
+        "timeframe" : 1
+      } ],
+      "totalResourceUsages" : [ {
+        "resourceName" : "power",
+        "totalUsage" : 0.0,
+        "totalDailyUsage" : 0.0
+      }, {
+        "resourceName" : "oxygen",
+        "totalUsage" : 0.0,
+        "totalDailyUsage" : 0.0
+      }, {
+        "resourceName" : "food",
+        "totalUsage" : 0.0,
+        "totalDailyUsage" : 0.0
+      }, {
+        "resourceName" : "water",
+        "totalUsage" : 0.0,
+        "totalDailyUsage" : 0.0
+      } ],
+      "inUse" : false
+    } ],
+    "astronauts" : [ ]
+  } ]
+}
