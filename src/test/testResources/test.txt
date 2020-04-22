@@ -1,0 +1,58 @@
+{
+  "users" : [ {
+    "id" : "aidan",
+    "resourceUsage" : [ {
+      "resourceName" : "oxygen",
+      "usagePerTimeframe" : 5.0,
+      "timeframe" : 1
+    }, {
+      "resourceName" : "food",
+      "usagePerTimeframe" : 3.0,
+      "timeframe" : 4
+    }, {
+      "resourceName" : "water",
+      "usagePerTimeframe" : 4.0,
+      "timeframe" : 2
+    } ]
+  }, {
+    "id" : "damion",
+    "resourceUsage" : [ {
+      "resourceName" : "oxygen",
+      "usagePerTimeframe" : 5.0,
+      "timeframe" : 1
+    }, {
+      "resourceName" : "food",
+      "usagePerTimeframe" : 3.0,
+      "timeframe" : 4
+    }, {
+      "resourceName" : "water",
+      "usagePerTimeframe" : 4.0,
+      "timeframe" : 2
+    } ]
+  }, {
+    "id" : "jolie",
+    "resourceUsage" : [ {
+      "resourceName" : "oxygen",
+      "usagePerTimeframe" : 5.0,
+      "timeframe" : 1
+    }, {
+      "resourceName" : "food",
+      "usagePerTimeframe" : 3.0,
+      "timeframe" : 4
+    }, {
+      "resourceName" : "water",
+      "usagePerTimeframe" : 4.0,
+      "timeframe" : 2
+    } ]
+  } ],
+  "resources" : [ {
+    "name" : "oxygen",
+    "amount" : 100.0
+  }, {
+    "name" : "food",
+    "amount" : 100.0
+  }, {
+    "name" : "water",
+    "amount" : 100.0
+  } ]
+}

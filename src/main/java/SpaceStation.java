@@ -22,30 +22,37 @@ public class SpaceStation {
         this.users = users;
     }
 
-    public ArrayList<Resource> getResources(){
-        return resources;
-    }
+        public ArrayList<Resource> getResources(){
+            return resources;
+        }
 
-    public void setResources(ArrayList<Resource> resources) {
-        this.resources = resources;
-    }
+        public void setResources(ArrayList<Resource> resources) {
+            this.resources = resources;
+        }
 
-    public void addUser(User userToAdd){
-        users.add(userToAdd);
-    }
+        public void addUser(User userToAdd){
+            users.add(userToAdd);
+        }
 
-    public void addResource(String resourceToAdd, double amountToAdd){
-        for(int i = 0; i < resources.size(); i++){
-            if(resources.get(i).getName().equals(resourceToAdd)){
-                resources.get(i).addAmount(amountToAdd);
-                return;
+        public void addResource(String resourceToAdd, double amountToAdd){
+        Resource resource=new Resource(resourceToAdd,amountToAdd);
+        int added=0;
+        for(Resource resource1:resources) {
+            if (resource1.getName().equalsIgnoreCase(resourceToAdd)) {
+                resource1.addAmount(amountToAdd);
+                added += 1;
             }
+            }
+
+        if(added==0){
+            resources.add(resource);
         }
     }
 
     public void addResource(Resource resourceToAdd){
         for(int i = 0; i < resources.size(); i++){
             if(resources.get(i).getName().equals(resourceToAdd.getName())){
+                resources.get(i).addAmount(resourceToAdd.getAmount());
                 return;
             }
         }

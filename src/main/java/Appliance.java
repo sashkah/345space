@@ -1,37 +1,21 @@
-public class Appliance {
+import java.util.ArrayList;
 
-    public String name;
-    String id;
-    String resourceUsage;
+public class Appliance extends User {
 
-    public Appliance(String nameIn,String idIn,String resourceUsageIn){
-        this.name = nameIn;
-        this.id = idIn;
-        this.resourceUsage = resourceUsageIn;
+    public boolean state;
+
+    public Appliance(boolean state){
+        this.state=state;
+    }
+    public void setResourceUsage(ArrayList<String> resourceUsage){
+        setResourceUsage(resourceUsage);
+    }
+    public void getResorceUsage(){
+        getResourceUsage();
+    }
+    public void setUsageLimit(){
 
     }
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getResourceUsage() {
-        return resourceUsage;
-    }
-
-    public void setResourceUsage(String resourceUsage) {
-        this.resourceUsage = resourceUsage;
-    }
 }

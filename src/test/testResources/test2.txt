@@ -1,0 +1,16 @@
+{
+  "users" : [ {
+    "id" : "aidan",
+    "resourceUsage" : null
+  }, {
+    "id" : "jolie",
+    "resourceUsage" : null
+  } ],
+  "resources" : [ {
+    "name" : "food",
+    "amount" : 100.0
+  }, {
+    "name" : "water",
+    "amount" : 100.0
+  } ]
+}

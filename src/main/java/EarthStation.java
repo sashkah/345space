@@ -33,8 +33,9 @@ public class EarthStation {
         this.managedStation = managedStation;
     }
 
-    public void sendResource(Resource resourceToSend) {
-        Payload resourcePackage = new Payload();
+    public Payload sendResource(ArrayList<Resource> resourcesToSend, int startTime, int tripLength) {
+        Payload resourcePackage = new Payload(startTime, tripLength, resourcesToSend);
+        return resourcePackage;
     }
 
 }
