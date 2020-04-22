@@ -46,6 +46,7 @@ public class SpaceStation {
     public void addResource(Resource resourceToAdd){
         for(int i = 0; i < resources.size(); i++){
             if(resources.get(i).getName().equals(resourceToAdd.getName())){
+                resources.get(i).addAmount(resourceToAdd.getAmount());
                 return;
             }
         }
