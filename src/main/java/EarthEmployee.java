@@ -9,9 +9,17 @@ public class EarthEmployee {
     private EarthStation earthStation;
     public ArrayList<Resource> blockedResources;
 
+    public EarthEmployee(){}
+
     public EarthEmployee(String employeeIdIn, EarthStation earthStationIn){
         this.employeeId=employeeIdIn;
         this.earthStation=earthStationIn;
+        this.blockedResources=new ArrayList<Resource>();
+    }
+
+    public EarthEmployee(String employeeIdIn){
+        this.employeeId=employeeIdIn;
+        this.earthStation=null;
         this.blockedResources=new ArrayList<Resource>();
     }
 

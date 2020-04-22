@@ -16,7 +16,7 @@ public class payloadTest {
         Resource water = new Resource("water", 2900);
         resourceList.add(water);
         SpaceStation myStation = new SpaceStation(userlist, resourceList);
-        ArrayList<User> employee = null;
+        ArrayList<EarthEmployee> employee = null;
         EarthStation newStationE = new EarthStation(myStation, employee);
         Resource newWater = new Resource("water", 29);
         ArrayList<Resource> cargo = new ArrayList<Resource>();

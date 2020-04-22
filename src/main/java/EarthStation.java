@@ -2,18 +2,18 @@ import java.util.ArrayList;
 
 public class EarthStation {
     private SpaceStation managedStation;
-    private ArrayList<User> employees;
+    private ArrayList<EarthEmployee> employees;
 
     public EarthStation(){
 
     }
 
-    public EarthStation(SpaceStation stationToManage, ArrayList<User> employeesToAdd){
+    public EarthStation(SpaceStation stationToManage, ArrayList<EarthEmployee> employeesToAdd){
         managedStation = stationToManage;
         employees = employeesToAdd;
     }
 
-    public ArrayList<User> getEmployees() {
+    public ArrayList<EarthEmployee> getEmployees() {
         return employees;
     }
 
@@ -21,11 +21,11 @@ public class EarthStation {
         return managedStation;
     }
 
-    public void setEmployees(ArrayList<User> employees) {
+    public void setEmployees(ArrayList<EarthEmployee> employees) {
         this.employees = employees;
     }
 
-    public void addEmployee(User employee){
+    public void addEmployee(EarthEmployee employee){
         this.employees.add(employee);
     }
 
