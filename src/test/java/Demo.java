@@ -90,6 +90,10 @@ public class Demo {
         //Creates a SpaceStation object from file
         SpaceStation myStation = ReadFromFile.createSpaceStation("src/main/resources/DemoFile.txt");
         Environment myEnviro = new Environment(myStation);
+        //
+        // This bottom function runs the sim, adjust numHours to change how long you want it to run for
+        // The sleepTime function will wait between cycles by that value in milliseconds
+        //
         myEnviro.runLoop(25, 250, true);
 
     }
