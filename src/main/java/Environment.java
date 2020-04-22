@@ -35,9 +35,9 @@ public class Environment {
         while(isRunning){
             if(print) {
                 System.out.println("\n");
-                System.out.println("Time: " + timeCounter);
+                System.out.print("[" + timeCounter + "] ");
                 for (int i = 0; i < localStation.getResources().size(); i++) {
-                    System.out.println(localStation.getResources().get(i).getName() + ": " + localStation.getResources().get(i).getAmount());
+                    System.out.print(localStation.getResources().get(i).getName() + ": " + localStation.getResources().get(i).getAmount() + " | ");
                 }
                 System.out.println("\n");
             }
@@ -67,6 +67,9 @@ public class Environment {
                 System.out.println(randomEvent());
             }
             nextStep();
+            if(print){
+                System.out.println("\n-------------------------------------------------------");
+            }
             Thread.sleep(sleepTime);
         }
     }
