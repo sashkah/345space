@@ -18,6 +18,7 @@ public class Astronaut extends User{
 
     public void changeRoom(Room newRoom){
         currentRoom = newRoom;
+        currentAppliance = null;
     }
 
     public void useAppliance(Appliance newAppliance){

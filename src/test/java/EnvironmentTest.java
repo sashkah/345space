@@ -46,4 +46,65 @@ public class EnvironmentTest {
         Assert.assertTrue(myStation2.getResources().get(1).getAmount() == 384);
 
     }
+
+    @Test
+    void RandomEventTest() {
+        Astronaut astronaut1  = new Astronaut("jolie", null, null);
+        Astronaut astronaut2 = new Astronaut("aidan", null, null);
+        Astronaut astronaut3 = new Astronaut("damion", null, null);
+        Astronaut astronaut4 = new Astronaut("kandace", null, null);
+        Astronaut astronaut5 = new Astronaut("toby", null, null);
+        Resource res1 = new Resource("food", 100);
+        Resource res2 = new Resource("water", 100);
+
+        Appliance app1 = new Appliance("coffee machine", "coffee machine", "null");
+        Appliance app2 = new Appliance("blender", "blender", "null");
+        Appliance app3 = new Appliance("toilet", "toilet", "null");
+        Appliance app4 = new Appliance("shower", "shower", "null");
+        Appliance app5 = new Appliance("treadmill", "treadmill", "null");
+        Appliance app6 = new Appliance("elliptical", "elliptical", "null");
+        ArrayList<Appliance> apps1 = new ArrayList<Appliance>();
+        apps1.add(app1);
+        apps1.add(app2);
+        ArrayList<Appliance> apps2 = new ArrayList<Appliance>();
+        apps2.add(app3);
+        apps2.add(app4);
+        ArrayList<Appliance> apps3 = new ArrayList<Appliance>();
+        apps3.add(app5);
+        apps3.add(app6);
+
+        Room room1 = new Room("kitchen 1", 100, "kitchen", null, apps1, new ArrayList<Astronaut>());
+        Room room2 = new Room("bathroom 1", 50, "bathroom", null, apps2, new ArrayList<Astronaut>());
+        Room room3 = new Room("gym 1", 100, "gym", null, apps3, new ArrayList<Astronaut>());
+
+        ArrayList<Astronaut> astronauts = new ArrayList<Astronaut>();
+        astronauts.add(astronaut1);
+        astronauts.add(astronaut2);
+        astronauts.add(astronaut3);
+        astronauts.add(astronaut4);
+        astronauts.add(astronaut5);
+        ArrayList<Resource> resources = new ArrayList<Resource>();
+        resources.add(res1);
+        resources.add(res2);
+        ArrayList<Room> rooms = new ArrayList<Room>();
+        rooms.add(room1);
+        rooms.add(room2);
+        rooms.add(room3);
+        SpaceStation station = new SpaceStation(astronauts, resources, rooms);
+
+        Environment myEnviro = new Environment(station);
+        System.out.println(myEnviro.randomEvent());
+        System.out.println(myEnviro.randomEvent());
+        System.out.println(myEnviro.randomEvent());
+        System.out.println(myEnviro.randomEvent());
+        System.out.println(myEnviro.randomEvent());
+        System.out.println(myEnviro.randomEvent());
+        System.out.println(myEnviro.randomEvent());
+        System.out.println(myEnviro.randomEvent());
+        System.out.println(myEnviro.randomEvent());
+        System.out.println(myEnviro.randomEvent());
+
+    }
+
+
 }

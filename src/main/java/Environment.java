@@ -44,4 +44,33 @@ public class Environment {
         }
         // This is very ugly code rn, I will make it prettier...
     }
+
+    public String randomEvent() {
+        Astronaut eventAstronaut = localStation.getRandAstronaut();
+        Room eventRoom = localStation.getRandRoom();
+        String s = "";
+
+        if(eventAstronaut.getCurrentRoom() == null || eventAstronaut.getCurrentRoom() != eventRoom) {
+            eventAstronaut.changeRoom(eventRoom);
+            s += eventAstronaut.getId() + " moved to " + eventRoom.getName() + " ";
+            Appliance eventAppliance = eventRoom.getRandAppliance();
+            if(eventAstronaut.getCurrentAppliance() == null || eventAstronaut.getCurrentAppliance() != eventAppliance) {
+                eventAstronaut.useAppliance(eventAppliance);
+                s += "and started using " + eventAppliance.getId() + ".";
+            }
+        }
+        else {
+            Appliance eventAppliance = eventRoom.getRandAppliance();
+            if(eventAstronaut.getCurrentAppliance() == null || eventAstronaut.getCurrentAppliance() != eventAppliance) {
+                eventAstronaut.useAppliance(eventAppliance);
+                s += eventAstronaut.getId() + " started using " + eventAppliance.getId() + ".";
+            }
+            else {
+                s += eventAstronaut.getId() + " stopped using " + eventAstronaut.getCurrentAppliance().getId() + ".";
+                eventAstronaut.useAppliance(null);
+            }
+        }
+        return s;
+    }
+
 }

@@ -26,27 +26,3 @@
     "passiveResourceUsages" : null,
     "appliances" : null,
     "astronauts" : null
-  }, {
-    "name" : "bathroom 1",
-    "volume" : 50.0,
-    "type" : "bathroom",
-    "passiveResourceUsages" : null,
-    "appliances" : null,
-    "astronauts" : null
-  } ],
-  "randAstronaut" : {
-    "id" : "jolie",
-    "resourceUsage" : null,
-    "resourceLimits" : null,
-    "currentRoom" : null,
-    "currentAppliance" : null
-  },
-  "randRoom" : {
-    "name" : "kitchen 1",
-    "volume" : 100.0,
-    "type" : "kitchen",
-    "passiveResourceUsages" : null,
-    "appliances" : null,
-    "astronauts" : null
-  }
-}
