@@ -36,4 +36,8 @@ public class TotalResourceUsage {
         this.setTotalDailyUsage(0);
     }
 
+    public String toString() {
+        return resourceName + " " + totalUsage + " " + totalDailyUsage;
+    }
+
 }

@@ -72,13 +72,13 @@ public class SpaceStation {
         return s;
     }
 
-    public Astronaut getRandAstronaut() {
+    public Astronaut selectRandAstronaut() {
         Random rand = new Random();
         int randInt = rand.nextInt(this.astronauts.size());
         return astronauts.get(randInt);
     }
 
-    public Room getRandRoom() {
+    public Room selectRandRoom() {
         Random rand = new Random();
         int randInt = rand.nextInt(this.rooms.size());
         return rooms.get(randInt);

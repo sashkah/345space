@@ -28,3 +28,12 @@
     "passiveResourceUsages" : null,
     "appliances" : null,
     "astronauts" : null
+  }, {
+    "name" : "bathroom 1",
+    "volume" : 50.0,
+    "type" : "bathroom",
+    "passiveResourceUsages" : null,
+    "appliances" : null,
+    "astronauts" : null
+  } ]
+}

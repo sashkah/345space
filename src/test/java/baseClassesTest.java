@@ -33,7 +33,7 @@ public class baseClassesTest {
         Astronaut myAstronaut3 = new Astronaut("789", null, null, null);
         myStation.addAstronaut(myAstronaut2);
         myStation.addAstronaut(myAstronaut3);
-        Astronaut tempAstronaut = myStation.getRandAstronaut();
+        Astronaut tempAstronaut = myStation.selectRandAstronaut();
         Assert.assertTrue(myStation.getAstronauts().contains(tempAstronaut));
 
         //getRandRoom test
@@ -43,7 +43,7 @@ public class baseClassesTest {
         myStation.addRoom(room1);
         myStation.addRoom(room2);
         myStation.addRoom(room3);
-        Room tempRoom = myStation.getRandRoom();
+        Room tempRoom = myStation.selectRandRoom();
         Assert.assertTrue(myStation.getRooms().contains(tempRoom));
 
     }
@@ -71,7 +71,7 @@ public class baseClassesTest {
         apps.add(app2);
         apps.add(app3);
         Room room = new Room("room", 100, "room", null, apps, null);
-        Appliance tempApp = room.getRandAppliance();
+        Appliance tempApp = room.selectRandAppliance();
         Assert.assertTrue(room.getAppliances().contains(tempApp));
     }
 

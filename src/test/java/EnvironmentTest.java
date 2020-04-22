@@ -25,7 +25,7 @@ public class EnvironmentTest {
         myStation.addResource(water);
 
         //Creates an identical SpaceStation object from file
-        SpaceStation myStation2 = ReadFromFile.createSpaceStation("src/main/resources/test3.txt");
+        SpaceStation myStation2 = ReadFromFile.createSpaceStation("src/main/resources/test.txt");
         //System.out.println(myStation2.getUsers().toString());
         //System.out.println(myStation2.getResources().toString());
 

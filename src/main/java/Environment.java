@@ -46,21 +46,21 @@ public class Environment {
     }
 
     public String randomEvent() {
-        Astronaut eventAstronaut = localStation.getRandAstronaut();
-        Room eventRoom = localStation.getRandRoom();
+        Astronaut eventAstronaut = localStation.selectRandAstronaut();
+        Room eventRoom = localStation.selectRandRoom();
         String s = "";
 
         if(eventAstronaut.getCurrentRoom() == null || eventAstronaut.getCurrentRoom() != eventRoom) {
             eventAstronaut.changeRoom(eventRoom);
             s += eventAstronaut.getId() + " moved to " + eventRoom.getName() + " ";
-            Appliance eventAppliance = eventRoom.getRandAppliance();
+            Appliance eventAppliance = eventRoom.selectRandAppliance();
             if(eventAppliance.getInUse() == false && (eventAstronaut.getCurrentAppliance() == null || eventAstronaut.getCurrentAppliance() != eventAppliance)) {
                 eventAstronaut.useAppliance(eventAppliance);
                 s += "and started using " + eventAppliance.getId() + ".";
             }
         }
         else {
-            Appliance eventAppliance = eventRoom.getRandAppliance();
+            Appliance eventAppliance = eventRoom.selectRandAppliance();
             if(eventAstronaut.getCurrentAppliance() == null || eventAstronaut.getCurrentAppliance() != eventAppliance) {
                 eventAstronaut.useAppliance(eventAppliance);
                 s += eventAstronaut.getId() + " started using " + eventAppliance.getId() + ".";

@@ -13,8 +13,7 @@ public class Room {
     public Room() {
     }
 
-    public Room(String nameIn, double volumeIn, String typeIn, ArrayList<ResourceUsage> passiveResourceUsagesIn,
-    ArrayList<Appliance> appliancesIn, ArrayList<Astronaut> astronautsIn) {
+    public Room(String nameIn, double volumeIn, String typeIn, ArrayList<ResourceUsage> passiveResourceUsagesIn, ArrayList<Appliance> appliancesIn, ArrayList<Astronaut> astronautsIn) {
         this.name = nameIn;
         this.volume = volumeIn;
         this.type = typeIn;
@@ -61,7 +60,7 @@ public class Room {
         return name + " " + volume + " " + type + " " + passiveResourceUsages + " " + appliances + " " + astronauts;
     }
 
-    public Appliance getRandAppliance() {
+    public Appliance selectRandAppliance() {
         Random rand = new Random();
         int randInt = rand.nextInt(this.appliances.size());
         return appliances.get(randInt);
