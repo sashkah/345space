@@ -58,6 +58,12 @@ public class EarthEmployee {
         earthStation.getManagedStation().getResources().remove(removeSource);
         return resourceName+" was blocked for usage.";
     }
+
+    public String sendResources(String resourceName, double amount){
+
+        return null;
+    }
+
 //        public void unBlockResource(String resourceName,double amount){
 //
 //        for(Resource blocked:blockedResources){
