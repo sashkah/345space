@@ -1,0 +1,14 @@
+{
+  "id" : "waste manager",
+  "resourceUsages" : [ {
+    "resourceName" : "power",
+    "usagePerTimeframe" : 2.0,
+    "timeframe" : 1
+  }, {
+    "resourceName" : "waste",
+    "usagePerTimeframe" : 1.0,
+    "timeframe" : 2
+  } ],
+  "totalResourceUsages" : [ ],
+  "inUse" : false
+}

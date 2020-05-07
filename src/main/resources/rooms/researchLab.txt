@@ -1,0 +1,39 @@
+{
+  "name" : "Research Lab",
+  "volume" : 100.0,
+  "type" : "Lab",
+  "passiveResourceUsages" : [ {
+    "resourceName" : "power",
+    "usagePerTimeframe" : 1.0,
+    "timeframe" : 1
+  } ],
+  "appliances" : [ {
+    "id" : "Research Station",
+    "resourceUsages" : [ {
+      "resourceName" : "power",
+      "usagePerTimeframe" : 3.0,
+      "timeframe" : 1
+    } ],
+    "totalResourceUsages" : [ ],
+    "inUse" : false
+  }, {
+    "id" : "Research Station",
+    "resourceUsages" : [ {
+      "resourceName" : "power",
+      "usagePerTimeframe" : 3.0,
+      "timeframe" : 1
+    } ],
+    "totalResourceUsages" : [ ],
+    "inUse" : false
+  }, {
+    "id" : "computer",
+    "resourceUsages" : [ {
+      "resourceName" : "power",
+      "usagePerTimeframe" : 1.0,
+      "timeframe" : 1
+    } ],
+    "totalResourceUsages" : [ ],
+    "inUse" : false
+  } ],
+  "astronauts" : [ ]
+}

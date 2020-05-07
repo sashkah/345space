@@ -1,0 +1,10 @@
+{
+  "id" : "exercise equipment",
+  "resourceUsages" : [ {
+    "resourceName" : "power",
+    "usagePerTimeframe" : 2.0,
+    "timeframe" : 1
+  } ],
+  "totalResourceUsages" : [ ],
+  "inUse" : false
+}

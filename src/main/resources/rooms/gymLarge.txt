@@ -1,0 +1,48 @@
+{
+  "name" : "Large Gym",
+  "volume" : 100.0,
+  "type" : "Gym",
+  "passiveResourceUsages" : [ {
+    "resourceName" : "power",
+    "usagePerTimeframe" : 1.0,
+    "timeframe" : 1
+  } ],
+  "appliances" : [ {
+    "id" : "exercise equipment",
+    "resourceUsages" : [ {
+      "resourceName" : "power",
+      "usagePerTimeframe" : 2.0,
+      "timeframe" : 1
+    } ],
+    "totalResourceUsages" : [ ],
+    "inUse" : false
+  }, {
+    "id" : "exercise equipment",
+    "resourceUsages" : [ {
+      "resourceName" : "power",
+      "usagePerTimeframe" : 2.0,
+      "timeframe" : 1
+    } ],
+    "totalResourceUsages" : [ ],
+    "inUse" : false
+  }, {
+    "id" : "exercise equipment",
+    "resourceUsages" : [ {
+      "resourceName" : "power",
+      "usagePerTimeframe" : 2.0,
+      "timeframe" : 1
+    } ],
+    "totalResourceUsages" : [ ],
+    "inUse" : false
+  }, {
+    "id" : "exercise equipment",
+    "resourceUsages" : [ {
+      "resourceName" : "power",
+      "usagePerTimeframe" : 2.0,
+      "timeframe" : 1
+    } ],
+    "totalResourceUsages" : [ ],
+    "inUse" : false
+  } ],
+  "astronauts" : [ ]
+}
