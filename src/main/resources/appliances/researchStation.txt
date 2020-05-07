@@ -1,0 +1,10 @@
+{
+  "id" : "Research Station",
+  "resourceUsages" : [ {
+    "resourceName" : "power",
+    "usagePerTimeframe" : 3.0,
+    "timeframe" : 1
+  } ],
+  "totalResourceUsages" : [ ],
+  "inUse" : false
+}

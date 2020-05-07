@@ -1,0 +1,39 @@
+{
+  "name" : "Common Area",
+  "volume" : 100.0,
+  "type" : "Common Area",
+  "passiveResourceUsages" : [ {
+    "resourceName" : "power",
+    "usagePerTimeframe" : 1.0,
+    "timeframe" : 1
+  } ],
+  "appliances" : [ {
+    "id" : "couch",
+    "resourceUsages" : [ {
+      "resourceName" : "oxygen",
+      "usagePerTimeframe" : 0.0,
+      "timeframe" : 1
+    } ],
+    "totalResourceUsages" : [ ],
+    "inUse" : false
+  }, {
+    "id" : "couch",
+    "resourceUsages" : [ {
+      "resourceName" : "oxygen",
+      "usagePerTimeframe" : 0.0,
+      "timeframe" : 1
+    } ],
+    "totalResourceUsages" : [ ],
+    "inUse" : false
+  }, {
+    "id" : "TV",
+    "resourceUsages" : [ {
+      "resourceName" : "power",
+      "usagePerTimeframe" : 1.0,
+      "timeframe" : 1
+    } ],
+    "totalResourceUsages" : [ ],
+    "inUse" : false
+  } ],
+  "astronauts" : [ ]
+}

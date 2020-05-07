@@ -1,0 +1,10 @@
+{
+  "id" : "TV",
+  "resourceUsages" : [ {
+    "resourceName" : "power",
+    "usagePerTimeframe" : 1.0,
+    "timeframe" : 1
+  } ],
+  "totalResourceUsages" : [ ],
+  "inUse" : false
+}

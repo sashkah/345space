@@ -1,3 +1,4 @@
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import edu.ithaca.dragon.util.JsonUtil;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -167,6 +168,33 @@ public class ReadFromFileTest {
 
         JsonUtil.toJsonFile("SpaceStationFormat", myStation);
 
+    }
+
+    @Test
+    void roomToJSON() throws IOException{
+        ArrayList<ResourceUsage> passiveResourceUsage = new ArrayList<ResourceUsage>();
+        ResourceUsage use1 = new ResourceUsage("power", 1, 1);
+        passiveResourceUsage.add(use1);
+        ArrayList<Appliance> appliances = new ArrayList<Appliance>();
+        Appliance oxygen = JsonUtil.fromJsonFile("src\\main\\resources\\appliances\\oxygenScrubber.txt", Appliance.class);
+        Appliance shower2 = JsonUtil.fromJsonFile("src\\main\\resources\\appliances\\wasteManager.txt", Appliance.class);
+        Appliance shower3 = JsonUtil.fromJsonFile("src\\main\\resources\\appliances\\shower.txt", Appliance.class);
+        Appliance shower4 = JsonUtil.fromJsonFile("src\\main\\resources\\appliances\\shower.txt", Appliance.class);
+        appliances.add(oxygen);
+        appliances.add(shower2);
+        Room newRoom = new Room("Resource Manager", 100, "Resource", passiveResourceUsage, appliances, new ArrayList<Astronaut>());
+        JsonUtil.toJsonFile("src\\main\\resources\\rooms\\resourceManager.txt", newRoom);
+    }
+
+    @Test
+    void applianceToJSON() throws IOException{
+        ArrayList<ResourceUsage> passiveResourceUsage = new ArrayList<ResourceUsage>();
+        ResourceUsage use1 = new ResourceUsage("power", 1, 1);
+        ResourceUsage use2 = new ResourceUsage("food", 2, 1);
+        passiveResourceUsage.add(use1);
+        passiveResourceUsage.add(use2);
+        Appliance newAppliance = new Appliance("food prep station", passiveResourceUsage, new ArrayList<TotalResourceUsage>());
+        JsonUtil.toJsonFile("src\\main\\resources\\appliances\\foodPrepStation.txt", newAppliance);
     }
 
 }

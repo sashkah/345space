@@ -1,0 +1,14 @@
+{
+  "id" : "shower",
+  "resourceUsages" : [ {
+    "resourceName" : "water",
+    "usagePerTimeframe" : 3.0,
+    "timeframe" : 1
+  }, {
+    "resourceName" : "power",
+    "usagePerTimeframe" : 1.0,
+    "timeframe" : 1
+  } ],
+  "totalResourceUsages" : [ ],
+  "inUse" : false
+}

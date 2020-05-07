@@ -1,0 +1,14 @@
+{
+  "id" : "food prep station",
+  "resourceUsages" : [ {
+    "resourceName" : "power",
+    "usagePerTimeframe" : 1.0,
+    "timeframe" : 1
+  }, {
+    "resourceName" : "food",
+    "usagePerTimeframe" : 2.0,
+    "timeframe" : 1
+  } ],
+  "totalResourceUsages" : [ ],
+  "inUse" : false
+}

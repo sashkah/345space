@@ -1,0 +1,64 @@
+{
+  "name" : "Showers",
+  "volume" : 100.0,
+  "type" : "Bathroom",
+  "passiveResourceUsages" : [ {
+    "resourceName" : "power",
+    "usagePerTimeframe" : 1.0,
+    "timeframe" : 1
+  } ],
+  "appliances" : [ {
+    "id" : "shower",
+    "resourceUsages" : [ {
+      "resourceName" : "water",
+      "usagePerTimeframe" : 3.0,
+      "timeframe" : 1
+    }, {
+      "resourceName" : "power",
+      "usagePerTimeframe" : 1.0,
+      "timeframe" : 1
+    } ],
+    "totalResourceUsages" : [ ],
+    "inUse" : false
+  }, {
+    "id" : "shower",
+    "resourceUsages" : [ {
+      "resourceName" : "water",
+      "usagePerTimeframe" : 3.0,
+      "timeframe" : 1
+    }, {
+      "resourceName" : "power",
+      "usagePerTimeframe" : 1.0,
+      "timeframe" : 1
+    } ],
+    "totalResourceUsages" : [ ],
+    "inUse" : false
+  }, {
+    "id" : "shower",
+    "resourceUsages" : [ {
+      "resourceName" : "water",
+      "usagePerTimeframe" : 3.0,
+      "timeframe" : 1
+    }, {
+      "resourceName" : "power",
+      "usagePerTimeframe" : 1.0,
+      "timeframe" : 1
+    } ],
+    "totalResourceUsages" : [ ],
+    "inUse" : false
+  }, {
+    "id" : "shower",
+    "resourceUsages" : [ {
+      "resourceName" : "water",
+      "usagePerTimeframe" : 3.0,
+      "timeframe" : 1
+    }, {
+      "resourceName" : "power",
+      "usagePerTimeframe" : 1.0,
+      "timeframe" : 1
+    } ],
+    "totalResourceUsages" : [ ],
+    "inUse" : false
+  } ],
+  "astronauts" : [ ]
+}

@@ -1,0 +1,14 @@
+{
+  "id" : "Oxygen Scrubber",
+  "resourceUsages" : [ {
+    "resourceName" : "oxygen",
+    "usagePerTimeframe" : -3.0,
+    "timeframe" : 1
+  }, {
+    "resourceName" : "power",
+    "usagePerTimeframe" : 3.0,
+    "timeframe" : 1
+  } ],
+  "totalResourceUsages" : [ ],
+  "inUse" : false
+}

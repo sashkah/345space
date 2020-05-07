@@ -1,0 +1,39 @@
+{
+  "name" : "Small Sleeping Room",
+  "volume" : 100.0,
+  "type" : "Sleeping Room",
+  "passiveResourceUsages" : [ {
+    "resourceName" : "power",
+    "usagePerTimeframe" : 1.0,
+    "timeframe" : 1
+  } ],
+  "appliances" : [ {
+    "id" : "bed",
+    "resourceUsages" : [ {
+      "resourceName" : "oxygen",
+      "usagePerTimeframe" : 0.0,
+      "timeframe" : 1
+    } ],
+    "totalResourceUsages" : [ ],
+    "inUse" : false
+  }, {
+    "id" : "bed",
+    "resourceUsages" : [ {
+      "resourceName" : "oxygen",
+      "usagePerTimeframe" : 0.0,
+      "timeframe" : 1
+    } ],
+    "totalResourceUsages" : [ ],
+    "inUse" : false
+  }, {
+    "id" : "bed",
+    "resourceUsages" : [ {
+      "resourceName" : "oxygen",
+      "usagePerTimeframe" : 0.0,
+      "timeframe" : 1
+    } ],
+    "totalResourceUsages" : [ ],
+    "inUse" : false
+  } ],
+  "astronauts" : [ ]
+}
