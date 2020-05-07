@@ -25,7 +25,7 @@ public class payloadTest {
         ArrayList<Payload> thisOne = new ArrayList<Payload>();
         thisOne.add(newPayload);
         Environment myEnviro = new Environment(myStation, newStationE, thisOne);
-        myEnviro.runLoop(10, 100, true);
+        myEnviro.runLoop(10, 100, true, 11);
 
     }
 }
