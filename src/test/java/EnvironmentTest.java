@@ -38,8 +38,9 @@ public class EnvironmentTest {
 //        Environment myEnviro = new Environment(myStation);
 //        myEnviro.runLoop(20, 250, false);
         //System.out.println("spacestation from file");
-        Environment myEnviro2 = new Environment(myStation2);
-        myEnviro2.runLoop(25, 250, true);
+        EarthStation station = new EarthStation(myStation2, null);
+        Environment myEnviro2 = new Environment(myStation2, station);
+        myEnviro2.runLoop(25, 250, true, 2);
 
         //passes if resources depleted properly
         //Assert.assertTrue(myStation.getResources().get(1).getAmount() == 384);
