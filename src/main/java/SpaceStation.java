@@ -86,6 +86,19 @@ public class SpaceStation {
         return s;
     }
 
+    public static ArrayList<String> resourceList(SpaceStation station) {
+        ArrayList<String> resourceList = new ArrayList<>();
+        for (int i = 0; i < station.getRooms().size(); i++) {
+            for (int j = 0; j < station.getRooms().get(i).getAppliances().size(); j++) {
+                if (!resourceList.contains(station.getRooms().get(i).getAppliances().get(j).getId())) {
+                    resourceList.add(station.getRooms().get(i).getAppliances().get(j).getId());
+                }
+            }
+        }
+        return resourceList;
+    }
+
+
     public Astronaut selectRandAstronaut() {
         Random rand = new Random();
         int randInt = rand.nextInt(this.astronauts.size());
