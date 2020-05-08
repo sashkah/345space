@@ -264,7 +264,7 @@ public class UserInterface {
                     System.out.println("How much?");
                     input2 = in.nextLine();
                     try{
-                        numResource = Integer.parseInt(input);
+                        numResource = Integer.parseInt(input2);
                         done = true;
                     }
                     catch(NumberFormatException e){
@@ -272,7 +272,7 @@ public class UserInterface {
                     }
                 }
                 ArrayList<Resource> temp = new ArrayList<>();
-                temp.add(new Resource(input, numResource));
+                temp.add(new Resource(input2, numResource));
                 Payload payload = new Payload(environment.getTimeCounter(), 5, temp);
                 environment.recievePayload(payload);
                 pauseDone = true;
