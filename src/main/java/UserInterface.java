@@ -185,4 +185,31 @@ public class UserInterface {
         return myStation;
     }
 
+    public static void whilePaused() {
+        boolean pauseDone = false;
+        while(!pauseDone) {
+            System.out.println("Enter a command (type help for a list of commands, or press enter to continue):");
+            Scanner scan = new Scanner(System.in);
+            String cmd = scan.nextLine();
+            if (cmd.equalsIgnoreCase("help")) {
+
+            } else if (cmd.equalsIgnoreCase("")) {
+                pauseDone = true;
+            } else if (cmd.equalsIgnoreCase("send")) {
+
+            } else if (cmd.equalsIgnoreCase("save")) {
+
+            } else if (cmd.equalsIgnoreCase("info")) {
+
+            } else if (cmd.equalsIgnoreCase("restrict")) {
+
+            } else if (cmd.equalsIgnoreCase("skip")) {
+
+            } else {
+
+            }
+        }
+
+    }
+
 }
