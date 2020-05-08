@@ -1,6 +1,8 @@
 import edu.ithaca.dragon.util.JsonUtil;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Random;
 
 public class UserInterface {
     public static void main(String[] args) throws InterruptedException, IOException {
@@ -20,7 +22,7 @@ public class UserInterface {
             } else if (input.equals("2")) {
                 done = true;
                 myStation = randomSpaceStation();
-                myStation.displayRooms();
+                System.out.println("Station contains: " + myStation.displayRooms());
             } else if (input.equals("3")) {
                 done = true;
                 myStation = manualSpaceStation();
@@ -83,15 +85,35 @@ public class UserInterface {
         return defaultStation;
     }
 
-    private static SpaceStation randomSpaceStation() {
-        return null;
+    private static SpaceStation randomSpaceStation() throws IOException {
+        SpaceStation myStation = new SpaceStation();
+        int roomNum = (int) (Math.random() * 15) + 1;
+        ArrayList<String> str = new ArrayList<>();
+        str.add("bathroomindividual");
+        str.add("commonArea");
+        str.add("gymLarge");
+        str.add("gymSmall");
+        str.add("individualKitchen");
+        str.add("kitchen");
+        str.add("researchLab");
+        str.add("resourceManager");
+        str.add("showers");
+        str.add("sleepingRoomLarge");
+        str.add("sleepingRoomSmall");
+
+        for(int i = 0; i<= roomNum; i++){
+            int r = (int) (Math.random() * 10);
+            Room newRoom = JsonUtil.fromJsonFile("src/main/resources/rooms/" + str.get(r) + ".txt", Room.class);
+            myStation.addRoom(newRoom);
+        }
+        return myStation;
     }
 
     private static SpaceStation manualSpaceStation() {
         boolean done = false;
         SpaceStation myStation = new SpaceStation();
         while(!done) {
-            System.out.println("Type the name of the room file you want to load from the directory: \nsrc\\main\\resources\\rooms\\\nExample: commonArea\nType 'done' to finish");
+            System.out.println("Type the name of the room file you want to load from the directory: \nsrc/main/resources/rooms/\nExample: commonArea\nType 'done' to finish");
             Scanner in = new Scanner(System.in);
             String input = in.nextLine();
             try {
@@ -99,7 +121,7 @@ public class UserInterface {
                     done = true;
                 }
                 else{
-                    Room newRoom = JsonUtil.fromJsonFile("src\\main\\resources\\rooms\\" + input + ".txt", Room.class);
+                    Room newRoom = JsonUtil.fromJsonFile("src/main/resources/rooms/" + input + ".txt", Room.class);
                     myStation.addRoom(newRoom);
                 }
 
