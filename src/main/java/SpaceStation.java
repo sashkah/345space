@@ -1,3 +1,8 @@
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -77,6 +82,7 @@ public class SpaceStation {
         for(Room r : this.getRooms()) {
             s += r.getName() + ", ";
         }
+        s = s.substring(0, s.length() - 2);
         return s;
     }
 
@@ -90,6 +96,12 @@ public class SpaceStation {
         Random rand = new Random();
         int randInt = rand.nextInt(this.rooms.size());
         return rooms.get(randInt);
+    }
+
+    public static void saveSpaceStation(String filename, SpaceStation objectToSerialize) throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.enable(SerializationFeature.INDENT_OUTPUT);
+        mapper.writeValue(new File(filename), objectToSerialize);
     }
 
 }

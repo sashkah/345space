@@ -55,7 +55,7 @@ public class ReadFromFileTest {
         //SpaceStation station = new SpaceStation(users, resources);
         SpaceStation station = new SpaceStation(astronauts, resources, rooms);
 
-        JsonUtil.toJsonFile("outFileUpdated", station);
+        SpaceStation.saveSpaceStation("outFileUpdated", station);
     }
 
     @Test
@@ -82,7 +82,7 @@ public class ReadFromFileTest {
         myStation.addResource(food);
         myStation.addResource(water);
 
-        JsonUtil.toJsonFile("outFile4", myStation);
+        SpaceStation.saveSpaceStation("joliefile", myStation);
     }
 
     /*@Test
@@ -166,7 +166,7 @@ public class ReadFromFileTest {
         myStation.addRoom(room2);
         myStation.addRoom(room3);
 
-        JsonUtil.toJsonFile("SpaceStationFormat", myStation);
+        SpaceStation.saveSpaceStation("SpaceStationFormat", myStation);
 
     }
 
