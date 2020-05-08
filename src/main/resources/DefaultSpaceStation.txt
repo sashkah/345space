@@ -1,18 +1,6 @@
 {
   "astronauts" : [ ],
-  "resources" : [ {
-    "name" : "power",
-    "amount" : 400.0
-  }, {
-    "name" : "oxygen",
-    "amount" : 500.0
-  }, {
-    "name" : "food",
-    "amount" : 100.0
-  }, {
-    "name" : "water",
-    "amount" : 200.0
-  } ],
+  "resources" : [],
   "rooms" : [ {
     "name" : "kitchen 1",
     "volume" : 200.0,
