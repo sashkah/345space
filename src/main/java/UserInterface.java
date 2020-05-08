@@ -109,7 +109,20 @@ public class UserInterface {
         }
         ArrayList<String> list = SpaceStation.resourceList(myStation);
         for (int i = 0; i < list.size(); i++){
-            myStation.addResource(SpaceStation.resourceList(myStation).get(i), 0);
+            done = false;
+            int num = 0;
+            while(!done){
+                System.out.println("How much " + SpaceStation.resourceList(myStation).get(i) + " do you want?");
+                input = in.nextLine();
+                try{
+                    num = Integer.parseInt(input);
+                    done = true;
+                }
+                catch(NumberFormatException e){
+                    System.out.println("Error: invalid input - please enter a number.");
+                }
+            }
+            myStation.addResource(SpaceStation.resourceList(myStation).get(i), num);
         }
         myEnvironment.runLoop(numHours, sleepTime, true, numStepsBetweenPause);
     }
