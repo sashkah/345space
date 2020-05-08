@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Test;
 
 import java.awt.desktop.SystemSleepEvent;
 import java.io.IOException;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 
 public class EarthEmployeeTest {
@@ -32,10 +34,38 @@ public class EarthEmployeeTest {
         earthStation.setManagedStation(spaceStation);
         Environment environment=new Environment(spaceStation,earthStation);
         EarthEmployee earthEmployee=new EarthEmployee("employeeTest1",earthStation);
+        ArrayList<Resource> resources=earthEmployee.getEarthStation().getManagedStation().getResources();
+        environment.runLoop(5,250,false);
 
-        environment.runLoop(5,250,true);
+        double oxygenAfterDepletion= resources.get(0).getAmount();
+        double foodAfterDepletion= resources.get(1).getAmount();
+        double waterAfterDepletion= resources.get(2).getAmount();
 
-        System.out.println(spaceStation.getResources().get(0).getName());//0-oxygen 1-food 2-water
+        earthEmployee.sendResource("oxygen",20);
+        Assert.assertEquals((oxygenAfterDepletion + 20), resources.get(0).getAmount(), 0.0);
+        earthEmployee.sendResource("oxygen",9);
+        Assert.assertEquals( "Amount should be 10 or greater",earthEmployee.sendResource("oxygen",9));
+
+        Assert.assertEquals((oxygenAfterDepletion + 20), resources.get(0).getAmount(), 0.0);
+        earthEmployee.sendResource("oxygen",-1.2);
+        Assert.assertEquals((oxygenAfterDepletion + 20), resources.get(0).getAmount(), 0.0);
+        earthEmployee.sendResource("oxygen",0);
+        Assert.assertEquals((oxygenAfterDepletion + 20), resources.get(0).getAmount(), 0.0);
+        earthEmployee.sendResource("oxygen",100);
+        Assert.assertEquals((oxygenAfterDepletion + 120), resources.get(0).getAmount(), 0.0);
+
+        earthEmployee.sendResource("food",20);
+        Assert.assertEquals((foodAfterDepletion + 20), resources.get(1).getAmount(), 0.0);
+
+        earthEmployee.sendResource("water",10);
+        Assert.assertEquals((waterAfterDepletion + 10), resources.get(2).getAmount(), 0.0);
+        Assert.assertEquals(3, resources.size());
+
+        Assert.assertEquals( "Resource not found",earthEmployee.sendResource("w",10));
+        Assert.assertEquals(3, resources.size());
+
+
+
 
 
 

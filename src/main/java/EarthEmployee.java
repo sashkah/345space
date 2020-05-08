@@ -59,9 +59,25 @@ public class EarthEmployee {
         return resourceName+" was blocked for usage.";
     }
 
-    public String sendResources(String resourceName, double amount){
+    public String sendResource(String resourceName, double amount){
+        boolean resourceFound=false;
 
-        return null;
+        for (Resource resources: earthStation.getManagedStation().getResources()) {
+            if (resources.getName().equals(resourceName))
+                resourceFound = true;
+        }
+
+        if(resourceFound) {
+            if (amount >= 10)
+                earthStation.getManagedStation().addResource(resourceName, amount);
+
+            else return "Amount should be 10 or greater";
+        }
+
+        else return "Resource not found";
+
+
+        return "Resource:" + resourceName + " Amount Sent:" + amount;
     }
 
 //        public void unBlockResource(String resourceName,double amount){
