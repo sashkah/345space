@@ -47,7 +47,7 @@ public class EarthEmployee {
         this.blockedResources = blockedResources;
     }
 
-    public String blockResource(String resourceName)throws IOException {//TODO?: ADD CHECKS STATEMENTS (if statements) FOR THE RESOURCE NAME ?
+    public String blockResource(String resourceName)throws IOException {
         Resource removeSource=new Resource();
         for (Resource resource : earthStation.getManagedStation().getResources()) {
             if (resource.getName().equalsIgnoreCase(resourceName)) {
@@ -80,14 +80,21 @@ public class EarthEmployee {
         return "Resource:" + resourceName + " Amount Sent:" + amount;
     }
 
-//        public void unBlockResource(String resourceName,double amount){
-//
-//        for(Resource blocked:blockedResources){
-//            if(blocked.getName().equalsIgnoreCase(resourceName)){
-//                blockedResources.remove(blocked);
-//                Resource addResource=blocked;
-//                earthStation.getManagedStation().addResource(addResource);
-//            }
-//        }
-//}
+    public void addNewResource(String resourceName, double amount){
+        Resource newResource=new Resource(resourceName,amount);
+        earthStation.getManagedStation().addResource(newResource);
+    }
+
+    public void restrictUserFromCurrentAppliance(String id){
+        ArrayList<Astronaut> astronauts=earthStation.getManagedStation().getAstronauts();
+        for(Astronaut astronaut:astronauts){
+            if(astronaut.getId().equals(id)){
+                if(astronaut.getCurrentAppliance()!=null) {
+                    astronaut.getCurrentAppliance().setInUse(false);
+                    System.out.println("Astronaut: " +id +" been stop from using Appliance:" + astronaut.getCurrentAppliance().getId());
+                }
+            }
+        }
+    }
+
 }

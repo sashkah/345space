@@ -1,10 +1,7 @@
-import edu.ithaca.dragon.util.JsonUtil;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
-import java.awt.desktop.SystemSleepEvent;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 
@@ -59,33 +56,27 @@ public class EarthEmployeeTest {
 
         earthEmployee.sendResource("water",10);
         Assert.assertEquals((waterAfterDepletion + 10), resources.get(2).getAmount(), 0.0);
-        Assert.assertEquals(3, resources.size());
 
+        Assert.assertEquals(3, resources.size());
         Assert.assertEquals( "Resource not found",earthEmployee.sendResource("w",10));
         Assert.assertEquals(3, resources.size());
 
+    }
 
+    @Test
+    void restrictResource()throws IOException{
+        SpaceStation spaceStation= ReadFromFile.createSpaceStation("src/main/resources/SpaceShip.txt");
 
+        EarthStation earthStation=new EarthStation();
+        earthStation.setManagedStation(spaceStation);
+        EarthEmployee earthEmployee=new EarthEmployee("employeeTest1",earthStation);
+        ArrayList<Appliance> appliances=earthEmployee.getEarthStation().getManagedStation().getRooms().get(0).getAppliances();
+        ArrayList<Astronaut> astronauts= earthEmployee.getEarthStation().getManagedStation().getAstronauts();
+        astronauts.get(0).useAppliance(appliances.get(0));
 
-
+        Assert.assertTrue(astronauts.get(0).getCurrentAppliance().getInUse());
+        earthEmployee.restrictUserFromCurrentAppliance(astronauts.get(0).getId());
+        Assert.assertEquals(false,astronauts.get(0).getCurrentAppliance().getInUse());
 
     }
-//    @Test
-//    void unBlockResourceTest() throws IOException{
-//        SpaceStation spaceStation= ReadFromFile.createSpaceStation("src/test/testResources/test4.txt");
-//
-//        EarthStation earthStation=new EarthStation();
-//        earthStation.setManagedStation(spaceStation);
-//        EarthEmployee earthEmployee=new EarthEmployee("employeeTest1",earthStation);
-//        earthEmployee.blockResource("Water");
-//        Assert.assertEquals(earthEmployee.getBlockedResources().get(0).getName(),"Water");
-//        Assert.assertEquals(1,spaceStation.getResources().size());
-//        Assert.assertEquals(1,earthEmployee.getBlockedResources().size());
-//        Assert.assertEquals(1, earthEmployee.getEarthStation().getManagedStation().getResources().size());
-//        earthEmployee.unBlockResource("Water", 100.0);
-//        Assert.assertEquals(2,spaceStation.getResources().size());
-//        Assert.assertEquals(0,earthEmployee.getBlockedResources().size());
-//        Assert.assertEquals(2, earthEmployee.getEarthStation().getManagedStation().getResources().size());
-//
-//    }
 }
