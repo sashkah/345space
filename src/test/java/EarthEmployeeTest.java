@@ -32,7 +32,7 @@ public class EarthEmployeeTest {
         Environment environment=new Environment(spaceStation,earthStation);
         EarthEmployee earthEmployee=new EarthEmployee("employeeTest1",earthStation);
         ArrayList<Resource> resources=earthEmployee.getEarthStation().getManagedStation().getResources();
-        environment.runLoop(5,250,false);
+        environment.runLoop(5,250,false, 6);
 
         double oxygenAfterDepletion= resources.get(0).getAmount();
         double foodAfterDepletion= resources.get(1).getAmount();
