@@ -185,21 +185,78 @@ public class UserInterface {
         return myStation;
     }
 
-    public static void whilePaused() {
+    public static void whilePaused(Environment environment) {
         boolean pauseDone = false;
         while(!pauseDone) {
             System.out.println("Enter a command (type help for a list of commands, or press enter to continue):");
             Scanner scan = new Scanner(System.in);
             String cmd = scan.nextLine();
             if (cmd.equalsIgnoreCase("help")) {
+                System.out.println("List of commands:");
+                System.out.println("\thelp:\n\t\tDisplays a list of all commands and their uses");
+                System.out.println("\tinfo:\n\t\tReturns an information report on the usages of all astronauts");
+                System.out.println("\tsave:\n\t\tSaves the current station and quits the sim");
+                System.out.println("\tsend:\n\t\tPrompts user to input details for a payload to be shipped to the station");
+                System.out.println("\tskip:\n\t\tPrompts the user for a number of turns to go without pausing");
+                System.out.println("\trestrict:\n\t\tPlaces a restriction on a user's resource usage");
 
             } else if (cmd.equalsIgnoreCase("")) {
                 pauseDone = true;
             } else if (cmd.equalsIgnoreCase("send")) {
+                boolean done = false;
+                Scanner in = new Scanner(System.in);
+                String input = null;
+                String input2 = null;
+                int numResource = 0;
+                while(!done){
+                    System.out.println("What resource are you sending?");
+                    input = in.nextLine();
+                    for(Resource resource:environment.getLocalStation().getResources()){
+                        if(resource.getName().equalsIgnoreCase(input)){
+                            done = true;
+                        }
+                    }
+                    if(!done){System.out.println("Error: invalid input - invalid resource");}
+                }
+                done = false;
+                while(!done){
+                    System.out.println("How much?");
+                    input2 = in.nextLine();
+                    try{
+                        numResource = Integer.parseInt(input);
+                        done = true;
+                    }
+                    catch(NumberFormatException e){
+                        System.out.println("Error: invalid input - please enter a number.");
+                    }
+                }
+                ArrayList<Resource> temp = new ArrayList<>();
+                temp.add(new Resource(input, numResource));
+                Payload payload = new Payload(environment.getTimeCounter(), 5, temp);
+                environment.recievePayload(payload);
+                pauseDone = true;
 
             } else if (cmd.equalsIgnoreCase("save")) {
+                boolean done = false;
+                String input = null;
+                Scanner in = new Scanner(System.in);
+                while(!done){
+                    System.out.println("Enter a filename:");
+                    input = in.nextLine();
+                    try{
+                        SpaceStation.saveSpaceStation(input, environment.getLocalStation());
+                        done = true;
+                        pauseDone = true;
+                        environment.close();
+                    }
+                    catch (Exception e){
+                        System.out.println("Error: invalid input - enter a valid filename");
+                    }
+                }
+
 
             } else if (cmd.equalsIgnoreCase("info")) {
+                environment.getEarthStation().viewResourceReport();
 
             } else if (cmd.equalsIgnoreCase("restrict")) {
 

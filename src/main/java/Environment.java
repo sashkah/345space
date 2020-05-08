@@ -44,6 +44,26 @@ public class Environment {
         isPaused = false;
     }
 
+    public void close(){
+        isRunning = false;
+    }
+
+    public SpaceStation getLocalStation(){
+        return localStation;
+    }
+
+    public EarthStation getEarthStation() {
+        return earthStation;
+    }
+
+    public int getTimeCounter() {
+        return timeCounter;
+    }
+
+    public void recievePayload(Payload payload){
+        cargoInTransit.add(payload);
+    }
+
     public void runLoop(int numHours, int sleepTime, boolean print, int numStepsBetweenPause) throws InterruptedException{
         while(isRunning){
             if(!isPaused) {
@@ -56,25 +76,25 @@ public class Environment {
                     }
                     System.out.println("\n");
                 }
-                ArrayList<Resource> cargo = new ArrayList<Resource>();
-                for (int i = 0; i < localStation.getResources().size(); i++) {
-                    outerloop:
-                    if (localStation.getResources().get(i).getAmount() <= 300) {
-                        for (int j = 0; j < cargoInTransit.size(); j++) {
-                            for (int k = 0; k < cargoInTransit.get(j).getCargo().size(); k++) {
-                                if (cargoInTransit.get(j).getCargo().get(k).getName() == localStation.getResources().get(i).getName()) {
-                                    break outerloop;
-                                }
-                            }
-                        }
-                        cargo.add(new Resource(localStation.getResources().get(i).getName(), 300));
-                    }
-                }
-                if (cargo.size() != 0) {
-                    Payload newPayload = new Payload(timeCounter, 10, cargo);
-                    cargoInTransit.add(newPayload);
-                    System.out.println("Earth station sent a payload containing: " + newPayload.getCargo());
-                }
+//                ArrayList<Resource> cargo = new ArrayList<Resource>();
+//                for (int i = 0; i < localStation.getResources().size(); i++) {
+//                    outerloop:
+//                    if (localStation.getResources().get(i).getAmount() <= 300) {
+//                        for (int j = 0; j < cargoInTransit.size(); j++) {
+//                            for (int k = 0; k < cargoInTransit.get(j).getCargo().size(); k++) {
+//                                if (cargoInTransit.get(j).getCargo().get(k).getName() == localStation.getResources().get(i).getName()) {
+//                                    break outerloop;
+//                                }
+//                            }
+//                        }
+//                        cargo.add(new Resource(localStation.getResources().get(i).getName(), 300));
+//                    }
+//                }
+//                if (cargo.size() != 0) {
+////                    Payload newPayload = new Payload(timeCounter, 10, cargo);
+////                    cargoInTransit.add(newPayload);
+////                    System.out.println("Earth station sent a payload containing: " + newPayload.getCargo());
+////                }
                 if (timeCounter % numHours == 0) {
                     isRunning = false;
                 }
@@ -92,7 +112,7 @@ public class Environment {
             }
             else{
                 //STUFF WHILE PROGRAM IS PAUSED GOES HERE
-                UserInterface.whilePaused();
+                UserInterface.whilePaused(this);
                 this.unpause();
             }
         }
