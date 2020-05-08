@@ -93,8 +93,8 @@ public class Environment {
             else{
                 //STUFF WHILE PROGRAM IS PAUSED GOES HERE
                 //test stuff:
-                System.out.println("paused!");
-                Thread.sleep(2000);
+                earthStation.viewResourceReport();
+                Thread.sleep(1000);
                 this.unpause();
             }
         }

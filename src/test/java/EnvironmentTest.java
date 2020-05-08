@@ -38,7 +38,8 @@ public class EnvironmentTest {
 //        Environment myEnviro = new Environment(myStation);
 //        myEnviro.runLoop(20, 250, false);
         //System.out.println("spacestation from file");
-        Environment myEnviro2 = new Environment(myStation2);
+        EarthStation station = new EarthStation(myStation2, null);
+        Environment myEnviro2 = new Environment(myStation2, station);
         myEnviro2.runLoop(25, 250, true, 2);
 
         //passes if resources depleted properly
