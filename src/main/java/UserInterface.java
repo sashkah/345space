@@ -100,7 +100,7 @@ public class UserInterface {
                 done = false;
                 int num = 0;
                 while (!done) {
-                    System.out.println("How much " + list.get(i) + " do you want?");
+                    System.out.println("How many units of " + list.get(i) + " do you want to start with?");
                     input = in.nextLine();
                     try {
                         num = Integer.parseInt(input);
@@ -118,7 +118,7 @@ public class UserInterface {
         int sleepTime = 0;
         int numStepsBetweenPause = 0;
         while(!done){
-            System.out.println("How long would you like to run the sim for? (Each represents 30 minutes)");
+            System.out.println("How many ticks would you like to run the simulation for? (Each tick represents 30 minutes)");
             input = in.nextLine();
             try{
                 numHours = Integer.parseInt(input);
@@ -130,7 +130,7 @@ public class UserInterface {
         }
         done = false;
         while(!done){
-            System.out.println("How long would you like to wait between ticks? (In seconds)");
+            System.out.println("How many seconds would you like to wait between ticks?");
             input = in.nextLine();
             try{
                 sleepTime = Integer.parseInt(input) * 1000;
@@ -142,7 +142,7 @@ public class UserInterface {
         }
         done = false;
         while(!done){
-            System.out.println("How many ticks do you want to go between pauses?");
+            System.out.println("How many ticks would you like to run before being asked for input?");
             input = in.nextLine();
             try{
                 numStepsBetweenPause = Integer.parseInt(input);
@@ -187,13 +187,23 @@ public class UserInterface {
     private static SpaceStation manualSpaceStation() {
         boolean done = false;
         SpaceStation myStation = new SpaceStation();
+
+        System.out.println("List of available rooms:");
+        File f = new File("src/main/resources/rooms");
+        for(String pathname:f.list()){
+            System.out.println("\t" + (pathname.substring(0, pathname.length() - 4)));
+        }
         while(!done) {
-            System.out.println("Type the name of the room file you want to load from the directory: \nsrc/main/resources/rooms/\nExample: commonArea\nType 'done' to finish");
+            System.out.println("\nType the name of the room you'd like to add; type 'done' to finish.");
             Scanner in = new Scanner(System.in);
             String input = in.nextLine();
             try {
                 if(input.equalsIgnoreCase("done")){
-                    done = true;
+                    if(!(myStation.getRooms().size() == 0)) {
+                        done = true;
+                    } else {
+                        System.out.println("Please add at least one room.");
+                    }
                 }
                 else{
                     Room newRoom = JsonUtil.fromJsonFile("src/main/resources/rooms/" + input + ".txt", Room.class);
@@ -201,10 +211,15 @@ public class UserInterface {
                 }
 
             } catch (Exception e) {
-                System.out.println("Error: invalid room - try again.");
+                System.out.println("Error: invalid room - please try again.");
             }
         }
         return myStation;
+    }
+
+    public static void failure() {
+        System.out.println("Ran out of a vital resource, all your astronauts died :(");
+        System.exit(0);
     }
 
     public static void whilePaused(Environment environment) {
@@ -282,6 +297,7 @@ public class UserInterface {
                 environment.getEarthStation().viewResourceReport();
 
             } else if (cmd.equalsIgnoreCase("restrict")) {
+                System.out.println("Not currently implemented :(");
 
             } else if (cmd.equalsIgnoreCase("skip")) {
                 System.out.println("How many ticks would you like to skip user input for?");

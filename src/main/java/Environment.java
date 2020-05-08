@@ -111,6 +111,15 @@ public class Environment {
                         }
                     }
                 }
+
+                for(Resource r : localStation.getResources()) {
+                    if(r.getName().equals("food") || r.getName().equals("water") || r.getName().equals("oxygen")) {
+                        if(r.getAmount() <= 0) {
+                            UserInterface.failure();
+                        }
+                    }
+                }
+
                 nextStep();
                 if (print) {
                     System.out.println("\n-------------------------------------------------------");
