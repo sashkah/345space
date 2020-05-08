@@ -93,7 +93,10 @@ public class UserInterface {
                 System.out.println("Error: invalid input - please enter a number.");
             }
         }
-
+        ArrayList<String> list = SpaceStation.resourceList(myStation);
+        for (int i = 0; i < list.size(); i++){
+            myStation.addResource(SpaceStation.resourceList(myStation).get(i), 0);
+        }
         myEnvironment.runLoop(numHours, sleepTime, true, numStepsBetweenPause);
     }
 

@@ -86,7 +86,7 @@ public class SpaceStation {
         return s;
     }
 
-    public ArrayList<String> resourceList(SpaceStation station) {
+    public static ArrayList<String> resourceList(SpaceStation station) {
         ArrayList<String> resourceList = new ArrayList<>();
         for (int i = 0; i < station.getRooms().size(); i++) {
             for (int j = 0; j < station.getRooms().get(i).getAppliances().size(); j++) {
