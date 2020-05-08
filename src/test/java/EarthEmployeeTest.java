@@ -1,10 +1,7 @@
-import edu.ithaca.dragon.util.JsonUtil;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
-import java.awt.desktop.SystemSleepEvent;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 
@@ -59,20 +56,32 @@ public class EarthEmployeeTest {
 
         earthEmployee.sendResource("water",10);
         Assert.assertEquals((waterAfterDepletion + 10), resources.get(2).getAmount(), 0.0);
-        Assert.assertEquals(3, resources.size());
 
+        Assert.assertEquals(3, resources.size());
         Assert.assertEquals( "Resource not found",earthEmployee.sendResource("w",10));
         Assert.assertEquals(3, resources.size());
 
     }
 
     @Test
-    void restrictResource()throws IOException{
+    void restrictResource()throws IOException,InterruptedException{
         SpaceStation spaceStation= ReadFromFile.createSpaceStation("src/main/resources/SpaceShip.txt");
 
         EarthStation earthStation=new EarthStation();
         earthStation.setManagedStation(spaceStation);
+        Environment environment=new Environment(spaceStation,earthStation);
         EarthEmployee earthEmployee=new EarthEmployee("employeeTest1",earthStation);
+        ArrayList<Resource> resources=earthEmployee.getEarthStation().getManagedStation().getResources();
+        //earthEmployee.restrictUser(resources.get(0).getName(),30);
+        environment.runLoop(10,200,false);
+
+        System.out.println(earthEmployee.getEarthStation().getManagedStation().getAstronauts().get(0).getId());
+        earthEmployee.restrictUserFromCurrentAppliance("jolie");
+
+
+
+
+
 
 
 
