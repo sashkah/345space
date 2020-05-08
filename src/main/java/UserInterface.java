@@ -7,7 +7,7 @@ public class UserInterface {
         System.out.println("Welcome! Please enter a number to select an option: " +
                 "\n1) Start with the default space station\n2) Start with a random space station\n3) Set up a new Space Station manually");
 
-        SpaceStation myStation;
+        SpaceStation myStation = null;
         Scanner in = new Scanner(System.in);
         String input = in.nextLine();
         boolean done = false;
@@ -33,10 +33,48 @@ public class UserInterface {
         //astronaut setup
 
         //simulation start
-        EarthStation earthStation=new EarthStation(myStation,null);
+        done = false;
+        EarthStation earthStation = new EarthStation(myStation,null);
         Environment myEnvironment = new Environment(myStation,earthStation);
-
-        myEnvironment.runLoop(50, 2500, true, 50);
+        int numHours = 0;
+        int sleepTime = 0;
+        int numStepsBetweenPause = 0;
+        while(!done){
+            System.out.println("How long would you like to run the sim for? (Each represents 30 minutes)");
+            input = in.nextLine();
+            try{
+                numHours = Integer.parseInt(input);
+                done = true;
+            }
+            catch(NumberFormatException e){
+                System.out.println("Error: invalid input - please enter a number.");
+            }
+        }
+        done = false;
+        while(!done){
+            System.out.println("How long would you like to wait between ticks? (In seconds)");
+            input = in.nextLine();
+            try{
+                sleepTime = Integer.parseInt(input) * 1000;
+                done = true;
+            }
+            catch(NumberFormatException e){
+                System.out.println("Error: invalid input - please enter a number.");
+            }
+        }
+        done = false;
+        while(!done){
+            System.out.println("How many ticks do you want to go between pauses?");
+            input = in.nextLine();
+            try{
+                numStepsBetweenPause = Integer.parseInt(input);
+                done = true;
+            }
+            catch(NumberFormatException e){
+                System.out.println("Error: invalid input - please enter a number.");
+            }
+        }
+        myEnvironment.runLoop(numHours, sleepTime, true, numStepsBetweenPause);
     }
 
     private static SpaceStation defaultSpaceStation() throws IOException {
