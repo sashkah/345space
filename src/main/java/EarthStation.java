@@ -37,4 +37,18 @@ public class EarthStation {
         return new Payload(startTime, tripLength, resourcesToSend);
     }
 
+    public void viewResourceReport(){
+        for(Astronaut employee:managedStation.getAstronauts()){
+            System.out.println(employee.getId() + ":");
+            System.out.println("\tDaily Resource Usage:");
+            for(TotalResourceUsage resource:employee.getTotalResourceUsages()){
+                System.out.println("\t\t" + resource.getResourceName() + ":" + resource.getTotalDailyUsage());
+            }
+            System.out.println("\tDaily Resource Limits:");
+            for(ResourceLimit resource:employee.getResourceLimits()){
+                System.out.println("\t\t" + resource.getResourceName() + ":" + resource.getLimit());
+            }
+        }
+    }
+
 }
