@@ -18,7 +18,7 @@ public class UserInterface {
             if (input.equals("1")) {
                 done = true;
                 myStation = defaultSpaceStation();
-                //myStation.displayRooms();
+                System.out.println("Station contains: " + myStation.displayRooms());
             } else if (input.equals("2")) {
                 done = true;
                 myStation = randomSpaceStation();
