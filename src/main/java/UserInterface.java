@@ -34,9 +34,23 @@ public class UserInterface {
             }
         }
 
+        ArrayList<ResourceUsage> resourceUsages = new ArrayList<ResourceUsage>();
+        resourceUsages.add(new ResourceUsage("oxygen", 5, 1));
+        resourceUsages.add(new ResourceUsage("food", 3, 4));
+        resourceUsages.add(new ResourceUsage("water", 4, 2));
+        ArrayList<TotalResourceUsage> totalResourceUsages = new ArrayList<TotalResourceUsage>();
+        totalResourceUsages.add(new TotalResourceUsage("oxygen"));
+        totalResourceUsages.add(new TotalResourceUsage("food"));
+        totalResourceUsages.add(new TotalResourceUsage("water"));
+        ArrayList<ResourceLimit> resourceLimits = new ArrayList<ResourceLimit>();
+        resourceLimits.add(new ResourceLimit("oxygen", -1));
+        resourceLimits.add(new ResourceLimit("food", 100));
+        resourceLimits.add(new ResourceLimit("water", 100));
+
+
         System.out.println("Please enter the name of the first astronaut: ");
         String name = in.nextLine();
-        myStation.addAstronaut(new Astronaut(name, null, null, null));
+        myStation.addAstronaut(new Astronaut(name, resourceUsages, totalResourceUsages, resourceLimits));
         System.out.println("Added " + name);
 
         boolean done2 = false;
@@ -44,7 +58,7 @@ public class UserInterface {
             System.out.println("Please enter the name of another astronaut, or type done.");
             String input2 = in.nextLine();
             if(!(input2.equalsIgnoreCase("done"))) {
-                myStation.addAstronaut(new Astronaut(input2, null, null, null));
+                myStation.addAstronaut(new Astronaut(input2, resourceUsages, totalResourceUsages, resourceLimits));
                 System.out.println("Added " + input2);
             } else {
                 done2 = true;
@@ -98,7 +112,8 @@ public class UserInterface {
     }
 
     private static SpaceStation defaultSpaceStation() throws IOException {
-        SpaceStation defaultStation = ReadFromFile.createSpaceStation("src/main/resources/DemoFile.txt");
+        SpaceStation defaultStation = ReadFromFile.createSpaceStation("src/main/resources/DefaultSpaceStation.txt");
+        System.out.println(defaultStation);
 
         return defaultStation;
     }
