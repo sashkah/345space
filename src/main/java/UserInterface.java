@@ -14,11 +14,11 @@ public class UserInterface {
         String input = in.nextLine();
         boolean done = false;
 
-        while(done == false) {
+        while(!done) {
             if (input.equals("1")) {
                 done = true;
                 myStation = defaultSpaceStation();
-                myStation.displayRooms();
+                //myStation.displayRooms();
             } else if (input.equals("2")) {
                 done = true;
                 myStation = randomSpaceStation();
@@ -32,7 +32,22 @@ public class UserInterface {
             }
         }
 
-        //astronaut setup
+        System.out.println("Please enter the name of the first astronaut: ");
+        String name = in.nextLine();
+        myStation.addAstronaut(new Astronaut(name, null, null, null));
+        System.out.println("Added " + name);
+
+        boolean done2 = false;
+        while(!done2) {
+            System.out.println("Please enter the name of another astronaut, or type done.");
+            String input2 = in.nextLine();
+            if(!(input2.equalsIgnoreCase("done"))) {
+                myStation.addAstronaut(new Astronaut(input2, null, null, null));
+                System.out.println("Added " + input2);
+            } else {
+                done2 = true;
+            }
+        }
 
         //simulation start
         done = false;
