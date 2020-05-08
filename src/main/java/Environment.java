@@ -7,6 +7,8 @@ public class Environment {
     private boolean isRunning;
     private ArrayList<Payload> cargoInTransit;
     private boolean isPaused;
+    private boolean skipFlag = true;
+    private int defaultNumStepsBetweenPaused;
 
     public Environment(SpaceStation localStation){
         this.earthStation = null;
@@ -65,6 +67,7 @@ public class Environment {
     }
 
     public void runLoop(int numHours, int sleepTime, boolean print, int numStepsBetweenPause) throws InterruptedException{
+        defaultNumStepsBetweenPaused = numStepsBetweenPause;
         while(isRunning){
             if(!isPaused) {
                 //IF NOT PAUSED
@@ -120,6 +123,14 @@ public class Environment {
             else{
                 //STUFF WHILE PROGRAM IS PAUSED GOES HERE
                 UserInterface.whilePaused(this);
+                if(UserInterface.skipAmt != 0 && skipFlag) {
+                    numStepsBetweenPause = UserInterface.skipAmt + timeCounter;
+                    skipFlag = false;
+                } else if(UserInterface.skipAmt != 0 && !skipFlag) {
+                    numStepsBetweenPause = defaultNumStepsBetweenPaused;
+                    UserInterface.skipAmt = 0;
+                    skipFlag = true;
+                }
                 this.unpause();
             }
         }
