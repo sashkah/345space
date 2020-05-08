@@ -38,10 +38,6 @@ public class UserInterface {
         resourceUsages.add(new ResourceUsage("oxygen", 5, 1));
         resourceUsages.add(new ResourceUsage("food", 3, 4));
         resourceUsages.add(new ResourceUsage("water", 4, 2));
-        ArrayList<TotalResourceUsage> totalResourceUsages = new ArrayList<TotalResourceUsage>();
-        totalResourceUsages.add(new TotalResourceUsage("oxygen"));
-        totalResourceUsages.add(new TotalResourceUsage("food"));
-        totalResourceUsages.add(new TotalResourceUsage("water"));
         ArrayList<ResourceLimit> resourceLimits = new ArrayList<ResourceLimit>();
         resourceLimits.add(new ResourceLimit("oxygen", -1));
         resourceLimits.add(new ResourceLimit("food", 100));
@@ -50,7 +46,7 @@ public class UserInterface {
 
         System.out.println("Please enter the name of the first astronaut: ");
         String name = in.nextLine();
-        myStation.addAstronaut(new Astronaut(name, resourceUsages, totalResourceUsages, resourceLimits));
+        myStation.addAstronaut(new Astronaut(name, resourceUsages, new ArrayList<TotalResourceUsage>(), resourceLimits));
         System.out.println("Added " + name);
 
         boolean done2 = false;
@@ -58,7 +54,7 @@ public class UserInterface {
             System.out.println("Please enter the name of another astronaut, or type done.");
             String input2 = in.nextLine();
             if(!(input2.equalsIgnoreCase("done"))) {
-                myStation.addAstronaut(new Astronaut(input2, resourceUsages, totalResourceUsages, resourceLimits));
+                myStation.addAstronaut(new Astronaut(input2, resourceUsages, new ArrayList<TotalResourceUsage>(), resourceLimits));
                 System.out.println("Added " + input2);
             } else {
                 done2 = true;
@@ -115,11 +111,12 @@ public class UserInterface {
         if(!list.contains("oxygen")){
             list.add("oxygen");
         }
+        System.out.println(list);
         for (int i = 0; i < list.size(); i++){
             done = false;
             int num = 0;
             while(!done){
-                System.out.println("How much " + SpaceStation.resourceList(myStation).get(i) + " do you want?");
+                System.out.println("How much " + list.get(i) + " do you want?");
                 input = in.nextLine();
                 try{
                     num = Integer.parseInt(input);
@@ -129,7 +126,10 @@ public class UserInterface {
                     System.out.println("Error: invalid input - please enter a number.");
                 }
             }
-            myStation.addResource(new Resource(SpaceStation.resourceList(myStation).get(i), num));
+            myStation.addResource(new Resource(list.get(i), num));
+            for(Astronaut astro:myStation.getAstronauts()){
+                astro.getTotalResourceUsages().add(new TotalResourceUsage(list.get(i)));
+            }
         }
 
         EarthStation earthStation = new EarthStation(myStation,null);

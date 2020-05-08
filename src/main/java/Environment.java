@@ -101,6 +101,13 @@ public class Environment {
                 if (timeCounter % 2 == 0) {
                     System.out.println(randomEvent());
                 }
+                if(timeCounter % 48 == 0){
+                    for(Astronaut astro: localStation.getAstronauts()){
+                        for(TotalResourceUsage total:astro.getTotalResourceUsages()){
+                            total.resetTotalDailyUsage();
+                        }
+                    }
+                }
                 nextStep();
                 if (print) {
                     System.out.println("\n-------------------------------------------------------");
@@ -127,6 +134,12 @@ public class Environment {
                     if(localStation.getAstronauts().get(j).getResourceUsages().get(k).getResourceName().equals(localStation.getResources().get(i).getName())){ // If the same as current resource
                         if(timeCounter % localStation.getAstronauts().get(j).getResourceUsages().get(k).getTimeframe() == 0){ // If enough time has passed
                             localStation.getResources().get(i).depleteAmount(localStation.getAstronauts().get(j).getResourceUsages().get(k).getUsagePerTimeframe()); // Deplete resource
+                            for(TotalResourceUsage total:localStation.getAstronauts().get(j).getTotalResourceUsages()){
+                                if(total.getResourceName().equalsIgnoreCase(localStation.getResources().get(i).getName())){
+                                    total.incrementTotalDailyUsage(localStation.getAstronauts().get(j).getResourceUsages().get(k).getUsagePerTimeframe());
+                                    total.incrementTotalUsage(localStation.getAstronauts().get(j).getResourceUsages().get(k).getUsagePerTimeframe());
+                                }
+                            }
                         }
                     }
                 }
@@ -140,6 +153,20 @@ public class Environment {
                         for(int l = 0; l < localStation.getResources().size(); l++){
                             if(localStation.getRooms().get(i).getAppliances().get(j).getResourceUsages().get(k).getResourceName().equals(localStation.getResources().get(l).getName())){
                                 localStation.getResources().get(l).depleteAmount(localStation.getRooms().get(i).getAppliances().get(j).getResourceUsages().get(k).getUsagePerTimeframe());
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        for(Astronaut astro:localStation.getAstronauts()){
+            if(astro.currentAppliance != null){
+                for(ResourceUsage use:astro.currentAppliance.getResourceUsages()){
+                    if(timeCounter % use.getTimeframe() == 0){
+                        for(TotalResourceUsage TRU:astro.getTotalResourceUsages()){
+                            if(TRU.getResourceName().equalsIgnoreCase(use.getResourceName())){
+                                TRU.incrementTotalUsage(use.getUsagePerTimeframe());
+                                TRU.incrementTotalDailyUsage(use.getUsagePerTimeframe());
                             }
                         }
                     }
