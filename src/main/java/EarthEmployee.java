@@ -80,14 +80,4 @@ public class EarthEmployee {
         return "Resource:" + resourceName + " Amount Sent:" + amount;
     }
 
-//        public void unBlockResource(String resourceName,double amount){
-//
-//        for(Resource blocked:blockedResources){
-//            if(blocked.getName().equalsIgnoreCase(resourceName)){
-//                blockedResources.remove(blocked);
-//                Resource addResource=blocked;
-//                earthStation.getManagedStation().addResource(addResource);
-//            }
-//        }
-//}
 }

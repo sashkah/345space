@@ -64,28 +64,18 @@ public class EarthEmployeeTest {
         Assert.assertEquals( "Resource not found",earthEmployee.sendResource("w",10));
         Assert.assertEquals(3, resources.size());
 
+    }
 
+    @Test
+    void restrictResource()throws IOException{
+        SpaceStation spaceStation= ReadFromFile.createSpaceStation("src/main/resources/SpaceShip.txt");
+
+        EarthStation earthStation=new EarthStation();
+        earthStation.setManagedStation(spaceStation);
+        EarthEmployee earthEmployee=new EarthEmployee("employeeTest1",earthStation);
 
 
 
 
     }
-//    @Test
-//    void unBlockResourceTest() throws IOException{
-//        SpaceStation spaceStation= ReadFromFile.createSpaceStation("src/test/testResources/test4.txt");
-//
-//        EarthStation earthStation=new EarthStation();
-//        earthStation.setManagedStation(spaceStation);
-//        EarthEmployee earthEmployee=new EarthEmployee("employeeTest1",earthStation);
-//        earthEmployee.blockResource("Water");
-//        Assert.assertEquals(earthEmployee.getBlockedResources().get(0).getName(),"Water");
-//        Assert.assertEquals(1,spaceStation.getResources().size());
-//        Assert.assertEquals(1,earthEmployee.getBlockedResources().size());
-//        Assert.assertEquals(1, earthEmployee.getEarthStation().getManagedStation().getResources().size());
-//        earthEmployee.unBlockResource("Water", 100.0);
-//        Assert.assertEquals(2,spaceStation.getResources().size());
-//        Assert.assertEquals(0,earthEmployee.getBlockedResources().size());
-//        Assert.assertEquals(2, earthEmployee.getEarthStation().getManagedStation().getResources().size());
-//
-//    }
 }
