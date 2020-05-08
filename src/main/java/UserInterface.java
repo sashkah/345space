@@ -67,8 +67,6 @@ public class UserInterface {
 
         //simulation start
         done = false;
-        EarthStation earthStation = new EarthStation(myStation,null);
-        Environment myEnvironment = new Environment(myStation, earthStation);
         int numHours = 0;
         int sleepTime = 0;
         int numStepsBetweenPause = 0;
@@ -108,6 +106,15 @@ public class UserInterface {
             }
         }
         ArrayList<String> list = SpaceStation.resourceList(myStation);
+        if(!list.contains("food")){
+            list.add("food");
+        }
+        if(!list.contains("water")){
+            list.add("water");
+        }
+        if(!list.contains("oxygen")){
+            list.add("oxygen");
+        }
         for (int i = 0; i < list.size(); i++){
             done = false;
             int num = 0;
@@ -122,8 +129,11 @@ public class UserInterface {
                     System.out.println("Error: invalid input - please enter a number.");
                 }
             }
-            myStation.addResource(SpaceStation.resourceList(myStation).get(i), num);
+            myStation.addResource(new Resource(SpaceStation.resourceList(myStation).get(i), num));
         }
+
+        EarthStation earthStation = new EarthStation(myStation,null);
+        Environment myEnvironment = new Environment(myStation, earthStation);
         myEnvironment.runLoop(numHours, sleepTime, true, numStepsBetweenPause);
     }
 
