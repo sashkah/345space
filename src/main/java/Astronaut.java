@@ -6,6 +6,11 @@ public class Astronaut extends User{
     Room currentRoom;
     Appliance currentAppliance;
 
+
+    public ArrayList<Resource> cannotUse=new ArrayList<>();
+
+
+
     public Astronaut() {
     }
 
@@ -24,13 +29,24 @@ public class Astronaut extends User{
         }
     }
 
+    public boolean checkIfBlockedAppliance(Appliance newAppliance) {
+        for (Resource resource : cannotUse) {
+            for (ResourceUsage resourceUsage2 : newAppliance.getResourceUsages()) {
+                if (resource.getName().equals(resourceUsage2.getResourceName()))
+                    return true;
+            }
+        }
+        return false;
+    }
     public void useAppliance(Appliance newAppliance){
         if(currentAppliance != null) {
             currentAppliance.setInUse(false);
         }
-        currentAppliance = newAppliance;
-        if(currentAppliance != null) {
-            currentAppliance.setInUse(true);
+        if(!checkIfBlockedAppliance(newAppliance)) {//TODO:TEST!!!!!!!!!!!
+            currentAppliance = newAppliance;
+            if (currentAppliance != null) {
+                currentAppliance.setInUse(true);
+            }
         }
     }
 
@@ -48,6 +64,24 @@ public class Astronaut extends User{
 
     public ArrayList<ResourceUsage> getResourceUsages() {
         return super.getResourceUsages();
+    }
+    public ArrayList<Resource> getCannotUse() {
+        return cannotUse;
+    }
+
+    public void setCannotUse(ArrayList<Resource> cannotUse) {
+        this.cannotUse = cannotUse;
+    }
+    public void setResourceLimits(ArrayList<ResourceLimit> resourceLimits) {
+        this.resourceLimits = resourceLimits;
+    }
+
+    public void setCurrentRoom(Room currentRoom) {
+        this.currentRoom = currentRoom;
+    }
+
+    public void setCurrentAppliance(Appliance currentAppliance) {
+        this.currentAppliance = currentAppliance;
     }
 
 }

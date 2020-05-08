@@ -96,5 +96,8 @@ public class EarthEmployee {
             }
         }
     }
+    public void applyRestrictions(){
+
+    }
 
 }
