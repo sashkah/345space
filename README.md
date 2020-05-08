@@ -24,3 +24,12 @@ Class Diagram: https://drive.google.com/file/d/1Z3CVF2bmv7lv0vWjdhrylVXupRWS7ttN
 Review: https://docs.google.com/document/d/1MlzmJsKlGOwS2LDscAKlmw6QJqjyFsHnADm0IgCiYdM/edit
 
 Retrospective: https://docs.google.com/document/d/1W11ot77cirXmLQW2gwPumGrH4nqaZGufaMXsVDkmsOc/edit
+
+**Sprint 2**  
+Goal: Users will take control of the Earth Station responsible for limiting users' resource usage on the ship, and sending packages containing resources to the ship. The goal is to keep the station up and running. Along with this, we want ability to create different stations in a clean, user friendly manner.
+
+Class Diagram: https://drive.google.com/file/d/1JLo9u4g2B6XZ1RspSOEvZDZdpvoJqzpe/view?usp=sharing
+
+State Diagram: https://drive.google.com/file/d/1x-mhBSaJP6WbqXmZyLQZqNf37h1u1ZrD/view?usp=sharing
+
+
