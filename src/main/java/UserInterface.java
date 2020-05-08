@@ -110,6 +110,9 @@ public class UserInterface {
                     }
                 }
                 myStation.addResource(new Resource(list.get(i), num));
+                for(Astronaut astro:myStation.getAstronauts()){
+                    astro.getTotalResourceUsages().add(new TotalResourceUsage(list.get(i)));
+                }
             }
         }
 
