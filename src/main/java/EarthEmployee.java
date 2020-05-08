@@ -89,7 +89,8 @@ public class EarthEmployee {
         ArrayList<Astronaut> astronauts=earthStation.getManagedStation().getAstronauts();
         for(Astronaut astronaut:astronauts){
             if(astronaut.getId().equals(id)){
-                astronaut.getCurrentAppliance().setInUse(false);
+                if(astronaut.getCurrentAppliance()!=null)
+                    astronaut.getCurrentAppliance().setInUse(false);
             }
         }
     }

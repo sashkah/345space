@@ -72,19 +72,13 @@ public class EarthEmployeeTest {
         Environment environment=new Environment(spaceStation,earthStation);
         EarthEmployee earthEmployee=new EarthEmployee("employeeTest1",earthStation);
         ArrayList<Resource> resources=earthEmployee.getEarthStation().getManagedStation().getResources();
-        //earthEmployee.restrictUser(resources.get(0).getName(),30);
-        environment.runLoop(10,200,false);
+        ArrayList<Appliance> appliances=earthEmployee.getEarthStation().getManagedStation().getRooms().get(0).getAppliances();
+        ArrayList<Astronaut> astronauts= earthEmployee.getEarthStation().getManagedStation().getAstronauts();
+        astronauts.get(0).useAppliance(appliances.get(0));
 
-        System.out.println(earthEmployee.getEarthStation().getManagedStation().getAstronauts().get(0).getId());
-        earthEmployee.restrictUserFromCurrentAppliance("jolie");
-
-
-
-
-
-
-
-
+        Assert.assertTrue(astronauts.get(0).getCurrentAppliance().getInUse());
+        earthEmployee.restrictUserFromCurrentAppliance(astronauts.get(0).getId());
+        Assert.assertEquals(false,astronauts.get(0).getCurrentAppliance().getInUse());
 
     }
 }
