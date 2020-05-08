@@ -82,7 +82,7 @@ public class ReadFromFileTest {
         myStation.addResource(food);
         myStation.addResource(water);
 
-        JsonUtil.toJsonFile("joliefile", myStation);
+        SpaceStation.saveSpaceStation("joliefile", myStation);
     }
 
     /*@Test
@@ -166,7 +166,7 @@ public class ReadFromFileTest {
         myStation.addRoom(room2);
         myStation.addRoom(room3);
 
-        JsonUtil.toJsonFile("SpaceStationFormat", myStation);
+        SpaceStation.saveSpaceStation("SpaceStationFormat", myStation);
 
     }
 
