@@ -72,6 +72,14 @@ public class SpaceStation {
         return s;
     }
 
+    public String displayRooms() {
+        String s = "";
+        for(Room r : this.getRooms()) {
+            s += r.getName() + ", ";
+        }
+        return s;
+    }
+
     public Astronaut selectRandAstronaut() {
         Random rand = new Random();
         int randInt = rand.nextInt(this.astronauts.size());
