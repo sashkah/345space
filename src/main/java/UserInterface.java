@@ -1,4 +1,6 @@
 import edu.ithaca.dragon.util.JsonUtil;
+
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -52,7 +54,7 @@ public class UserInterface {
         //simulation start
         done = false;
         EarthStation earthStation = new EarthStation(myStation,null);
-        Environment myEnvironment = new Environment(myStation,earthStation);
+        Environment myEnvironment = new Environment(myStation, earthStation);
         int numHours = 0;
         int sleepTime = 0;
         int numStepsBetweenPause = 0;
@@ -91,6 +93,7 @@ public class UserInterface {
                 System.out.println("Error: invalid input - please enter a number.");
             }
         }
+
         myEnvironment.runLoop(numHours, sleepTime, true, numStepsBetweenPause);
     }
 
@@ -104,17 +107,11 @@ public class UserInterface {
         SpaceStation myStation = new SpaceStation();
         int roomNum = (int) (Math.random() * 15) + 1;
         ArrayList<String> str = new ArrayList<>();
-        str.add("bathroomindividual");
-        str.add("commonArea");
-        str.add("gymLarge");
-        str.add("gymSmall");
-        str.add("individualRoom");
-        str.add("kitchen");
-        str.add("researchLab");
-        str.add("resourceManager");
-        str.add("showers");
-        str.add("sleepingRoomLarge");
-        str.add("sleepingRoomSmall");
+
+        File f = new File("src/main/resources/rooms");
+        for(String pathname:f.list()){
+            str.add(pathname.substring(0, pathname.length() - 4));
+        }
 
         for(int i = 0; i<= roomNum; i++){
             int r = (int) (Math.random() * 10);
