@@ -82,6 +82,7 @@ public class SpaceStation {
         for(Room r : this.getRooms()) {
             s += r.getName() + ", ";
         }
+        s = s.substring(0, s.length() - 2);
         return s;
     }
 

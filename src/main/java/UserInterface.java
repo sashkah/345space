@@ -93,7 +93,7 @@ public class UserInterface {
         str.add("commonArea");
         str.add("gymLarge");
         str.add("gymSmall");
-        str.add("individualKitchen");
+        str.add("individualRoom");
         str.add("kitchen");
         str.add("researchLab");
         str.add("resourceManager");
