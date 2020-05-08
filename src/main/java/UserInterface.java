@@ -1,3 +1,4 @@
+import edu.ithaca.dragon.util.JsonUtil;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -23,7 +24,7 @@ public class UserInterface {
             } else if (input.equals("3")) {
                 done = true;
                 myStation = manualSpaceStation();
-                myStation.displayRooms();
+                System.out.println("Station contains: " + myStation.displayRooms());
             } else {
                 System.out.println("Error: invalid input - please enter a number to select an option.");
             }
@@ -49,7 +50,26 @@ public class UserInterface {
     }
 
     private static SpaceStation manualSpaceStation() {
-        return null;
+        boolean done = false;
+        SpaceStation myStation = new SpaceStation();
+        while(!done) {
+            System.out.println("Type the name of the room file you want to load from the directory: \nsrc\\main\\resources\\rooms\\\nExample: commonArea\nType 'done' to finish");
+            Scanner in = new Scanner(System.in);
+            String input = in.nextLine();
+            try {
+                if(input.equalsIgnoreCase("done")){
+                    done = true;
+                }
+                else{
+                    Room newRoom = JsonUtil.fromJsonFile("src\\main\\resources\\rooms\\" + input + ".txt", Room.class);
+                    myStation.addRoom(newRoom);
+                }
+
+            } catch (Exception e) {
+                System.out.println("Error: invalid room - try again.");
+            }
+        }
+        return myStation;
     }
 
 }
