@@ -64,14 +64,12 @@ public class EarthEmployeeTest {
     }
 
     @Test
-    void restrictResource()throws IOException,InterruptedException{
+    void restrictResource()throws IOException{
         SpaceStation spaceStation= ReadFromFile.createSpaceStation("src/main/resources/SpaceShip.txt");
 
         EarthStation earthStation=new EarthStation();
         earthStation.setManagedStation(spaceStation);
-        Environment environment=new Environment(spaceStation,earthStation);
         EarthEmployee earthEmployee=new EarthEmployee("employeeTest1",earthStation);
-        ArrayList<Resource> resources=earthEmployee.getEarthStation().getManagedStation().getResources();
         ArrayList<Appliance> appliances=earthEmployee.getEarthStation().getManagedStation().getRooms().get(0).getAppliances();
         ArrayList<Astronaut> astronauts= earthEmployee.getEarthStation().getManagedStation().getAstronauts();
         astronauts.get(0).useAppliance(appliances.get(0));
