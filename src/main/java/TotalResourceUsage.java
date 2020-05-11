@@ -16,6 +16,7 @@ public class TotalResourceUsage {
 
     public void setResourceName(String resourceName) { this.resourceName = resourceName; }
 
+
     public double getTotalUsage() { return totalUsage; }
 
     public void setTotalUsage(double totalUsage) { this.totalUsage = totalUsage; }

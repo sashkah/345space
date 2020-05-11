@@ -17,9 +17,12 @@ public class AstronautTest {
         ArrayList<Resource> resources2=new ArrayList<>();
         resources2.add(resources.get(0));
         resources2.add(resources.get(1));
+
         Astronaut astronaut=spaceStation.getAstronauts().get(0);
-        Astronaut astronaut1=spaceStation.getAstronauts().get(1);
         astronaut.setCannotUse(resources2);
+
+
+        Astronaut astronaut1=spaceStation.getAstronauts().get(1);
 
         astronaut.setCurrentAppliance(spaceStation.getRooms().get(0).getAppliances().get(0));
         astronaut1.setCurrentAppliance(spaceStation.getRooms().get(0).getAppliances().get(0));
@@ -27,7 +30,5 @@ public class AstronautTest {
         Appliance appliance=spaceStation.getRooms().get(0).getAppliances().get(1);
         Assert.assertTrue(astronaut.checkIfBlockedAppliance(appliance));
         Assert.assertFalse(astronaut1.checkIfBlockedAppliance(appliance));
-
-
     }
 }

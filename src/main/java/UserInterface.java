@@ -225,7 +225,7 @@ public class UserInterface {
                     try{
                         numResource = Integer.parseInt(input);
                         done = true;
-                    }
+                    }//TODO:RESET USER USAGE ON RESOURCE
                     catch(NumberFormatException e){
                         System.out.println("Error: invalid input - please enter a number.");
                     }
@@ -235,6 +235,7 @@ public class UserInterface {
                 Payload payload = new Payload(environment.getTimeCounter(), 5, temp);
                 environment.recievePayload(payload);
                 pauseDone = true;
+
 
             } else if (cmd.equalsIgnoreCase("save")) {
                 boolean done = false;

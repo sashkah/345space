@@ -29,7 +29,7 @@ public class Astronaut extends User{
         }
     }
 
-    public boolean checkIfBlockedAppliance(Appliance newAppliance) {
+    boolean checkIfBlockedAppliance(Appliance newAppliance) {
         for (Resource resource : cannotUse) {
             for (ResourceUsage resourceUsage2 : newAppliance.getResourceUsages()) {
                 if (resource.getName().equals(resourceUsage2.getResourceName()))
@@ -47,8 +47,15 @@ public class Astronaut extends User{
             if (currentAppliance != null) {
                 currentAppliance.setInUse(true);
             }
-        }
+        }//TODO:increment resource usage
     }
+//    private boolean checkIfNearLimit(Appliance newAppliance){
+//        for(ResourceLimit resourceLimit:getResourceLimits()){
+//            if(resourceLimit.getLimit()<newAppliance.)
+//        }
+//        return true;
+//    }
+
 
     public ArrayList<ResourceLimit> getResourceLimits(){
         return resourceLimits;
