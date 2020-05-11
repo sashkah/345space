@@ -1,0 +1,300 @@
+{
+  "astronauts" : [ {
+    "id" : "aidan",
+    "resourceUsages" : [ {
+      "resourceName" : "oxygen",
+      "usagePerTimeframe" : 5.0,
+      "timeframe" : 1
+    }, {
+      "resourceName" : "food",
+      "usagePerTimeframe" : 3.0,
+      "timeframe" : 4
+    }, {
+      "resourceName" : "water",
+      "usagePerTimeframe" : 4.0,
+      "timeframe" : 2
+    } ],
+    "totalResourceUsages" : [ {
+      "resourceName" : "oxygen",
+      "totalUsage" : 0.0,
+      "totalDailyUsage" : 0.0
+    }, {
+      "resourceName" : "food",
+      "totalUsage" : 0.0,
+      "totalDailyUsage" : 0.0
+    }, {
+      "resourceName" : "water",
+      "totalUsage" : 0.0,
+      "totalDailyUsage" : 0.0
+    } ],
+    "resourceLimits" : [ {
+      "resourceName" : "oxygen",
+      "limit" : -1.0
+    }, {
+      "resourceName" : "food",
+      "limit" : 100.0
+    }, {
+      "resourceName" : "water",
+      "limit" : 100.0
+    } ],
+    "currentRoom" : null,
+    "currentAppliance" : null
+  }, {
+    "id" : "damion",
+    "resourceUsages" : [ {
+      "resourceName" : "oxygen",
+      "usagePerTimeframe" : 5.0,
+      "timeframe" : 1
+    }, {
+      "resourceName" : "food",
+      "usagePerTimeframe" : 3.0,
+      "timeframe" : 4
+    }, {
+      "resourceName" : "water",
+      "usagePerTimeframe" : 4.0,
+      "timeframe" : 2
+    } ],
+    "totalResourceUsages" : [ {
+      "resourceName" : "oxygen",
+      "totalUsage" : 0.0,
+      "totalDailyUsage" : 0.0
+    }, {
+      "resourceName" : "food",
+      "totalUsage" : 0.0,
+      "totalDailyUsage" : 0.0
+    }, {
+      "resourceName" : "water",
+      "totalUsage" : 0.0,
+      "totalDailyUsage" : 0.0
+    } ],
+    "resourceLimits" : [ {
+      "resourceName" : "oxygen",
+      "limit" : -1.0
+    }, {
+      "resourceName" : "food",
+      "limit" : 100.0
+    }, {
+      "resourceName" : "water",
+      "limit" : 100.0
+    } ],
+    "currentRoom" : {
+      "name" : "Common Area",
+      "volume" : 100.0,
+      "type" : "Common Area",
+      "passiveResourceUsages" : [ {
+        "resourceName" : "power",
+        "usagePerTimeframe" : 1.0,
+        "timeframe" : 1
+      } ],
+      "appliances" : [ {
+        "id" : "couch",
+        "resourceUsages" : [ {
+          "resourceName" : "oxygen",
+          "usagePerTimeframe" : 0.0,
+          "timeframe" : 1
+        } ],
+        "totalResourceUsages" : [ ],
+        "inUse" : false
+      }, {
+        "id" : "couch",
+        "resourceUsages" : [ {
+          "resourceName" : "oxygen",
+          "usagePerTimeframe" : 0.0,
+          "timeframe" : 1
+        } ],
+        "totalResourceUsages" : [ ],
+        "inUse" : true
+      }, {
+        "id" : "TV",
+        "resourceUsages" : [ {
+          "resourceName" : "power",
+          "usagePerTimeframe" : 1.0,
+          "timeframe" : 1
+        } ],
+        "totalResourceUsages" : [ ],
+        "inUse" : false
+      } ],
+      "astronauts" : [ ]
+    },
+    "currentAppliance" : {
+      "id" : "couch",
+      "resourceUsages" : [ {
+        "resourceName" : "oxygen",
+        "usagePerTimeframe" : 0.0,
+        "timeframe" : 1
+      } ],
+      "totalResourceUsages" : [ ],
+      "inUse" : true
+    }
+  } ],
+  "resources" : [ {
+    "name" : "oxygen",
+    "amount" : 960.0
+  }, {
+    "name" : "power",
+    "amount" : 998.0
+  }, {
+    "name" : "waste",
+    "amount" : 1000.0
+  }, {
+    "name" : "water",
+    "amount" : 978.0
+  }, {
+    "name" : "food",
+    "amount" : 994.0
+  } ],
+  "rooms" : [ {
+    "name" : "Common Area",
+    "volume" : 100.0,
+    "type" : "Common Area",
+    "passiveResourceUsages" : [ {
+      "resourceName" : "power",
+      "usagePerTimeframe" : 1.0,
+      "timeframe" : 1
+    } ],
+    "appliances" : [ {
+      "id" : "couch",
+      "resourceUsages" : [ {
+        "resourceName" : "oxygen",
+        "usagePerTimeframe" : 0.0,
+        "timeframe" : 1
+      } ],
+      "totalResourceUsages" : [ ],
+      "inUse" : false
+    }, {
+      "id" : "couch",
+      "resourceUsages" : [ {
+        "resourceName" : "oxygen",
+        "usagePerTimeframe" : 0.0,
+        "timeframe" : 1
+      } ],
+      "totalResourceUsages" : [ ],
+      "inUse" : true
+    }, {
+      "id" : "TV",
+      "resourceUsages" : [ {
+        "resourceName" : "power",
+        "usagePerTimeframe" : 1.0,
+        "timeframe" : 1
+      } ],
+      "totalResourceUsages" : [ ],
+      "inUse" : false
+    } ],
+    "astronauts" : [ ]
+  }, {
+    "name" : "Resource Manager",
+    "volume" : 100.0,
+    "type" : "Resource",
+    "passiveResourceUsages" : [ {
+      "resourceName" : "power",
+      "usagePerTimeframe" : 1.0,
+      "timeframe" : 1
+    } ],
+    "appliances" : [ {
+      "id" : "Oxygen Scrubber",
+      "resourceUsages" : [ {
+        "resourceName" : "oxygen",
+        "usagePerTimeframe" : -3.0,
+        "timeframe" : 1
+      }, {
+        "resourceName" : "power",
+        "usagePerTimeframe" : 3.0,
+        "timeframe" : 1
+      } ],
+      "totalResourceUsages" : [ ],
+      "inUse" : false
+    }, {
+      "id" : "waste manager",
+      "resourceUsages" : [ {
+        "resourceName" : "power",
+        "usagePerTimeframe" : 2.0,
+        "timeframe" : 1
+      }, {
+        "resourceName" : "waste",
+        "usagePerTimeframe" : 1.0,
+        "timeframe" : 2
+      } ],
+      "totalResourceUsages" : [ ],
+      "inUse" : false
+    } ],
+    "astronauts" : [ ]
+  }, {
+    "name" : "Individual Bathroom",
+    "volume" : 100.0,
+    "type" : "Bathroom",
+    "passiveResourceUsages" : [ {
+      "resourceName" : "power",
+      "usagePerTimeframe" : 1.0,
+      "timeframe" : 1
+    } ],
+    "appliances" : [ {
+      "id" : "toilet",
+      "resourceUsages" : [ {
+        "resourceName" : "water",
+        "usagePerTimeframe" : 2.0,
+        "timeframe" : 1
+      }, {
+        "resourceName" : "power",
+        "usagePerTimeframe" : 1.0,
+        "timeframe" : 1
+      }, {
+        "resourceName" : "waste",
+        "usagePerTimeframe" : 1.0,
+        "timeframe" : 1
+      } ],
+      "totalResourceUsages" : [ ],
+      "inUse" : false
+    }, {
+      "id" : "shower",
+      "resourceUsages" : [ {
+        "resourceName" : "water",
+        "usagePerTimeframe" : 3.0,
+        "timeframe" : 1
+      }, {
+        "resourceName" : "power",
+        "usagePerTimeframe" : 1.0,
+        "timeframe" : 1
+      } ],
+      "totalResourceUsages" : [ ],
+      "inUse" : false
+    } ],
+    "astronauts" : [ ]
+  }, {
+    "name" : "Kitchen",
+    "volume" : 100.0,
+    "type" : "Kitchen",
+    "passiveResourceUsages" : [ {
+      "resourceName" : "power",
+      "usagePerTimeframe" : 1.0,
+      "timeframe" : 1
+    } ],
+    "appliances" : [ {
+      "id" : "food prep station",
+      "resourceUsages" : [ {
+        "resourceName" : "power",
+        "usagePerTimeframe" : 1.0,
+        "timeframe" : 1
+      }, {
+        "resourceName" : "food",
+        "usagePerTimeframe" : 2.0,
+        "timeframe" : 1
+      } ],
+      "totalResourceUsages" : [ ],
+      "inUse" : false
+    }, {
+      "id" : "food prep station",
+      "resourceUsages" : [ {
+        "resourceName" : "power",
+        "usagePerTimeframe" : 1.0,
+        "timeframe" : 1
+      }, {
+        "resourceName" : "food",
+        "usagePerTimeframe" : 2.0,
+        "timeframe" : 1
+      } ],
+      "totalResourceUsages" : [ ],
+      "inUse" : false
+    } ],
+    "astronauts" : [ ]
+  } ]
+}
