@@ -44,8 +44,9 @@ public class Astronaut extends User {
 
     public boolean checkIfNearLimit(Appliance newAppliance) {
         if (newAppliance != null) {
+
             for (ResourceLimit resourceLimit : getResourceLimits()) {
-                if (resourceLimit.getLimit() != -1) {
+                if (resourceLimit.getLimit() != -1 && !newAppliance.getId().equalsIgnoreCase("toilet")) {
                     for (ResourceUsage resourceUsage : newAppliance.getResourceUsages()) {
                         if (resourceLimit.getResourceName().equals(resourceUsage.getResourceName())) {
                             if (resourceLimit.getLimit() <= getUsage(resourceUsage)) {
@@ -73,15 +74,28 @@ public class Astronaut extends User {
     }
 
     public void useAppliance(Appliance newAppliance) {
-            if (currentAppliance != null) {
-                currentAppliance.setInUse(false);
+        if (newAppliance != null) {
+            if(checkIfNearLimit(newAppliance)){
+                System.out.println("Astronaut: " +getId()+" has reached resource limit. \nCannot use appliance: "+newAppliance.getId());
             }
-            currentAppliance = newAppliance;
-                if (currentAppliance != null) {
-                    currentAppliance.setInUse(true);
-                }
+            else{
+                use(newAppliance);
             }
 
+        }
+        else {
+            use(null);
+        }
+    }
+    public void use(Appliance appliance){
+        if (currentAppliance != null) {
+            currentAppliance.setInUse(false);
+        }
+        currentAppliance = appliance;
+        if (currentAppliance != null) {
+            currentAppliance.setInUse(true);
+        }
+    }
 
     public ArrayList<ResourceLimit> getResourceLimits() {
         return resourceLimits;

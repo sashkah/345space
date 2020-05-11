@@ -94,7 +94,7 @@ public class Demo {
         // This bottom function runs the sim, adjust numHours to change how long you want it to run for
         // The sleepTime function will wait between cycles by that value in milliseconds
         //
-        myEnviro.runLoop(50, 2500, true, 51);
+        //myEnviro.runLoop(50, 250, false, 10);
 
     }
 }

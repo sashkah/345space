@@ -215,31 +215,28 @@ public class Environment {
             s += eventAstronaut.getId() + " moved to " + eventRoom.getName() + " ";
             Appliance eventAppliance = eventRoom.selectRandAppliance();
             if (eventAppliance.getInUse() == false && (eventAstronaut.getCurrentAppliance() == null || eventAstronaut.getCurrentAppliance() != eventAppliance)) {
-                if (!eventAstronaut.checkIfNearLimit(eventAppliance)) {
                     eventAstronaut.useAppliance(eventAppliance);
                     s += "and started using " + eventAppliance.getId() + ".";
-                } else {
+                }
+            else {
                     System.out.println("Astronaut: " + eventAstronaut.getId() + " is over resource limit.\nCannot use appliance: " + eventAppliance.getId());
                 }
 
             }
-        } else {
+        else {
             Appliance eventAppliance = eventRoom.selectRandAppliance();
             if (eventAstronaut.getCurrentAppliance() == null || eventAstronaut.getCurrentAppliance() != eventAppliance) {
-                if (!eventAstronaut.checkIfNearLimit(eventAppliance)) {
                     eventAstronaut.useAppliance(eventAppliance);
                     eventAstronaut.useAppliance(eventAppliance);
                     s += eventAstronaut.getId() + " started using " + eventAppliance.getId() + ".";
                 }
                 else {
-                    if(!eventAstronaut.checkIfNearLimit(eventAppliance) ) {
-                        s += eventAstronaut.getId() + " stopped using " + eventAstronaut.getCurrentAppliance().getId() + ".";
-                        eventAstronaut.useAppliance(null);
-                    }
+                    s += eventAstronaut.getId() + " stopped using " + eventAstronaut.getCurrentAppliance().getId() + ".";
+
+                    eventAstronaut.useAppliance(null);
                 }
 
             }
-        }
         return s;
     }
 
