@@ -122,46 +122,30 @@ public class Environment {
     private void nextStep(){
         timeCounter ++;
         //Resource depletion by users
-//        for(int i = 0; i < localStation.getResources().size(); i++){ // For each resource
-//            for(int j = 0; j < localStation.getAstronauts().size(); j++){ // For each user
-//                for(int k = 0; k < localStation.getAstronauts().get(j).getResourceUsages().size(); k++){ // For each resource used by user
-//                    if(localStation.getAstronauts().get(j).getResourceUsages().get(k).getResourceName().equals(localStation.getResources().get(i).getName())){ // If the same as current resource
-//                        if(timeCounter % localStation.getAstronauts().get(j).getResourceUsages().get(k).getTimeframe() == 0){// If enough time has passed
-//                            if(timeCounter>1) {
-//                                localStation.getResources().get(i).depleteAmount(localStation.getAstronauts().get(j).getResourceUsages().get(k).getUsagePerTimeframe()); // Deplete resource
-//
-//                                for (TotalResourceUsage totalResourceUsage : localStation.getAstronauts().get(j).getTotalResourceUsages()) {
-//                                    if (totalResourceUsage.getResourceName().equals(localStation.getResources().get(i).getName()))
-//                                        totalResourceUsage.incrementTotalDailyUsage(localStation.getAstronauts().get(j).getResourceUsages().get(k).getUsagePerTimeframe());
-//                                }
-//                            }
-//                        }
-//                    }
-//                }
-//            }
-//        }
+        for(int i = 0; i < localStation.getResources().size(); i++){ // For each resource
+            for(int j = 0; j < localStation.getAstronauts().size(); j++){ // For each user
+                for(int k = 0; k < localStation.getAstronauts().get(j).getResourceUsages().size(); k++){ // For each resource used by user
+                    if(localStation.getAstronauts().get(j).getResourceUsages().get(k).getResourceName().equals(localStation.getResources().get(i).getName())){ // If the same as current resource
+                        if(timeCounter % localStation.getAstronauts().get(j).getResourceUsages().get(k).getTimeframe() == 0) {// If enough time has passed
+                            localStation.getResources().get(i).depleteAmount(localStation.getAstronauts().get(j).getResourceUsages().get(k).getUsagePerTimeframe()); // Deplete resource
+
+                            }
+                        }
+                    }
+                }
+        }
        // Resource depletion by appliances
         for(int i = 0; i < localStation.getRooms().size(); i++) {
             for (int j = 0; j < localStation.getRooms().get(i).getAppliances().size(); j++) {
                 if (localStation.getRooms().get(i).getAppliances().get(j).getInUse()) {
                     for (int k = 0; k < localStation.getRooms().get(i).getAppliances().get(j).getResourceUsages().size(); k++) {
                         for (int l = 0; l < localStation.getResources().size(); l++) {
-                            if (localStation.getRooms().get(i).getAppliances().get(j).getResourceUsages().get(k).getResourceName().equals(localStation.getResources().get(l).getName())) {
-                                if (timeCounter % localStation.getRooms().get(i).getAppliances().get(j).getResourceUsages().get(k).getTimeframe() == 0) {// If enough time has passed
-                                    if (timeCounter > 1) {
-                                        localStation.getResources().get(l).depleteAmount(localStation.getRooms().get(i).getAppliances().get(j).getResourceUsages().get(k).getUsagePerTimeframe());
-                                        for (TotalResourceUsage totalResourceUsage : localStation.getRooms().get(i).getAppliances().get(j).getTotalResourceUsages()) {
-                                            if (totalResourceUsage.getResourceName().equals(localStation.getResources().get(i).getName()))
-                                                totalResourceUsage.incrementTotalDailyUsage(localStation.getRooms().get(i).getAppliances().get(j).getResourceUsages().get(k).getUsagePerTimeframe());
-                                        }
-                                    }
-                                }
+                                localStation.getResources().get(l).depleteAmount(localStation.getRooms().get(i).getAppliances().get(j).getResourceUsages().get(k).getUsagePerTimeframe());
+                        }
                             }
                         }
                     }
                 }
-            }
-        }
         //Track on the way resources
         for(int i = 0; i < cargoInTransit.size(); i++){ // for each payload
             if(timeCounter >= cargoInTransit.get(i).getStartTime()+cargoInTransit.get(i).getTripLength()){ // if arrived

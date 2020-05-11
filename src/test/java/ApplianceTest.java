@@ -10,13 +10,16 @@ public class ApplianceTest {
         SpaceStation spaceStation= ReadFromFile.createSpaceStation("src/main/resources/SpaceShip.txt");
 
         ArrayList<Appliance> appliances= spaceStation.getRooms().get(0).getAppliances();
+        for(Room room:spaceStation.getRooms()){
+            appliances.addAll(room.getAppliances());
+        }
         EarthStation earthStation=new EarthStation();
         earthStation.setManagedStation(spaceStation);
         Environment environment=new Environment(spaceStation,earthStation);
-        EarthEmployee earthEmployee=new EarthEmployee("employeeTest1",earthStation);
-        ArrayList<Resource> resources=earthEmployee.getEarthStation().getManagedStation().getResources();
-        environment.runLoop(5,250,false, 6);
-
+        environment.runLoop(6,25,true, 10);
+        //astronauts.get(0).getResourceLimits().get(1).setLimit(10);
+        for(Appliance appliance:appliances)
+            System.out.println(appliance.getTotalResourceUsages());
 
     }
 }

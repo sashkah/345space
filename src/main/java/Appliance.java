@@ -20,18 +20,7 @@ public class Appliance extends User {
 
     public void setInUse(boolean inUseIn) {
         this.inUse = inUseIn;
-        usingResource();
-    }
-
-    public void usingResource(){
-        for(TotalResourceUsage totalResourceUsage:getTotalResourceUsages()){
-            for(ResourceUsage resourceUsage:getResourceUsages()){
-                if(totalResourceUsage.getResourceName().equals(resourceUsage.getResourceName())){
-                    totalResourceUsage.incrementTotalUsage(resourceUsage.getUsagePerTimeframe());
-                }
-            }
-        }
-
+        //usingResource();
     }
 
     public boolean reachedResourceLimit(ArrayList<ResourceLimit> resourceLimits){
