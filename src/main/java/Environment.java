@@ -10,7 +10,7 @@ public class Environment {
     private boolean skipFlag = true;
     private int defaultNumStepsBetweenPaused;
 
-    public Environment(SpaceStation localStation){
+    public Environment(SpaceStation localStation) {
         this.earthStation = null;
         this.localStation = localStation;
         timeCounter = 1;
@@ -18,7 +18,7 @@ public class Environment {
         cargoInTransit = new ArrayList<Payload>();
     }
 
-    public Environment(SpaceStation localStation, EarthStation earthStation){
+    public Environment(SpaceStation localStation, EarthStation earthStation) {
         this.earthStation = earthStation;
         this.localStation = localStation;
         timeCounter = 1;
@@ -26,7 +26,7 @@ public class Environment {
         cargoInTransit = new ArrayList<Payload>();
     }
 
-    public Environment(SpaceStation localStation, EarthStation earthStation, ArrayList<Payload> cargoInTransit){
+    public Environment(SpaceStation localStation, EarthStation earthStation, ArrayList<Payload> cargoInTransit) {
         this.earthStation = earthStation;
         this.localStation = localStation;
         timeCounter = 1;
@@ -38,19 +38,19 @@ public class Environment {
         return isPaused;
     }
 
-    public void pause(){
+    public void pause() {
         isPaused = true;
     }
 
-    public void unpause(){
+    public void unpause() {
         isPaused = false;
     }
 
-    public void close(){
+    public void close() {
         isRunning = false;
     }
 
-    public SpaceStation getLocalStation(){
+    public SpaceStation getLocalStation() {
         return localStation;
     }
 
@@ -62,14 +62,14 @@ public class Environment {
         return timeCounter;
     }
 
-    public void recievePayload(Payload payload){
+    public void recievePayload(Payload payload) {
         cargoInTransit.add(payload);
     }
 
-    public void runLoop(int numHours, int sleepTime, boolean print, int numStepsBetweenPause) throws InterruptedException{
+    public void runLoop(int numHours, int sleepTime, boolean print, int numStepsBetweenPause) throws InterruptedException {
         defaultNumStepsBetweenPaused = numStepsBetweenPause;
-        while(isRunning){
-            if(!isPaused) {
+        while (isRunning) {
+            if (!isPaused) {
                 //IF NOT PAUSED
                 if (print) {
                     System.out.println("\n");
@@ -104,17 +104,17 @@ public class Environment {
                 if (timeCounter % 2 == 0) {
                     System.out.println(randomEvent());
                 }
-                if(timeCounter % 48 == 0){
-                    for(Astronaut astro: localStation.getAstronauts()){
-                        for(TotalResourceUsage total:astro.getTotalResourceUsages()){
+                if (timeCounter % 48 == 0) {
+                    for (Astronaut astro : localStation.getAstronauts()) {
+                        for (TotalResourceUsage total : astro.getTotalResourceUsages()) {
                             total.resetTotalDailyUsage();
                         }
                     }
                 }
 
-                for(Resource r : localStation.getResources()) {
-                    if(r.getName().equals("food") || r.getName().equals("water") || r.getName().equals("oxygen")) {
-                        if(r.getAmount() <= 0) {
+                for (Resource r : localStation.getResources()) {
+                    if (r.getName().equals("food") || r.getName().equals("water") || r.getName().equals("oxygen")) {
+                        if (r.getAmount() <= 0) {
                             UserInterface.failure();
                         }
                     }
@@ -124,18 +124,17 @@ public class Environment {
                 if (print) {
                     System.out.println("\n-------------------------------------------------------");
                 }
-                if(timeCounter % numStepsBetweenPause == 0){
+                if (timeCounter % numStepsBetweenPause == 0) {
                     this.pause();
                 }
                 Thread.sleep(sleepTime);
-            }
-            else{
+            } else {
                 //STUFF WHILE PROGRAM IS PAUSED GOES HERE
                 UserInterface.whilePaused(this);
-                if(UserInterface.skipAmt != 0 && skipFlag) {
+                if (UserInterface.skipAmt != 0 && skipFlag) {
                     numStepsBetweenPause = UserInterface.skipAmt + timeCounter;
                     skipFlag = false;
-                } else if(UserInterface.skipAmt != 0 && !skipFlag) {
+                } else if (UserInterface.skipAmt != 0 && !skipFlag) {
                     numStepsBetweenPause = defaultNumStepsBetweenPaused;
                     UserInterface.skipAmt = 0;
                     skipFlag = true;
@@ -145,17 +144,17 @@ public class Environment {
         }
     }
 
-    private void nextStep(){
-        timeCounter ++;
+    private void nextStep() {
+        timeCounter++;
         //Resource depletion by users
-        for(int i = 0; i < localStation.getResources().size(); i++){ // For each resource
-            for(int j = 0; j < localStation.getAstronauts().size(); j++){ // For each user
-                for(int k = 0; k < localStation.getAstronauts().get(j).getResourceUsages().size(); k++){ // For each resource used by user
-                    if(localStation.getAstronauts().get(j).getResourceUsages().get(k).getResourceName().equals(localStation.getResources().get(i).getName())){ // If the same as current resource
-                        if(timeCounter % localStation.getAstronauts().get(j).getResourceUsages().get(k).getTimeframe() == 0){ // If enough time has passed
+        for (int i = 0; i < localStation.getResources().size(); i++) { // For each resource
+            for (int j = 0; j < localStation.getAstronauts().size(); j++) { // For each user
+                for (int k = 0; k < localStation.getAstronauts().get(j).getResourceUsages().size(); k++) { // For each resource used by user
+                    if (localStation.getAstronauts().get(j).getResourceUsages().get(k).getResourceName().equals(localStation.getResources().get(i).getName())) { // If the same as current resource
+                        if (timeCounter % localStation.getAstronauts().get(j).getResourceUsages().get(k).getTimeframe() == 0) { // If enough time has passed
                             localStation.getResources().get(i).depleteAmount(localStation.getAstronauts().get(j).getResourceUsages().get(k).getUsagePerTimeframe()); // Deplete resource
-                            for(TotalResourceUsage total:localStation.getAstronauts().get(j).getTotalResourceUsages()){
-                                if(total.getResourceName().equalsIgnoreCase(localStation.getResources().get(i).getName())){
+                            for (TotalResourceUsage total : localStation.getAstronauts().get(j).getTotalResourceUsages()) {
+                                if (total.getResourceName().equalsIgnoreCase(localStation.getResources().get(i).getName())) {
                                     total.incrementTotalDailyUsage(localStation.getAstronauts().get(j).getResourceUsages().get(k).getUsagePerTimeframe());
                                     total.incrementTotalUsage(localStation.getAstronauts().get(j).getResourceUsages().get(k).getUsagePerTimeframe());
                                 }
@@ -166,12 +165,12 @@ public class Environment {
             }
         }
         //Resource depletion by appliances
-        for(int i = 0; i < localStation.getRooms().size(); i++){
-            for(int j = 0; j < localStation.getRooms().get(i).getAppliances().size(); j++){
-                if(localStation.getRooms().get(i).getAppliances().get(j).getInUse()){
+        for (int i = 0; i < localStation.getRooms().size(); i++) {
+            for (int j = 0; j < localStation.getRooms().get(i).getAppliances().size(); j++) {
+                if (localStation.getRooms().get(i).getAppliances().get(j).getInUse()) {
                     for (int k = 0; k < localStation.getRooms().get(i).getAppliances().get(j).getResourceUsages().size(); k++) {
-                        for(int l = 0; l < localStation.getResources().size(); l++){
-                            if(localStation.getRooms().get(i).getAppliances().get(j).getResourceUsages().get(k).getResourceName().equals(localStation.getResources().get(l).getName())){
+                        for (int l = 0; l < localStation.getResources().size(); l++) {
+                            if (localStation.getRooms().get(i).getAppliances().get(j).getResourceUsages().get(k).getResourceName().equals(localStation.getResources().get(l).getName())) {
                                 localStation.getResources().get(l).depleteAmount(localStation.getRooms().get(i).getAppliances().get(j).getResourceUsages().get(k).getUsagePerTimeframe());
                             }
                         }
@@ -179,12 +178,12 @@ public class Environment {
                 }
             }
         }
-        for(Astronaut astro:localStation.getAstronauts()){
-            if(astro.currentAppliance != null){
-                for(ResourceUsage use:astro.currentAppliance.getResourceUsages()){
-                    if(timeCounter % use.getTimeframe() == 0){
-                        for(TotalResourceUsage TRU:astro.getTotalResourceUsages()){
-                            if(TRU.getResourceName().equalsIgnoreCase(use.getResourceName())){
+        for (Astronaut astro : localStation.getAstronauts()) {
+            if (astro.currentAppliance != null) {
+                for (ResourceUsage use : astro.currentAppliance.getResourceUsages()) {
+                    if (timeCounter % use.getTimeframe() == 0) {
+                        for (TotalResourceUsage TRU : astro.getTotalResourceUsages()) {
+                            if (TRU.getResourceName().equalsIgnoreCase(use.getResourceName())) {
                                 TRU.incrementTotalUsage(use.getUsagePerTimeframe());
                                 TRU.incrementTotalDailyUsage(use.getUsagePerTimeframe());
                             }
@@ -194,9 +193,9 @@ public class Environment {
             }
         }
         //Track on the way resources
-        for(int i = 0; i < cargoInTransit.size(); i++){ // for each payload
-            if(timeCounter >= cargoInTransit.get(i).getStartTime()+cargoInTransit.get(i).getTripLength()){ // if arrived
-                for(int j = 0; j < cargoInTransit.get(i).getCargo().size(); j++){ //for each resource
+        for (int i = 0; i < cargoInTransit.size(); i++) { // for each payload
+            if (timeCounter >= cargoInTransit.get(i).getStartTime() + cargoInTransit.get(i).getTripLength()) { // if arrived
+                for (int j = 0; j < cargoInTransit.get(i).getCargo().size(); j++) { //for each resource
                     localStation.addResource(cargoInTransit.get(i).getCargo().get(j)); // add resource to station
                 }
                 System.out.println("Space station received a payload containing: " + cargoInTransit.get(i).getCargo());
@@ -211,24 +210,34 @@ public class Environment {
         Room eventRoom = localStation.selectRandRoom();
         String s = "";
 
-        if(eventAstronaut.getCurrentRoom() == null || eventAstronaut.getCurrentRoom() != eventRoom) {
+        if (eventAstronaut.getCurrentRoom() == null || eventAstronaut.getCurrentRoom() != eventRoom) {
             eventAstronaut.changeRoom(eventRoom);
             s += eventAstronaut.getId() + " moved to " + eventRoom.getName() + " ";
             Appliance eventAppliance = eventRoom.selectRandAppliance();
-            if(eventAppliance.getInUse() == false && (eventAstronaut.getCurrentAppliance() == null || eventAstronaut.getCurrentAppliance() != eventAppliance)) {
-                eventAstronaut.useAppliance(eventAppliance);
-                s += "and started using " + eventAppliance.getId() + ".";
+            if (eventAppliance.getInUse() == false && (eventAstronaut.getCurrentAppliance() == null || eventAstronaut.getCurrentAppliance() != eventAppliance)) {
+                if (!eventAstronaut.checkIfNearLimit(eventAppliance)) {
+                    eventAstronaut.useAppliance(eventAppliance);
+                    s += "and started using " + eventAppliance.getId() + ".";
+                } else {
+                    System.out.println("Astronaut: " + eventAstronaut.getId() + " is over resource limit.\nCannot use appliance: " + eventAppliance.getId());
+                }
+
             }
-        }
-        else {
+        } else {
             Appliance eventAppliance = eventRoom.selectRandAppliance();
-            if(eventAstronaut.getCurrentAppliance() == null || eventAstronaut.getCurrentAppliance() != eventAppliance) {
-                eventAstronaut.useAppliance(eventAppliance);
-                s += eventAstronaut.getId() + " started using " + eventAppliance.getId() + ".";
-            }
-            else {
-                s += eventAstronaut.getId() + " stopped using " + eventAstronaut.getCurrentAppliance().getId() + ".";
-                eventAstronaut.useAppliance(null);
+            if (eventAstronaut.getCurrentAppliance() == null || eventAstronaut.getCurrentAppliance() != eventAppliance) {
+                if (!eventAstronaut.checkIfNearLimit(eventAppliance)) {
+                    eventAstronaut.useAppliance(eventAppliance);
+                    eventAstronaut.useAppliance(eventAppliance);
+                    s += eventAstronaut.getId() + " started using " + eventAppliance.getId() + ".";
+                }
+                else {
+                    if(!eventAstronaut.checkIfNearLimit(eventAppliance) ) {
+                        s += eventAstronaut.getId() + " stopped using " + eventAstronaut.getCurrentAppliance().getId() + ".";
+                        eventAstronaut.useAppliance(null);
+                    }
+                }
+
             }
         }
         return s;

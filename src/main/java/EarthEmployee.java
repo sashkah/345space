@@ -96,5 +96,27 @@ public class EarthEmployee {
             }
         }
     }
+    public void checkForLimitReach(){
+        ArrayList<Astronaut> astronauts=earthStation.getManagedStation().getAstronauts();
+        for(Astronaut astronaut:astronauts){
+            for(Resource resource:earthStation.getManagedStation().getResources()){
+                if(astronaut.checkIfNearLimit(resource)){
+                    System.out.println("Astronaut: "+ astronaut.getId()+" has reached or is reaching " +resource.getName()+" limit");
+                }
+            }
+        }
+    }
+    public void setLimitForAstronaut(String id, String resource, Double amount){
+        for(Astronaut astronaut:earthStation.getManagedStation().getAstronauts()){
+            if(id.equalsIgnoreCase(astronaut.getId())){
+            for(ResourceLimit resource1:astronaut.getResourceLimits()) {
+                if(resource.equalsIgnoreCase(resource1.getResourceName())){
+                    resource1.setLimit(amount);
+                }
+            }
+        }
+    }
+    }
+
 
 }

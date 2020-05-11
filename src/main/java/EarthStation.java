@@ -51,4 +51,13 @@ public class EarthStation {
         }
     }
 
+    public void resetResourceUsage(String resourceName) {
+        for(Astronaut astronaut:getManagedStation().getAstronauts()){
+            for(TotalResourceUsage totalResourceUsage:astronaut.getTotalResourceUsages()){
+                if(resourceName.equalsIgnoreCase(totalResourceUsage.getResourceName())){
+                    totalResourceUsage.setTotalDailyUsage(0);
+                }
+            }
+        }
+    }
 }
