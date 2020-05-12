@@ -9,6 +9,7 @@ public class Environment {
     private boolean isPaused;
     private boolean skipFlag = true;
     private int defaultNumStepsBetweenPaused;
+    private int day=1;
 
     public Environment(SpaceStation localStation) {
         this.earthStation = null;
@@ -108,8 +109,11 @@ public class Environment {
                     for (Astronaut astro : localStation.getAstronauts()) {
                         for (TotalResourceUsage total : astro.getTotalResourceUsages()) {
                             total.resetTotalDailyUsage();
+
                         }
                     }
+                    System.out.println("END OF: DAY "+this.day+"\nALL DAILY USAGE STATS HAVE BEEN RESET");
+                    day++;
                 }
 
                 for (Resource r : localStation.getResources()) {
@@ -215,28 +219,31 @@ public class Environment {
             s += eventAstronaut.getId() + " moved to " + eventRoom.getName() + " ";
             Appliance eventAppliance = eventRoom.selectRandAppliance();
             if (eventAppliance.getInUse() == false && (eventAstronaut.getCurrentAppliance() == null || eventAstronaut.getCurrentAppliance() != eventAppliance)) {
-                    eventAstronaut.useAppliance(eventAppliance);
-                    s += "and started using " + eventAppliance.getId() + ".";
+                eventAstronaut.useAppliance(eventAppliance);
+                if (eventAstronaut.getCurrentAppliance() != null) {
+                    if (eventAstronaut.getCurrentAppliance().getId().equalsIgnoreCase(eventAppliance.getId()))
+                        s += "and started using " + eventAppliance.getId() + ".";
                 }
-            else {
-                    System.out.println("Astronaut: " + eventAstronaut.getId() + " is over resource limit.\nCannot use appliance: " + eventAppliance.getId());
-                }
-
             }
-        else {
+            else {
+                System.out.println("Astronaut: " + eventAstronaut.getId() + " is over resource limit.\nCannot use appliance: " + eventAppliance.getId());
+            }
+
+        } else {
             Appliance eventAppliance = eventRoom.selectRandAppliance();
             if (eventAstronaut.getCurrentAppliance() == null || eventAstronaut.getCurrentAppliance() != eventAppliance) {
-                    eventAstronaut.useAppliance(eventAppliance);
-                    eventAstronaut.useAppliance(eventAppliance);
-                    s += eventAstronaut.getId() + " started using " + eventAppliance.getId() + ".";
+                eventAstronaut.useAppliance(eventAppliance);
+                if(eventAstronaut.getCurrentAppliance()!=null) {
+                    if (eventAstronaut.getCurrentAppliance().getId().equalsIgnoreCase(eventAppliance.getId()))
+                        s += eventAstronaut.getId() + " started using " + eventAppliance.getId() + ".";
                 }
-                else {
-                    s += eventAstronaut.getId() + " stopped using " + eventAstronaut.getCurrentAppliance().getId() + ".";
+            } else {
+                s += eventAstronaut.getId() + " stopped using " + eventAstronaut.getCurrentAppliance().getId() + ".";
 
-                    eventAstronaut.useAppliance(null);
-                }
-
+                eventAstronaut.useAppliance(null);
             }
+
+        }
         return s;
     }
 
