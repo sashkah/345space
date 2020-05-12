@@ -272,7 +272,7 @@ public class UserInterface {
                     }
                 }
                 ArrayList<Resource> temp = new ArrayList<>();
-                temp.add(new Resource(input2, numResource));
+                temp.add(new Resource(input, numResource));
                 Payload payload = new Payload(environment.getTimeCounter(), 5, temp);
                 environment.recievePayload(payload);
                 pauseDone = true;
