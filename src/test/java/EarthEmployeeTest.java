@@ -79,4 +79,18 @@ public class EarthEmployeeTest {
         Assert.assertEquals(false,astronauts.get(0).getCurrentAppliance().getInUse());
 
     }
+    @Test
+    void checkIfLimitReached() throws IOException {
+        SpaceStation spaceStation= ReadFromFile.createSpaceStation("src/main/resources/SpaceShip.txt");
+
+        EarthStation earthStation=new EarthStation();
+        earthStation.setManagedStation(spaceStation);
+        EarthEmployee earthEmployee=new EarthEmployee("employeeTest1",earthStation);
+        ArrayList<Appliance> appliances=earthEmployee.getEarthStation().getManagedStation().getRooms().get(0).getAppliances();
+        ArrayList<Astronaut> astronauts= earthEmployee.getEarthStation().getManagedStation().getAstronauts();
+        astronauts.get(0).useAppliance(appliances.get(0));
+        earthEmployee.setLimitForAstronaut(astronauts.get(0).getId(),"food",-3.0);
+        earthEmployee.checkForLimitReach();
+        System.out.println(astronauts.get(0).getResourceLimits().get(0).getLimit());
+    }
 }

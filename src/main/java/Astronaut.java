@@ -46,7 +46,7 @@ public class Astronaut extends User {
         if (newAppliance != null) {
 
             for (ResourceLimit resourceLimit : getResourceLimits()) {
-                if (resourceLimit.getLimit() != -1 && !newAppliance.getId().equalsIgnoreCase("toilet")) {
+                if (!resourceLimit.getResourceName().equalsIgnoreCase("oxygen") && !newAppliance.getId().equalsIgnoreCase("toilet")) {
                     for (ResourceUsage resourceUsage : newAppliance.getResourceUsages()) {
                         if (resourceLimit.getResourceName().equals(resourceUsage.getResourceName())) {
                             if (resourceLimit.getLimit() <= getUsage(resourceUsage)) {
@@ -62,7 +62,7 @@ public class Astronaut extends User {
 
     public boolean checkIfNearLimit(Resource resource) {
         for (ResourceLimit resourceLimit : getResourceLimits()) {
-            if (resourceLimit.getLimit() != 1) {
+            if (!resourceLimit.getResourceName().equalsIgnoreCase("oxygen")) {
                 if (resourceLimit.getResourceName().equals(resource.getName())) {
                     if (getUsage(resource) >= resourceLimit.getLimit()) {
                         return true;
