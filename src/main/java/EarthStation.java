@@ -60,4 +60,41 @@ public class EarthStation {
             }
         }
     }
+
+    public void setLimitForAstronaut(String id, String resource, Double amount) {
+        for (Astronaut astronaut : this.getManagedStation().getAstronauts()) {
+            if (id.equalsIgnoreCase(astronaut.getId())) {
+                for (ResourceLimit resource1 : astronaut.getResourceLimits()) {
+                    if (resource.equalsIgnoreCase(resource1.getResourceName())) {
+                        resource1.setLimit(amount);
+                        return;
+                    }
+                }
+                astronaut.getResourceLimits().add(new ResourceLimit(resource, amount));
+            }
+        }
+    }
+
+    public void checkForLimitReach() {
+        ArrayList<Astronaut> astronauts = this.getManagedStation().getAstronauts();
+        for (Astronaut astronaut : astronauts) {
+            for (Resource resource : this.getManagedStation().getResources()) {
+                if (astronaut.checkIfNearLimit(resource)) {
+                    System.out.println("Astronaut: " + astronaut.getId() + " has reached or is reaching " + resource.getName() + " limit.\n");
+                }
+            }
+        }
+    }
+
+    public void restrictUserFromCurrentAppliance(String id) {
+        ArrayList<Astronaut> astronauts = this.getManagedStation().getAstronauts();
+        for (Astronaut astronaut : astronauts) {
+            if (astronaut.getId().equals(id)) {
+                if (astronaut.getCurrentAppliance() != null) {
+                    astronaut.getCurrentAppliance().setInUse(false);
+                    System.out.println("Astronaut: " + id + " been stop from using Appliance:" + astronaut.getCurrentAppliance().getId());
+                }
+            }
+        }
+    }
 }

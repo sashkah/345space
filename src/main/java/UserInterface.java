@@ -61,13 +61,13 @@ public class UserInterface {
         resourceUsages.add(new ResourceUsage("water", 4, 2));
         ArrayList<ResourceLimit> resourceLimits = new ArrayList<ResourceLimit>();
         resourceLimits.add(new ResourceLimit("oxygen", -1));
-        resourceLimits.add(new ResourceLimit("food", 100));
-        resourceLimits.add(new ResourceLimit("water", 100));
+        resourceLimits.add(new ResourceLimit("food", -1));
+        resourceLimits.add(new ResourceLimit("water", -1));
 
         if(!loadingFromFile) {
             System.out.println("Please enter the name of the first astronaut: ");
             String name = in.nextLine();
-            myStation.addAstronaut(new Astronaut(name, resourceUsages, new ArrayList<TotalResourceUsage>(), resourceLimits));
+            myStation.addAstronaut(new Astronaut(name, resourceUsages, new ArrayList<TotalResourceUsage>(), (ArrayList<ResourceLimit>)resourceLimits.clone()));
             System.out.println("Added " + name);
 
 
@@ -76,7 +76,7 @@ public class UserInterface {
                 System.out.println("Please enter the name of another astronaut, or type done.");
                 String input2 = in.nextLine();
                 if (!(input2.equalsIgnoreCase("done"))) {
-                    myStation.addAstronaut(new Astronaut(input2, resourceUsages, new ArrayList<TotalResourceUsage>(), resourceLimits));
+                    myStation.addAstronaut(new Astronaut(input2, resourceUsages, new ArrayList<TotalResourceUsage>(), (ArrayList<ResourceLimit>)resourceLimits.clone()));
                     System.out.println("Added " + input2);
                 } else {
                     done2 = true;
@@ -274,15 +274,15 @@ public class UserInterface {
                 }
                 done=false;
                 while(!done){
-                    System.out.println("Would you like to reset the Astronauts usage of " +input2+"? Yes or No?");
+                    System.out.println("Would you like to reset the Astronauts usage of " +input+"? Yes or No?");
                     input3 = in.nextLine();
                     if(input3.equalsIgnoreCase("yes")){
-                        System.out.println("Resource:"+ input2+ " has been reset");
-                        environment.getEarthStation().resetResourceUsage(input2);
+                        System.out.println("Resource:"+ input+ " has been reset");
+                        environment.getEarthStation().resetResourceUsage(input);
                         done=true;
                     }
                     else if(input3.equalsIgnoreCase("no")){
-                        System.out.println("Resource:"+ input2+ " hasn't been reset");
+                        System.out.println("Resource:"+ input+ " hasn't been reset");
                         done=true;
                     }
                     else{
@@ -290,7 +290,7 @@ public class UserInterface {
                     }
                 }
                 ArrayList<Resource> temp = new ArrayList<>();
-                temp.add(new Resource(input2, numResource));
+                temp.add(new Resource(input, numResource));
                 Payload payload = new Payload(environment.getTimeCounter(), 5, temp);
                 environment.recievePayload(payload);
                 pauseDone = true;
@@ -318,8 +318,46 @@ public class UserInterface {
                 environment.getEarthStation().viewResourceReport();
 
             } else if (cmd.equalsIgnoreCase("restrict")) {
-                System.out.println("Not currently implemented :(");
-
+                boolean done = false;
+                Scanner in = new Scanner(System.in);
+                String input = null;
+                String input2 = null;
+                String input3=null;
+                int numResource = 0;
+                while(!done){
+                    System.out.println("What resource are you restricting?");
+                    input = in.nextLine();
+                    for(Resource resource:environment.getLocalStation().getResources()){
+                        if(resource.getName().equalsIgnoreCase(input)){
+                            done = true;
+                        }
+                    }
+                    if(!done){System.out.println("Error: invalid input - invalid resource");}
+                }
+                done = false;
+                while(!done){
+                    System.out.println("What astronaut are you restricting?");
+                    input2 = in.nextLine();
+                    for(Astronaut astro:environment.getLocalStation().getAstronauts()){
+                        if(astro.getId().equalsIgnoreCase(input2)){
+                            done = true;
+                        }
+                    }
+                    if(!done){System.out.println("Error: invalid input - invalid user");}
+                }
+                done = false;
+                while(!done){
+                    System.out.println("How much would you like to limit them to? (-1 for no limit)");
+                    input3 = in.nextLine();
+                    try{
+                        numResource = Integer.parseInt(input3);
+                        done = true;
+                    }
+                    catch(NumberFormatException e){
+                        System.out.println("Error: invalid input - please enter a number.");
+                    }
+                }
+                environment.getEarthStation().setLimitForAstronaut(input2, input, Double.valueOf(input3));
             } else if (cmd.equalsIgnoreCase("skip")) {
                 System.out.println("How many ticks would you like to skip user input for?");
                 Scanner in = new Scanner(System.in);

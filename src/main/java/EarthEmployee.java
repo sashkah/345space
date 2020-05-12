@@ -123,8 +123,10 @@ public class EarthEmployee {
                 for (ResourceLimit resource1 : astronaut.getResourceLimits()) {
                     if (resource.equalsIgnoreCase(resource1.getResourceName())) {
                         resource1.setLimit(amount);
+                        return;
                     }
                 }
+                astronaut.getResourceLimits().add(new ResourceLimit(resource, amount));
             }
         }
     }
