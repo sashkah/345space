@@ -248,6 +248,7 @@ public class UserInterface {
                 Scanner in = new Scanner(System.in);
                 String input = null;
                 String input2 = null;
+                String input3=null;
                 int numResource = 0;
                 while(!done){
                     System.out.println("What resource are you sending?");
@@ -269,6 +270,23 @@ public class UserInterface {
                     }
                     catch(NumberFormatException e){
                         System.out.println("Error: invalid input - please enter a number.");
+                    }
+                }
+                done=false;
+                while(!done){
+                    System.out.println("Would you like to reset the Astronauts usage of " +input2+"? Yes or No?");
+                    input3 = in.nextLine();
+                    if(input3.equalsIgnoreCase("yes")){
+                        System.out.println("Resource:"+ input2+ " has been reset");
+                        environment.getEarthStation().resetResourceUsage(input2);
+                        done=true;
+                    }
+                    else if(input3.equalsIgnoreCase("no")){
+                        System.out.println("Resource:"+ input2+ " hasn't been reset");
+                        done=true;
+                    }
+                    else{
+                        System.out.println("Error: invalid input - please enter yes or no.");
                     }
                 }
                 ArrayList<Resource> temp = new ArrayList<>();
